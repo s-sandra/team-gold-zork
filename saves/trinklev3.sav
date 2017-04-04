@@ -1,0 +1,26 @@
+Bork v3.0
+save data
+Dungeon file: dungeons/trinklev3.bork
+Room states:
+Stephen's office:
+beenHere=true
+Contents: StarWarsToy
+---
+Room B6:
+beenHere=true
+Contents: DrPepper
+---
+Basement hallway:
+beenHere=true
+---
+Rotunda balcony:
+beenHere=true
+Contents: chainsaw,magicWand
+---
+Rotunda:
+beenHere=true
+---
+===
+Adventurer:
+Current room: Basement hallway
+Inventory: donut,WawaTravelMug

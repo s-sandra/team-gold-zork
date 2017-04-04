@@ -1,0 +1,101 @@
+Library
+Bork v3.0
+===
+Items:
+rollingLadder
+11
+push:The ladder squeaks as it rolls aside.
+---
+spellBook
+5
+open:The dusty pages are filled with lines upon lines of unusual handwriting.
+read:You make out the words "When seals hold firm, or doors stay barred, let loose your wand and chant zorkard!"
+---
+chest
+5
+open:You don't know how to open it. There is no key hole and the clasp won't budge.
+---
+crystalSkull
+6
+break:Thanks to your clumsiness, the skull shatters into a million pieces and disintegrates into a glowing red dust.
+---
+inkwell
+1
+break:A mess of glass and translucent liquid spatters onto the floor. Try to be more careful next time!
+spill:A translucent liquid pours onto the floor. It smells faintly of lemon.
+drink:I don't think that ink will agree with you.
+---
+magnifyingGlass
+2
+break:The glass shatters into four large, sharp shards. Shame. That was a perfectly good magnifying glass!
+---
+cauldron
+20
+---
+===
+Rooms:
+Foyer
+You are in a musty, circular chamber with a vaulted glass ceiling. Sunlight seeps through the dirty panes,
+eradiating the dust in the air. There is a heavy red carpet beneath your feet. At the center of the room is a
+tall marble statue of what looks like a bearded sorceror. There are wide doorways draped with tattered curtains
+to the east and west.
+---
+Main Chamber
+You climb down a wide, curving staircase into a massive chamber lined with bookshelves reaching the ceiling.
+There are novels strewn across the floor, and spurts of ivy climb the walls. A tall tree dwarfs the center of the
+room. You notice that the glass ceiling is broken.
+---
+East Wing
+Contents: rollingLadder
+You are in a long, arched hall lined completely with bookshelves. The glass ceiling casts a dim light onto the
+carpet. You notice that one of the shelves has been slid aside, revealing a secret stairway.
+---
+Secret Chamber
+Contents: crystalSkull,chest,spellBook
+The passageway is too dark. Fortunately, the torches on the walls suddenly light themselves, illuminating
+your way down to a flooded stone chamber. A table stands at the center of the room.
+---
+West Wing
+Contents: magnifyingGlass,inkwell,cauldron
+You are in a long, arched hall lined completely with bookshelves. The glass ceiling casts a shaft of bright light
+over the fireplace at the end of the hall. You spy a wooden desk with a locked drawer.
+---
+===
+Exits:
+Foyer
+e
+Main Chamber
+---
+Foyer
+w
+Main Chamber
+---
+Main Chamber
+e
+East Wing
+---
+Main Chamber
+w
+West Wing
+---
+East Wing
+d
+Secret Chamber
+---
+Secret Chamber
+u
+East Wing
+---
+East Wing
+w
+Main Chamber
+---
+West Wing
+e
+Main Chamber
+---
+Main Chamber
+u
+Foyer
+---
+===

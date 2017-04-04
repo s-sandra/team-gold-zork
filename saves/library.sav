@@ -1,0 +1,26 @@
+Bork v3.0
+save data
+Dungeon file: dungeons/library.bork
+Room states:
+West Wing:
+beenHere=true
+Contents: magnifyingGlass,cauldron
+---
+Secret Chamber:
+beenHere=true
+Contents: spellBook
+---
+Main Chamber:
+beenHere=true
+---
+East Wing:
+beenHere=true
+Contents: rollingLadder,inkwell
+---
+Foyer:
+beenHere=true
+---
+===
+Adventurer:
+Current room: East Wing
+Inventory: crystalSkull,chest
