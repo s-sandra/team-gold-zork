@@ -19,8 +19,8 @@ public class Room {
 
 	/**
 	 * This constructs a Room object, as well as the items in it.
-	 * @param s	the Scanner reading a bork file.
-	 * @param d	the Dungeon the room is in.
+	 * @param s the Scanner reading a bork file.
+	 * @param d the Dungeon the room is in.
 	 * @param initState whether the room should be restored or reset.
 	 * @throws NoRoomException if the room description has ended.
 	 * @throws NoItemException if an item in the room's contents is invalid.
@@ -238,7 +238,7 @@ public class Room {
 	
 	/**
 	 * Stores the state of the room to a .sav file.
-	 * @param w	the PrintWriter for outputting to a .sav file.
+	 * @param w the PrintWriter for outputting to a .sav file.
 	 */
 	void storeState(PrintWriter w){
 		w.println(title + ":");
@@ -263,8 +263,8 @@ public class Room {
 
 	/**
 	 * Restores the state of the room, including items, from a .sav file.
-	 * @param s	the Scanner reading the .sav file.
-	 * @param d	the Dungeon the room is in.
+	 * @param s the Scanner reading the .sav file.
+	 * @param d the Dungeon the room is in.
 	 * @throws IllegalSaveFormatException if the room description contains invalid contents.
 	 */
 	void restoreState(Scanner s, Dungeon d) throws IllegalSaveFormatException{

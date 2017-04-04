@@ -221,7 +221,7 @@ public class Dungeon {
 
 	/**
 	 * Restores the previous game state from a .sav file.
-	 * @param r	the Scanner reading the .sav file.
+	 * @param r the Scanner reading the .sav file.
 	 * @throws IllegalSaveFormatException if the room description has invalid contents.
 	 */
 	void restoreState(Scanner r) throws IllegalSaveFormatException{

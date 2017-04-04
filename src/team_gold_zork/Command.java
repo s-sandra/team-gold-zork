@@ -13,7 +13,7 @@ abstract class Command {
 	 * Executes a command from the user and updates the state of the game (if applicable).
 	 * @throws IOException	if the command deals with files.
 	 * @throws NoItemException if the command deals with taking or dropping.
-	 * @return	the result of the command.
+	 * @return the result of the command.
 	 */
 	abstract String execute() throws IOException, NoItemException;
 }
