@@ -19,7 +19,7 @@ class MovementCommand extends Command{
 
     /**
      * Executes a command to move to a new room.
-     * @return  the direction the player wishes to go.
+     * @return The result of the movement command.
      */
     String execute(){
         GameState state = GameState.instance();
