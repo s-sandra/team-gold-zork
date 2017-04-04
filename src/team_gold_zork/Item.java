@@ -143,4 +143,21 @@ public class Item {
     public String toString(){
         return "There is a " + secondaryName + " here.";
     }
+    /**
+     * This method will add a transformed item with a given name to the dungeon using 
+     * the ArrayList of transformed items in Dungeon.
+     * @param itemName the item that is replacing the old item and being added to the dungeon .
+     * @author Margaux Tucker
+     */
+    public void transfrom(Item itemName){
+        
+    }
+    /**
+     * This method will remove an already existing item from the dungeon and inventory.
+     * @param itemName the item that is being removed 
+     * @author Margaux Tucker
+     */
+    public void dissappear(Item itemName){
+        
+    }
 }
