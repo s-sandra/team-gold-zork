@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * @version 4
  */
 class GameState {
-    static final String VERSION = "Bork v3.0";
     private static GameState theInstance; //stores the single instance of GameState.
 
     /**

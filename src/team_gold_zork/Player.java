@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Sandra Shtabnaya
  */
-public class Player extends Character{
+class Player extends Character{
     private ArrayList<Item> inventory = new ArrayList<>(); //stores an adventurer's inventory.
  
     /**

@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author Lauren
  */
-abstract public class Character {
+abstract class Character {
     private Room currentRoom; //stores the character's current room.
     private Dungeon currentDungeon; //stores the character's current dungeon.
     
