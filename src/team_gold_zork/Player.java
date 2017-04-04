@@ -135,5 +135,24 @@ class Player extends Character{
     String getHealthWarning(){
         return "";
     }
+    
+    
+    /**
+     * Determines whether the player has died.
+     * @return If the player has died. 
+     */
+    boolean hasDied(){
+        return true;
+    }
+    
+    
+    /**
+     * Modifies the player's score.
+     * @param n The points added to the player's score. This number is 
+     * negative if points should be subtracted. 
+     */
+    void addScore(int n){
+        
+    }
         
 }
