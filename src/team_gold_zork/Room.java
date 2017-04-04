@@ -57,7 +57,7 @@ public class Room {
 	/**
 	 * This helper method stores the items to the room given a list of contents.
 	 * @param contents the list of items in the room.
-	 * @param d	the Dungeon the items are in.
+	 * @param d the Dungeon the items are in.
 	 * @throws NoItemException if an item in the room is not valid.
 	 */
 	private void storeContents(String contents, Dungeon d)throws NoItemException{

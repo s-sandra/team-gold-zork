@@ -1,7 +1,8 @@
 package team_gold_zork;
 
 import java.util.ArrayList;
-
+import java.io.PrintWriter;
+import java.util.Scanner;
 /**
  *
  * @author Sandra Shtabnaya
@@ -13,14 +14,22 @@ public class Player extends Character{
      * Creates a new player from scratch.
      */
     Player(){
+    }
+    
+    /**
+     * Stores the state of the player to a .sav file.
+     * @param w the PrintWriter for outputting to a .sav file.
+     */
+    void storeState(PrintWriter w){
         
     }
     
-    void storeState(Scanner s){
-        
-    }
-    
-    void restoreState(){
+    /**
+     * Restores the state of a player from a .sav file.
+     * @param s the Scanner reading the .sav file.
+     * @throws IllegalSaveFormatException If the player description contains invalid contents.
+     */
+    void restoreState(Scanner s)throws IllegalSaveFormatException{
         
     }
     
@@ -86,5 +95,45 @@ public class Player extends Character{
             }
             throw new NoItemException("There's no " + name + " here.");
     }    
+    
+    
+    /**
+     * Modifies the player's hunger.
+     * @param n The number to add to the player's hunger. This number 
+     * is negative if the hunger should diminish.
+     */
+    void addHunger(int n){
+        
+    }
+    
+    
+    /**
+     * Modifies the player's fatigue.
+     * @param n The number to add to the player's fatigue. This number 
+     * is negative if the fatigue should diminish.
+     */
+    void addFatigue(int n){
+        
+    }
+    
+    /**
+     * Modifies the player's damage.
+     * @param n The number to add to the player's damage. This number 
+     * is negative if the player is wounded and positive if the player
+     * is healed.
+     */
+    void addDamage(int n){
+        
+    }
+    
+    /**
+     * Prints out the state of the player's health, if a 
+     * threshold for damage, fatigue or hunger has been reached. 
+     * @return the warning message associated with the player's health.
+     * If a threshold has not been reached, then it returns an empty string.
+     */
+    String getHealthWarning(){
+        return "";
+    }
         
 }
