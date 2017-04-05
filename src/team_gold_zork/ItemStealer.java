@@ -47,4 +47,4 @@ public class ItemStealer extends Character{
         
     }
 
-
+}
