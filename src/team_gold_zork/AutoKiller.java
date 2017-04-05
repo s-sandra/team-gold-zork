@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
+ * This Class stores information pertaining to the AutoKiller type NPC
  * 
  * @author Lauren
  */
