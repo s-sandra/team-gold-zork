@@ -15,7 +15,7 @@ public class Room {
     private boolean beenHere = false; //determines if the adventurer has already visited the room.
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
-
+    private boolean isVerbose = false; 
 
     /**
      * This constructs a Room object, as well as the items in it.
@@ -154,7 +154,7 @@ public class Room {
      */
     String describe(){
 
-            if(!beenHere){
+            if(!beenHere|| isVerbose ){
                     beenHere = true;
                     return title + "\n" + desc + describeItems() + describeExits();
             }
