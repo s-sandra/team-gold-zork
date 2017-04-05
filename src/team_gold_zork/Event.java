@@ -72,7 +72,13 @@ class Event {
     void teleport(){
         
     }
-    
+    /**
+     * This method will turn a light on or off in a room
+     * @param status determines whether or not the light should be turned on, or off
+     */
+    void light(String status){
+        
+    }
     
 }
 
