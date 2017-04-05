@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- *
+ * Stores common informations pertaining to all character types
  * @author Lauren
  */
 abstract class Character {
