@@ -15,7 +15,7 @@ class Event {
     
     /**
      * Constructs an Event object related to ItemSpecificCommands
-     * @param event the desired action/event to be performed on an Item.
+     * @param event describes the result/consequence of a command related to an Item.
      * @param item the Item which was involved in triggering the event.
      */
     Event(String event, Item item){
