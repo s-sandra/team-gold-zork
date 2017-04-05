@@ -8,17 +8,22 @@ package team_gold_zork;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
-public class AutoKiller extends Character{
+
+/**
+ * 
+ * @author Lauren
+ */
+class AutoKiller extends Character{
     boolean hasExit = false; 
     
-       /**
+    /**
      * Creates a new AutoKiler from scratch.
      */
     AutoKiller(){
     }
     
     /**
-     * Stores the state of the Auto to a .sav file.
+     * Stores the state of the AutoKiller to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
@@ -34,20 +39,22 @@ public class AutoKiller extends Character{
     }
    
     /**
-     * Checks if the room the AutoKiller is in has exits
-     * @return boolean hasExit
+     * Checks if AutoKiller's current room is a dead end.
+     * @return boolean hasExit If the room has another exit.
      */
     boolean hasExit()
     {
       return hasExit; 
     } 
+    
+    
     /**
-     * checks if hasExit and if it = false then triggers die event
+     * Triggers a die event if the room is a dead end. 
      */
    void kill() 
    {
        
-    }
+   }
     
     
 }
