@@ -7,24 +7,31 @@ package team_gold_zork;
 
 
 /**
- *This class deals with commands that can only be performed on certain objects.
- * Each ItemSpecificCommand instantiates an Event object, which parses the Item’s events--
- * including the class' Hashtable of verb keys and event String values
+ * This class deals with events that are triggered by commands, which are related to specific objects or characters.
  * Then executes the appropriate methods to reflect those consequences
  * @author MargauxTucker
  */
 class Event {
     
     /**
-     * Constructs an Event object.
+     * Constructs an Event object related to ItemSpecificCommands
      * @param event the desired action/event to be performed on an Item.
-     * @param items the name of the Item to manipulate.
+     * @param item the Item which was involved in triggering the event.
      */
-    Event(String event, Item items){
+    Event(String event, Item item){
+        
+    }
+    
+    /**
+     * This method will take in a string of Events obtained from the constructor,
+     * parses them for meaning, and performs the appropriate methods.
+     * @param events the string of events obtained form the constructor 
+     */
+    void execute(String events){
         
     }
     /**
-     * Modifies the players score depending on the point value of the event/action
+     * Modifies the players score depending on the point value of Score event 
      * @param pointValue the amount of points to add to the player's score.
      */
     void score(int pointValue){
@@ -45,7 +52,8 @@ class Event {
     
     }
     /**
-     *This method will inform the player they have won if all the requirements 
+     *This method will modify the player state (probably by changing some boolean variable 
+     * if all the requirements for winning the game are met)
      * for winning the game have been met
      */
     void win(){
@@ -59,11 +67,12 @@ class Event {
         
     }
     /**
-     * This method will automatically take the player to a different room the-- room will be chosen at random
+     *This method will actually change the adventurer's current room
      */
     void teleport(){
         
     }
+    
     
 }
 
