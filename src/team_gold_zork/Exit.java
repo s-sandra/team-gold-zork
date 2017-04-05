@@ -15,6 +15,7 @@ public class Exit {
      * Constructs an exit by reading a bork file.
      * @param s	The name of the scanner reading the file.
      * @param d	The name of the dungeon containing the rooms.
+     * @throws NoExitException If there are no more exits in the bork file. 
      */
     public Exit(Scanner s, Dungeon d) throws NoExitException {
             String input = s.nextLine();
