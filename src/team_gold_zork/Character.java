@@ -11,6 +11,7 @@ abstract class Character {
     private Room currentRoom; //stores the character's current room.
     private Dungeon currentDungeon; //stores the character's current dungeon.
     private ArrayList<Item> inventory = new ArrayList<>(); //stores an Character's inventory.
+    private String name = null; 
     /**
      * Stores the state of the character to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.
@@ -41,8 +42,23 @@ abstract class Character {
     void setCurrentRoom(Room room){
 	currentRoom = room;
     }
-        
-        
+      /**
+       * Changes Characters Name
+       * @param name 
+       */  
+     void setName(String name){
+         this.name = name; 
+     }   
+     
+     /**
+      * Returns character's name
+      * @return name
+      */
+     String getName (){
+         return name; 
+     } 
+     
+     
     /**
     * Returns the character's current dungeon.
     * @return currentDungeon the character's current dungeon.
@@ -50,6 +66,8 @@ abstract class Character {
     Dungeon getDungeon(){
 	return currentDungeon;
     }
+    
+    
      /**
      * Adds an item to a player's inventory.
      * @param item the item to add.
