@@ -8,6 +8,10 @@ package team_gold_zork;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
+/**
+ * Stores information pertaining to ItemStealer type NPC
+ * @author Lauren
+ */
 public class ItemStealer extends Character{
     boolean hasItem = false; 
     Item lookingfor = null;
