@@ -1,6 +1,7 @@
 
 package team_gold_zork;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -9,7 +10,7 @@ import java.util.Scanner;
 abstract class Character {
     private Room currentRoom; //stores the character's current room.
     private Dungeon currentDungeon; //stores the character's current dungeon.
-    
+    private ArrayList<Item> inventory = new ArrayList<>(); //stores an Character's inventory.
     /**
      * Stores the state of the character to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.
@@ -48,5 +49,67 @@ abstract class Character {
     */
     Dungeon getDungeon(){
 	return currentDungeon;
+    }
+     /**
+     * Adds an item to a player's inventory.
+     * @param item the item to add.
+     */
+   
+     void addToInventory(Item item){
+            inventory.add(item);
+    }
+
+
+    /**
+     * Removes an item from a player's inventory.
+     * @param item the item to remove.
+     */
+    void removeFromInventory(Item item){
+            inventory.remove(item);
+    }
+
+
+    /**
+     * Looks for and returns a desired item in the current room.
+     * @param name	the name of the desired item in the room.
+     * @return	the item corresponding to the name, if found.
+     * @throws NoItemException if the item is not found in the room.
+     */
+    Item getItemInVicinityNamed(String name) throws NoItemException{
+            return getCurrentRoom().getItemNamed(name);
+    }
+
+
+    /**
+     * Looks for and returns a desired item in the inventory.
+     * @param name the name of the desired item in the inventory.
+     * @return the item corresponding to the name, if found.
+     * @throws NoItemException if the item is not found in the inventory.
+     */
+    Item getItemFromInventoryNamed(String name) throws NoItemException {
+            for(Item item : inventory){
+                    if(item.goesBy(name)){
+                            return item;
+                    }
+            }
+            throw new NoItemException("There's no " + name + " here.");
+    }    
+    
+     /**
+     * Gets the names of all the items in a player's inventory.
+     * @param isPrimary whether the names should be in camelCase.
+     * @return the names of all the items in the inventory.
+     */
+    ArrayList<String> getInventoryNames(boolean isPrimary){
+	ArrayList<String> inventoryNames = new ArrayList<>();
+	for(Item item : inventory){
+		if(isPrimary){
+			inventoryNames.add(item.getPrimaryName());
+		}
+		else{
+			inventoryNames.add(item.getSecondaryName());
+		}
+	}
+	return inventoryNames;
     }
 }
