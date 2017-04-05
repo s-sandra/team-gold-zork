@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
 /**
- *
+ *This class stores attributes related to the adventurer
  * @author Sandra Shtabnaya
  */
 class Player extends Character{
