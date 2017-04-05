@@ -101,5 +101,13 @@ class Player extends Character{
     void addScore(int n){
         
     }
+    
+    /**
+     * Returns Player rank
+     * @return rank
+     */
+    public String getRank(){
+        return rank; 
+    }
         
 }
