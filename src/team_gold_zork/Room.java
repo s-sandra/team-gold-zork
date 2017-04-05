@@ -78,7 +78,14 @@ public class Room {
     void add(Item item){
             contents.add(item);
     }
-
+    /**
+    *Sets the light state in the Room.
+    * @param isLight determines the state the room will be.
+    * @author KatieMelhuish
+    */
+    void setLightState(boolean isLight){
+        
+    }
 
     /**
      * Removes an item from the contents of the room.
