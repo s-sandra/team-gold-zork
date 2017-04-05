@@ -157,7 +157,7 @@ public class Item {
      * @param itemName the item that is being removed 
      * @author Margaux Tucker
      */
-    public void dissappear(Item itemName){
+    public void disappear(Item itemName){
         
     }
 }
