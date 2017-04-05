@@ -4,7 +4,7 @@ package team_gold_zork;
  * Deals with a user's request to print out the player's health.
  * @author Sandra Shtabnaya
  */
-public class HealthCommand extends Command{
+class HealthCommand extends Command{
     
     /**
      * Constructs a HealthCommand object.
