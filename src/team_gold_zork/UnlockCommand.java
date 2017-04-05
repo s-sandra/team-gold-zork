@@ -8,8 +8,10 @@ class UnlockCommand extends Command {
     
     /**
      * Constructs an UnlockCommand object.
+     * @param door the name of the locked door.
+     * @param key the name of the Item to open the door with. 
      */
-    UnlockCommand(){
+    UnlockCommand(String door, String key){
         
     }
     
