@@ -4,14 +4,14 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * Stores common informations pertaining to all character types
+ * 
  * @author Lauren
  */
 abstract class Character {
     private Room currentRoom; //stores the character's current room.
     private Dungeon currentDungeon; //stores the character's current dungeon.
-    private ArrayList<Item> inventory = new ArrayList<>(); //stores an Character's inventory.
-    private String name = null; 
+    private ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
+    
     /**
      * Stores the state of the character to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.
@@ -25,6 +25,7 @@ abstract class Character {
      * @throws IllegalSaveFormatException If the character description contains invalid contents.
      */
     abstract void restoreState(Scanner s) throws IllegalSaveFormatException;
+    
     
     /**
      * Returns the character's current room.
@@ -42,23 +43,8 @@ abstract class Character {
     void setCurrentRoom(Room room){
 	currentRoom = room;
     }
-      /**
-       * Changes Characters Name
-       * @param name 
-       */  
-     void setName(String name){
-         this.name = name; 
-     }   
-     
-     /**
-      * Returns character's name
-      * @return name
-      */
-     String getName (){
-         return name; 
-     } 
-     
-     
+        
+        
     /**
     * Returns the character's current dungeon.
     * @return currentDungeon the character's current dungeon.
@@ -66,8 +52,6 @@ abstract class Character {
     Dungeon getDungeon(){
 	return currentDungeon;
     }
-    
-    
      /**
      * Adds an item to a player's inventory.
      * @param item the item to add.
