@@ -86,6 +86,12 @@ public class Room {
     void setLightState(boolean isLight){
         
     }
+    /***
+     * Returns the light state of the Room.
+     */
+    boolean getLightState(){
+        return true;
+    }
 
     /**
      * Removes an item from the contents of the room.
