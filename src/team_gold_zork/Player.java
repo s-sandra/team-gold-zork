@@ -9,6 +9,11 @@ import java.util.Scanner;
  */
 class Player extends Character{
     private ArrayList<Item> inventory = new ArrayList<>(); //stores an adventurer's inventory.
+    private int damage;
+    private int fatigue;
+    private int hunger;
+    private int score;
+    private String rank;
  
     /**
      * Creates a new player from scratch.

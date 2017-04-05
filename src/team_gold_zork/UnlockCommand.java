@@ -5,6 +5,8 @@ package team_gold_zork;
  * @author Sandra Shtabnaya
  */
 class UnlockCommand extends Command {
+    private String key;
+    private String door;
     
     /**
      * Constructs an UnlockCommand object.

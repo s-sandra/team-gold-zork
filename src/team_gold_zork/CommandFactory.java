@@ -80,9 +80,11 @@ class CommandFactory {
 
 
 
-	 /** This helper method determines if the given input is a direction.
-	 /* @return	if the input is a direction.
-	 */
+	 /** 
+          * This helper method determines if the given input is a direction.
+          * @param direction the given string representing a direction. 
+          * @return if the input is a direction.
+          */
 	 private boolean isDirection(String direction){
 		direction = direction.toLowerCase();
 	 	List all = Arrays.asList("e", "w", "s", "n", "d", "u");

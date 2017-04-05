@@ -10,6 +10,10 @@ public class Exit {
     private String dir; //stores the direction.
     private Room currentRoom; //stores the room the exit is located in.
     private Room destination; //stores where the exit leads. 
+    
+    private boolean isLocked;
+    private String keyName;
+    private String doorName; //the name of the exit. 
 
     /**
      * Constructs an exit by reading a bork file.
@@ -96,7 +100,7 @@ public class Exit {
     
     /**
      * Determines if the provided key fits into the door.
-     * @param key the name of the Item to attempt to open the door with.
+     * @param keyName the name of the Item to attempt to open the door with.
      * @return whether the key can open the door.
      */
     boolean keyFits(String keyName){

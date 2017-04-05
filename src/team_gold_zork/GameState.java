@@ -36,6 +36,7 @@ class GameState {
 
     /**
      * Resets the game state with a new dungeon and entry point.
+     * @param dungeon the new dungeon. 
      */
     void initialize(Dungeon dungeon){
             currentRoom = dungeon.getEntry();
