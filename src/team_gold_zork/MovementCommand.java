@@ -1,6 +1,6 @@
 package team_gold_zork;
 
- /* Deals with commands that move a player to a new room.
+ /** Deals with commands that move a player to a new room.
  * @author team_gold
  * @version 4
  */

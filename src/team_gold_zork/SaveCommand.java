@@ -2,7 +2,7 @@ package team_gold_zork;
 
 import java.io.IOException;
 
- /* Deals with commands to save the game.
+ /** Deals with commands to save the game.
  * @author team_gold
  * @version 4
  */

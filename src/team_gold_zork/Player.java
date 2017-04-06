@@ -8,14 +8,12 @@ import java.util.Scanner;
  * @author Sandra Shtabnaya
  */
 class Player extends Character{
-
    
     private int damage;
     private int fatigue;
     private int hunger;
     private int score;
     private String rank;
-
  
     /**
      * Creates a new player from scratch.
@@ -39,9 +37,6 @@ class Player extends Character{
     void restoreState(Scanner s)throws IllegalSaveFormatException{
         
     }
-    
-   
-
 
    
     /**
@@ -103,8 +98,8 @@ class Player extends Character{
     }
     
     /**
-     * Returns Player rank
-     * @return rank
+     * Returns the player's rank based on their score.
+     * @return rank the player's rank.
      */
     public String getRank(){
         return rank; 
