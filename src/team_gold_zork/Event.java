@@ -7,15 +7,18 @@ package team_gold_zork;
 
 
 /**
- * This class deals with events that are triggered by commands, which are related to specific objects or characters.
- * Then executes the appropriate methods to reflect those consequences
+ * This class deals with events that are triggered by commands related to 
+ * specific objects or characters.
  * @author MargauxTucker
  */
 class Event {
+    private String events;
+    private Item item;
+    private Character character;
     
     /**
      * Constructs an Event object related to ItemSpecificCommands
-     * @param event describes the result/consequence of a command related to an Item.
+     * @param event describes the consequence of a command related to an Item.
      * @param item the Item which was involved in triggering the event.
      */
     Event(String event, Item item){
@@ -23,22 +26,31 @@ class Event {
     }
     
     /**
-     * This method will take in a string of Events obtained from the constructor,
-     * parses them for meaning, and performs the appropriate methods.
+     * Constructs an Event object related to CharacterSpecificCommands
+     * @param event describes the consequence of a command related to an Character.
+     * @param item the Character which was involved in triggering the event.
+     */
+    Event(String event, Character character){
+        
+    }
+    
+    /**
+     * This method will take in a string of events obtained from the constructor,
+     * parses it for meaning, and performs the appropriate methods.
      * @param events the string of events obtained form the constructor 
      */
     void execute(String events){
         
     }
     /**
-     * Modifies the players score depending on the point value of Score event 
+     * Modifies the player's score depending on the point value of Score event 
      * @param pointValue the amount of points to add to the player's score.
      */
     void score(int pointValue){
         
     }
     /**
-     * This method modifies the players health depending on the point value of the wound event/action
+     * This method modifies the player's health depending on the point value of the wound event/action
      * @param pointValue the amount of points to deduct from the player's health.
      */
     void wound(int pointValue){
@@ -80,6 +92,5 @@ class Event {
     void light(String status){
         
     }
-    
 }
 

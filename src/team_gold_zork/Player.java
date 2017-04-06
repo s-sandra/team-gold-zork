@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
 /**
- *
+ * This class stores attributes related to the adventurer. 
  * @author Sandra Shtabnaya
  */
 class Player extends Character{
-
-   
     private int damage;
     private int fatigue;
     private int hunger;
+    
     private int score;
     private String rank;
+    private boolean hasWon;
 
  
     /**
@@ -89,6 +89,14 @@ class Player extends Character{
      * @return If the player has died. 
      */
     boolean hasDied(){
+        return true;
+    }
+    
+    /**
+     * Determines whether the player has won the game.
+     * @return Whether the player has won. 
+     */
+    boolean hasWon(){
         return true;
     }
     
