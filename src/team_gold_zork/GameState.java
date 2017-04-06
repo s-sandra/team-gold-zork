@@ -67,9 +67,9 @@ class GameState {
             saver.println("Current room: " + getAdventurersCurrentRoom().getTitle());
 
             //if the player has items in their inventory at save time.
-            if(!inventory.isEmpty()){
+            if(!adventurer.isEmptyInventory()){
                     saver.print("Inventory: ");
-                    ArrayList<String> itemNames = getInventoryNames(true);
+                    ArrayList<String> itemNames = adventurer.getInventoryNames(true);
 
                     for(int i = 0; i < itemNames.size(); i++){
                             saver.print(itemNames.get(i));
@@ -99,7 +99,7 @@ class GameState {
             try{
                 input = new Scanner(new File(fileName));
                 line = input.nextLine();
-                if(!line.equals(VERSION)){
+                if(!line.equals(GameConfig.VERSION)){
                         input.close();
                         throw new IllegalSaveFormatException("The save file format + '" + line + "' is not compatible "
                                         + "with the current version of bork.");
@@ -133,8 +133,9 @@ class GameState {
 
                 String entryRoom = input.nextLine();
                 entryRoom = entryRoom.substring(entryRoom.indexOf(":") + 2); //chops off data to the left of colon.
-                currentRoom = dungeon.getRoom(entryRoom);
+                Room currentRoom = dungeon.getRoom(entryRoom);
                 dungeon.setEntry(currentRoom);
+                adventurer.setCurrentRoom(currentRoom);
 
                 //if the player had items in their inventory at save time.
                 if(input.hasNextLine()){
@@ -145,7 +146,7 @@ class GameState {
                         String[] items = inventory.split(",");
                         for(String item: items){
                                 try{ //the inventory might contain invalid items.
-                                        addToInventory(dungeon.getItem(item));
+                                        adventurer.addToInventory(dungeon.getItem(item));
                                 }
                                 catch(NoItemException e){
                                         throw new IllegalSaveFormatException(e.getMessage());
