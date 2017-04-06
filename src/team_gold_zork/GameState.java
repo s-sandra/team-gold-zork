@@ -166,7 +166,7 @@ class GameState {
      * @return currentRoom the player's current room.
      */
     Room getAdventurersCurrentRoom(){
-	return null;
+	return adventurer.getCurrentRoom();
     }
 
 
@@ -175,7 +175,7 @@ class GameState {
      * @return currentRoom the player's current dungeon.
      */
     Dungeon getAdventurersCurrentDungeon(){
-        return null;
+        return adventurer.getCurrentDungeon();
     }
     
     
@@ -184,6 +184,7 @@ class GameState {
     * @param room the player's current room.
     */
     void setAdventurersCurrentRoom(Room room){
+        adventurer.setCurrentRoom(room);
     }
 
     /**
@@ -191,7 +192,7 @@ class GameState {
      * @return if the player has won the game.
      */
     boolean hasWon(){
-        return true;
+        return adventurer.hasWon();
     }
 
 
@@ -200,6 +201,6 @@ class GameState {
      * @return if the player has lost the game.
      */
     boolean hasLost(){
-        return true;
+        return adventurer.hasDied();
     }
 }

@@ -14,6 +14,7 @@ class Player extends Character{
     private int hunger;
     private int score;
     private String rank;
+    private boolean hasWon;
  
     /**
      * Creates a new player from scratch.
@@ -103,6 +104,23 @@ class Player extends Character{
      */
     public String getRank(){
         return rank; 
+    }
+
+
+    /**
+     * Determines whether the player has won the game.
+     * @return If the player has won.
+     */
+    boolean hasWon(){
+        return hasWon;
+    }
+
+
+    /**
+     * Changes the player's hasWon boolean to true.
+     */
+    void setHasWon(){
+        hasWon = true;
     }
         
 }

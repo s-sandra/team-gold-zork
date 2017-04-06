@@ -28,13 +28,21 @@ abstract class Character {
     
     
     /**
+     * Returns the character's current dungeon.
+     * @return currentDungeon the character's current dungeon.
+     */
+    Dungeon getCurrentDungeon(){
+	return currentDungeon;
+    }
+
+
+    /**
      * Returns the character's current room.
      * @return currentRoom the character's current room.
      */
     Room getCurrentRoom(){
-	return currentRoom;
+        return currentRoom;
     }
-    
     
     /**
     * Changes the character's current Dungeon.
@@ -124,5 +132,14 @@ abstract class Character {
 		}
 	}
 	return inventoryNames;
+    }
+
+
+    /**
+     * Determines if the character's inventory is empty.
+     * @return if the inventory is empty.
+     */
+    boolean isEmptyInventory(){
+        return inventory.isEmpty();
     }
 }
