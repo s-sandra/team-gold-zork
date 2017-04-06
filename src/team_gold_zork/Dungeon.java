@@ -42,7 +42,7 @@ public class Dungeon {
 		name = input.nextLine();
 
 		line = input.nextLine();
-		if(!line.equals(GameState.VERSION)){
+		if(!line.equals(GameConfig.VERSION)){
 			input.close();
 			throw new IllegalDungeonFormatException("The bork file format '" + line + "' is not compatible "
 					+ "with the current version of bork.");

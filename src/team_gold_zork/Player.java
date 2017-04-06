@@ -24,8 +24,6 @@ class Player extends Character{
         rank = GameConfig.RANK[0].getTitle();
         score = 0;
         damage = 0;
-        hunger = 0;
-        fatigue = 0;
         hasWon = false;
         name = "adventurer";
     }
