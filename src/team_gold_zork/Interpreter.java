@@ -37,7 +37,7 @@ class Interpreter {
 			if(input.endsWith(".sav")){
 				input = "saves/" + input; //.sav files are contained in the saves folder.
 				state.restore(input);
-				dungeon = state.getDungeon();
+				dungeon = state.getAdventurersCurrentDungeon();
 				System.out.println();
 			}
 			else if(input.endsWith(".bork")){

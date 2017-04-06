@@ -37,11 +37,20 @@ abstract class Character {
     
     
     /**
-    * Changes the character's current room.
-    * @param room the character's current room.
+    * Changes the character's current Dungeon.
+    * @param dungeon the character's current Dungeon.
     */
+    void setCurrentDungeon(Dungeon dungeon){
+	currentDungeon = dungeon;
+    }
+
+
+    /**
+     * Changes the character's current room.
+     * @param room the character's current room.
+     */
     void setCurrentRoom(Room room){
-	currentRoom = room;
+        currentRoom = room;
     }
         
         
@@ -52,6 +61,8 @@ abstract class Character {
     Dungeon getDungeon(){
 	return currentDungeon;
     }
+
+
      /**
      * Adds an item to a player's inventory.
      * @param item the item to add.

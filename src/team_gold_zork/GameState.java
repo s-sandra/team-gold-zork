@@ -15,11 +15,14 @@ import java.util.ArrayList;
  */
 class GameState {
     private static GameState theInstance; //stores the single instance of GameState.
+    private Player adventurer; //stores the single instance of Player.
 
     /**
-     * Constructs a GameState instance.
+     * Constructs a GameState instance and a new Player.
      */
-    private GameState(){}
+    private GameState(){
+        adventurer = new Player();
+    }
 
 
     /**
@@ -35,12 +38,12 @@ class GameState {
 
 
     /**
-     * Resets the game state with a new dungeon and entry point.
+     * Resets the game state with a new dungeon and entry point for the player.
      * @param dungeon the new dungeon. 
      */
     void initialize(Dungeon dungeon){
-            currentRoom = dungeon.getEntry();
-            currentDungeon = dungeon;
+            adventurer.setCurrentRoom(dungeon.getEntry());
+            adventurer.setCurrentDungeon(dungeon);
     }
 
 
@@ -57,8 +60,8 @@ class GameState {
             writer = new FileWriter(saveName);
             saver = new PrintWriter(writer);
 
-            saver.println(VERSION);
-            currentDungeon.storeState(saver);
+            saver.println(GameConfig.VERSION);
+            adventurer.getCurrentDungeon().storeState(saver);
 
             saver.println("Adventurer:");
             saver.println("Current room: " + getAdventurersCurrentRoom().getTitle());
@@ -164,13 +167,22 @@ class GameState {
     Room getAdventurersCurrentRoom(){
 	return null;
     }
+
+
+    /**
+     * Returns the player's current dungeon.
+     * @return currentRoom the player's current dungeon.
+     */
+    Dungeon getAdventurersCurrentDungeon(){
+        return null;
+    }
     
     
     /**
     * Changes the player's current room.
     * @param room the player's current room.
     */
-    void setAdventurerCurrentRoom(Room room){
+    void setAdventurersCurrentRoom(Room room){
     }
 
     /**
