@@ -11,26 +11,26 @@ package team_gold_zork;
  * 
  **/
  class CharacterSpecificCommand extends Command{
-    private String verb; //stores what a player wants to do with an object.
-    private String noun; //stores the name of the object a player wants to manipulate.
-    private Character character; //stores the character to perform an action on.
+    private String verb; //stores what a player wants to do with a character.
+    private String characterName; //stores the name of the character to perform an action on.
 
 
     /**
-     * Constructs an ItemSpecificCommand.
-     * @param verb  the desired action to be performed on an Item.
-     * @param noun  the name of the Item to manipulate.
+     * Constructs a CharacterSpecificCommand.
+     * @param verb  the desired action to be performed on a Character.
+     * @param characterName  the name of the Character involved in the action.
      */
-    CharacterSpecificCommand(String verb, String noun){
+    CharacterSpecificCommand(String verb, String characterName){
         this.verb = verb;
-        this.noun = noun;
+        this.characterName = characterName;
     }
 
 
     /**
-//     * Executes a command to do something to an Character
+    /* Executes a command to do something with a Character.
      * @return  the result of the command.
      */
     String execute(){
+        return null;
     }
-    }
+}
