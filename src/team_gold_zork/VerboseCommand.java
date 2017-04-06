@@ -6,7 +6,7 @@
 package team_gold_zork;
 
 /**
- *
+ *Contains info pertaining to verbose command 
  * @author Lauren
  */
 public class VerboseCommand extends Command{

@@ -6,9 +6,9 @@
 package team_gold_zork;
 
 /**
- *
+ *Deals with commands that can only be performed on certain Characters
  * @author Lauren
- * Deals with commands that can only be performed on certain objects.
+ * 
  **/
  class CharacterSpecificCommand extends Command{
     private String verb; //stores what a player wants to do with an object.
