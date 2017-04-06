@@ -19,7 +19,7 @@ class Event {
     /**
      * Constructs an Event object related to ItemSpecificCommands
      * @param event describes the consequence of a command related to an Item.
-     * @param item the Item which was involved in triggering the event.
+     * @param item the Item involved in triggering the event.
      */
     Event(String event, Item item){
         
@@ -27,8 +27,8 @@ class Event {
     
     /**
      * Constructs an Event object related to CharacterSpecificCommands
-     * @param event describes the consequence of a command related to an Character.
-     * @param item the Character which was involved in triggering the event.
+     * @param event describes the consequence of a command related to a Character.
+     * @param character the Character involved in triggering the event.
      */
     Event(String event, Character character){
         
@@ -43,50 +43,49 @@ class Event {
         
     }
     /**
-     * Modifies the player's score depending on the point value of Score event 
+     * Modifies the player's score depending on the point value of the Score event
      * @param pointValue the amount of points to add to the player's score.
      */
     void score(int pointValue){
         
     }
     /**
-     * This method modifies the player's health depending on the point value of the wound event/action
-     * @param pointValue the amount of points to deduct from the player's health.
+     * This method modifies the player's damage depending on the given point value.
+     * @param pointValue the amount of points to add to the player's damage.
      */
     void wound(int pointValue){
         
     }
     /**
-     * The method modifies the players health to the point of the player not being able to function
-     * and essentially kills the player
+     * This method increases the player's damage to the maximum threshold, thus
+     * killing the player.
      */
     void die(){
     
     }
     /**
-     *This method will modify the player state (probably by changing some boolean variable 
-     * if all the requirements for winning the game are met)
-     * for winning the game have been met
+     *This method will change hasWon to true in the Player class.
      */
     void win(){
         
     }
     /**
-     * This method allows an item to disappear and be replaced with an item of the given name
-     * @param newItemName the name of the new existing item that replaced the old item
+     * This method allows the item that triggered the event to disappear and be
+     * replaced with an item of the given name.
+     * @param newItemName the name of the existing item that replaces the old item.
      */
     void transform(String newItemName){
         
     }
     /**
-     *This method will actually change the adventurer's current room
+     *This method will change the adventurer's current room
      */
     void teleport(){
         
     }
     /**
-     * This method will turn a light on or off in a room
-     * @param status determines whether or not the light should be turned on, or off
+     * This method turns a light on or off in a room
+     * @param status if the light should be turned on, or off
      * @author KatieMelhuish
      */
     void light(String status){
