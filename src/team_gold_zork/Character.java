@@ -8,9 +8,10 @@ import java.util.Scanner;
  * @author Lauren
  */
 abstract class Character {
-    private Room currentRoom; //stores the character's current room.
-    private Dungeon currentDungeon; //stores the character's current dungeon.
-    private ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
+    Room currentRoom; //stores the character's current room.
+    Dungeon currentDungeon; //stores the character's current dungeon.
+    ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
+    String name; //stores the name of the character.
     
     /**
      * Stores the state of the character to a .sav file.

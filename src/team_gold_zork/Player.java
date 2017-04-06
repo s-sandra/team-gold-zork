@@ -20,6 +20,13 @@ class Player extends Character{
      * Creates a new player from scratch.
      */
     Player(){
+        rank = GameConfig.RANK[0].getTitle();
+        score = 0;
+        damage = 0;
+        hunger = 0;
+        fatigue = 0;
+        hasWon = false;
+        name = "adventurer";
     }
     
     /**
@@ -46,7 +53,7 @@ class Player extends Character{
      * is negative if the hunger should diminish.
      */
     void addHunger(int n){
-        
+        hunger += n;
     }
     
     
@@ -56,7 +63,7 @@ class Player extends Character{
      * is negative if the fatigue should diminish.
      */
     void addFatigue(int n){
-        
+        fatigue += n;
     }
     
     /**
@@ -66,7 +73,7 @@ class Player extends Character{
      * is healed.
      */
     void addDamage(int n){
-        
+        damage += n;
     }
     
     /**
@@ -76,7 +83,7 @@ class Player extends Character{
      * If a threshold has not been reached, then it returns an empty string.
      */
     String getHealthWarning(){
-        return "";
+        return null;
     }
     
     
@@ -85,7 +92,7 @@ class Player extends Character{
      * @return If the player has died. 
      */
     boolean hasDied(){
-        return true;
+        return (damage == 0 | hunger == 0);
     }
     
     
@@ -95,7 +102,7 @@ class Player extends Character{
      * negative if points should be subtracted. 
      */
     void addScore(int n){
-        
+        score += n;
     }
     
     /**
