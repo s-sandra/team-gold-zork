@@ -13,13 +13,14 @@ import java.util.Scanner;
  * @author Lauren
  */
 public class ItemStealer extends Character{
-    boolean hasItem = false; 
-    Item lookingfor = null;
+    private boolean hasItem = false;
+    private Item itemToLookFor = null;
     
-       /**
+    /**
      * Creates a new ItemStealer from scratch.
+     * @param itemToLookFor The item the ItemStealer wants.
      */
-    ItemStealer(){
+    ItemStealer(Item itemToLookFor){
     }
     
     /**
@@ -29,19 +30,12 @@ public class ItemStealer extends Character{
     void storeState(PrintWriter w){
         
     }
-    /**
-     * Setter for ItemStealer's item they take
-     * @param lookingFor 
-     */
-    void setItemSought(Item lookingFor)
-    {
-        this.lookingFor = lookingfor; 
-    }
+
      
     /**
      * Restores the state of a ItemStealer from a .sav file.
      * @param s the Scanner reading the .sav file.
-     * @throws IllegalSaveFormatException If the player description contains invalid contents.
+     * @throws IllegalSaveFormatException If the ItemStealer description contains invalid contents.
      */
     void restoreState(Scanner s)throws IllegalSaveFormatException{
         

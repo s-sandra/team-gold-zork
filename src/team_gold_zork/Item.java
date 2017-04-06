@@ -144,20 +144,21 @@ public class Item {
         return "There is a " + secondaryName + " here.";
     }
     /**
-     * This method will add a transformed item with a given name to the dungeon using 
+     * This method will add a transformed item with a given name to the Dungeon using
      * the ArrayList of transformed items in Dungeon.
-     * @param itemName the item that is replacing the old item and being added to the dungeon .
+     * @param newItem the transformed Item to add to the Dungeon.
      * @author Margaux Tucker
      */
-    public void transfrom(Item itemName){
+    public void transform(Item newItem){
         
     }
     /**
-     * This method will remove an already existing item from the dungeon and inventory.
-     * @param itemName the item that is being removed 
+     * This method will remove an already existing item from the dungeon
+     * and player's inventory, if needed.
+     * @param removedItem the item that is being removed
      * @author Margaux Tucker
      */
-    public void disappear(Item itemName){
+    public void disappear(Item removedItem){
         
     }
 }

@@ -80,14 +80,15 @@ public class Room {
     }
     /**
     *Sets the light state in the Room.
-    * @param isDark determines the state the room will be.
+    * @param isDark if the room is dark
     * @author KatieMelhuish
     */
     void setLightState(boolean isDark){
         
     }
-    /***
+    /**
      * Returns the light state of the Room.
+     * @return if the room is dark.
      */
     boolean getLightState(){
         return true;

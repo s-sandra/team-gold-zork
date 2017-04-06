@@ -5,20 +5,17 @@
  */
 package team_gold_zork;
 
-import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- * This Class stores information pertaining to the AutoKiller type NPC
- * 
+ * This class stores information pertaining to the AutoKiller type NPC
  * @author Lauren
  */
 class AutoKiller extends Character{
-    boolean hasExit = false; 
     
     /**
-     * Creates a new AutoKiler from scratch.
+     * Creates a new AutoKiller from scratch.
      */
     AutoKiller(){
     }
@@ -33,19 +30,19 @@ class AutoKiller extends Character{
     /**
      * Restores the state of a AutoKiller from a .sav file.
      * @param s the Scanner reading the .sav file.
-     * @throws IllegalSaveFormatException If the player description contains invalid contents.
+     * @throws IllegalSaveFormatException If the AutoKiller description contains invalid contents.
      */
     void restoreState(Scanner s)throws IllegalSaveFormatException{
         
     }
    
     /**
-     * Checks if AutoKiller's current room is a dead end.
+     * Checks if the AutoKiller's current room is a dead end.
      * @return boolean hasExit If the room has another exit.
      */
     boolean hasExit()
     {
-      return hasExit; 
+      return true;
     } 
     
     
