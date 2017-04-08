@@ -43,7 +43,9 @@ class Event {
         
     }
     /**
-     * Modifies the player's score depending on the point value of the Score event
+     * Modifies the player's score depending on the point value of the Score event.
+     * Once a verb first triggers a score event, it is removed from the Item's
+     * Hashtable of verb-events.
      * @param pointValue the amount of points to add to the player's score.
      */
     void score(int pointValue){
