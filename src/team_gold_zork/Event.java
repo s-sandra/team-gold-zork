@@ -78,7 +78,8 @@ class Event {
         
     }
     /**
-     *This method will change the adventurer's current room
+     *This method will change the adventurer's current room to a randomly generated room,
+     *other than the current room.
      */
     void teleport(){
         
