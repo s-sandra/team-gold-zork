@@ -8,6 +8,6 @@ package team_gold_zork;
  */
 public class IllegalDungeonFormatException extends Exception{
 	public IllegalDungeonFormatException(String errorMsg) {
-		super("Illegal bork file format: " + errorMsg);
+		super("Illegal zork file format: " + errorMsg);
 	}
 }

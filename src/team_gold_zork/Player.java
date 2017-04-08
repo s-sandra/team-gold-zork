@@ -45,7 +45,6 @@ class Player extends Character{
         String line = s.nextLine();
 
         //if the "Current room:" title is not found.
-        line = s.nextLine();
         if(!line.startsWith("Current room:")){
             throw new IllegalSaveFormatException();
         }
@@ -58,7 +57,7 @@ class Player extends Character{
         line = s.nextLine();
 
         //if the player had items in their inventory at save time (the "Inventory:" title would not appear otherwise).
-        if(line.equals("Inventory: ")){
+        if(line.startsWith("Inventory: ")){
             line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
 
             //chops off the commas from the inventory list.
