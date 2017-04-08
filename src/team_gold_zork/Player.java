@@ -42,7 +42,64 @@ class Player extends Character{
      * @throws IllegalSaveFormatException If the player description contains invalid contents.
      */
     void restoreState(Scanner s)throws IllegalSaveFormatException{
-        
+        String line = s.nextLine();
+
+        //if the "Current room:" title is not found.
+        line = s.nextLine();
+        if(!line.startsWith("Current room:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        //reads in the player's current room.
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        currentRoom = currentDungeon.getRoom(line);
+        currentDungeon.setEntry(currentRoom);
+
+        line = s.nextLine();
+
+        //if the player had items in their inventory at save time (the "Inventory:" title would not appear otherwise).
+        if(line.equals("Inventory: ")){
+            line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+
+            //chops off the commas from the inventory list.
+            String[] items = line.split(",");
+            for(String item: items){
+                try{ //the inventory might contain invalid items.
+                    this.inventory.add(currentDungeon.getItem(item));
+                }
+                catch(NoItemException e){
+                    throw new IllegalSaveFormatException(e.getMessage());
+                }
+            }
+        }
+
+        //if the "Damage:" title is not found.
+        line = s.nextLine();
+        if(!line.startsWith("Damage:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        damage = Integer.parseInt(line);
+
+
+        //if the "Score:" title is not found.
+        line = s.nextLine();
+        if(!line.startsWith("Score:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        score = Integer.parseInt(line);
+
+        //if the "Rank:" title is not found.
+        line = s.nextLine();
+        if(!line.startsWith("Rank:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        rank = line;
     }
 
    

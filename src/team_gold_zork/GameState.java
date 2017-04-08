@@ -125,35 +125,13 @@ class GameState {
 
                 dungeon.restoreState(input);
 
-                //if the "Adventurer:" title is not found.
+                //if the "Adventurer state:" title is not found.
                 line = input.nextLine();
-                if(!line.equals("Adventurer:")){
+                if(!line.equals("Adventurer state:")){
                         throw new IllegalSaveFormatException();
                 }
 
-                String entryRoom = input.nextLine();
-                entryRoom = entryRoom.substring(entryRoom.indexOf(":") + 2); //chops off data to the left of colon.
-                Room currentRoom = dungeon.getRoom(entryRoom);
-                dungeon.setEntry(currentRoom);
-                adventurer.setCurrentRoom(currentRoom);
-
-                //if the player had items in their inventory at save time.
-                if(input.hasNextLine()){
-                        String inventory = input.nextLine();
-                        inventory = inventory.substring(inventory.indexOf(":") + 2); //chops off data to the left of colon.
-
-                        //chops off the commas from the inventory list.
-                        String[] items = inventory.split(",");
-                        for(String item: items){
-                                try{ //the inventory might contain invalid items.
-                                        adventurer.addToInventory(dungeon.getItem(item));
-                                }
-                                catch(NoItemException e){
-                                        throw new IllegalSaveFormatException(e.getMessage());
-                                }
-                        }
-                }
-
+                adventurer.restoreState(input);
                 input.close();
             }
             catch(FileNotFoundException e){
