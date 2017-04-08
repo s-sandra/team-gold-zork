@@ -35,7 +35,7 @@ public class Dungeon {
 			this.fileName = fileName;
 		}
 		catch(FileNotFoundException e){
-			throw new IllegalDungeonFormatException("The bork file '" + fileName + "' cannot be found.");
+			throw new IllegalDungeonFormatException("The zork file '" + fileName + "' cannot be found.");
 		}
 
 		//reads in the name of the dungeon.
@@ -44,8 +44,8 @@ public class Dungeon {
 		line = input.nextLine();
 		if(!line.equals(GameConfig.VERSION)){
 			input.close();
-			throw new IllegalDungeonFormatException("The bork file format '" + line + "' is not compatible "
-					+ "with the current version of bork.");
+			throw new IllegalDungeonFormatException("The zork file format '" + line + "' is not compatible "
+					+ "with the current version of zork.");
 		}
 
 		//if the delimiter is not found.

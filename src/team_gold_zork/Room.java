@@ -19,7 +19,7 @@ public class Room {
 
     /**
      * This constructs a Room object, as well as the items in it.
-     * @param s the Scanner reading a bork file.
+     * @param s the Scanner reading a zork file.
      * @param d the Dungeon the room is in.
      * @param initState whether the room should be restored or reset.
      * @throws NoRoomException if the room description has ended.

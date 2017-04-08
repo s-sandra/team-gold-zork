@@ -14,11 +14,12 @@ public class Item {
     private String secondaryName; //the name of the item without camelCase.
     private int weight; //how much the item weighs.
     private Hashtable<String, String> messages = new Hashtable<>(); //stores the message corresponding with the verb key.
+    private Hashtable<String, String> events = new Hashtable<>(); //stores the events corresponding with the verb key.
 
 
     /**
-     * This constructs an Item object given a scanner reading a bork file.
-     * @param s the scanner reading the bork file.
+     * This constructs an Item object given a scanner reading a zork file.
+     * @param s the scanner reading the zork file.
      * @throws NoItemException  if there are no more items to read from the file.
      */
     public Item(Scanner s) throws NoItemException{
@@ -39,8 +40,20 @@ public class Item {
         //while the verbs description has not ended.
         while(!input.equals("---")){
             String verbLine = input;
-            String verb = verbLine.substring(0, verbLine.indexOf(":")); //chops off data to the right of colon.
-            String message = verbLine.substring(verbLine.indexOf(":") + 1); //chops off data to the left of colon.
+            String verb = "";
+            String message = "";
+
+            //checks to see if the verb triggers events.
+            if(verbLine.contains("[")){
+                verb = verbLine.substring(0, verbLine.indexOf("[")); //chops off data to the right of bracket.
+                String event = verbLine.substring(verbLine.indexOf("[") + 1, verbLine.indexOf("]")); //gets all events between brackets.
+                events.put(verb, event);
+            }
+            else{
+                verb = verbLine.substring(0, verbLine.indexOf(":")); //chops off data to the right of colon.
+            }
+
+            message = verbLine.substring(verbLine.indexOf(":") + 1); //chops off data to the left of colon.
             input = s.nextLine();
 
             //while the message description has not ended.
@@ -117,23 +130,22 @@ public class Item {
 
 
     /**
+     * Gets the event(s) associated with a verb.
+     * @param verb  the action to be done on the item.
+     * @return  the message detailing the event(s) of the action.
+     */
+    public String getEventForVerb(String verb){
+        return events.get(verb);
+    }
+
+
+    /**
      * Gets the message associated with a verb.
      * @param verb  the action to be done on the item.
      * @return  the message detailing the result of the action.
      */
     public String getMessageForVerb(String verb){
         return messages.get(verb);
-    }
-
-
-
-    /**
-     * Determines if the item supports a given verb.
-     * @param verb the verb in question.
-     * @return whether the verb can be performed on the item.
-     */
-    public boolean containsVerb(String verb){
-        return messages.containsKey(verb);
     }
 
 
