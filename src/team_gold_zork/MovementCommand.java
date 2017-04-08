@@ -22,17 +22,18 @@ class MovementCommand extends Command{
      * @return The result of the movement command.
      */
     String execute(){
+        Player adventurer = state.getAdventurer();
         GameState state = GameState.instance();
-		Room currentRoom = state.getAdventurersCurrentRoom();
+		Room currentRoom = adventurer.getCurrentRoom();
 		Room newRoom = currentRoom.leaveBy(dir);
 
 		if(newRoom != null){
-			state.setAdventurersCurrentRoom(newRoom);
+            adventurer.setCurrentRoom(newRoom);
 		}
 		else{
 			return "You can't go " + dir + ".\n";
 		}
 
-		return state.getAdventurersCurrentRoom().describe();
+		return adventurer.getCurrentRoom().describe();
     }
 }

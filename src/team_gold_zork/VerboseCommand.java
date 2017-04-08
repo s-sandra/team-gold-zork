@@ -10,7 +10,6 @@ package team_gold_zork;
  * @author Lauren
  */
 public class VerboseCommand extends Command{
-   Room room = state.getAdventurersCurrentRoom();
     /**
      * Creates a VerboseCommand.
      */
@@ -23,6 +22,7 @@ public class VerboseCommand extends Command{
      * @return The result of the verboseCommand 
      */
     String execute(){
+        Room playersCurrentRoom = state.getAdventurer().getCurrentRoom();
         return "";
     }
 }
