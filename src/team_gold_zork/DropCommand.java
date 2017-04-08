@@ -24,9 +24,9 @@ class DropCommand extends Command{
      */
     String execute(){
         try{
-            Item droppedItem = state.getItemFromInventoryNamed(itemName);
-            state.removeFromInventory(droppedItem);
-            state.getAdventurersCurrentRoom().add(droppedItem);
+            Item droppedItem = state.getAdventurer().getItemFromInventoryNamed(itemName);
+            state.getAdventurer().removeFromInventory(droppedItem);
+            state.getAdventurer().getCurrentRoom().add(droppedItem);
         }
         catch(NoItemException e){
             return "You don't have a " + itemName + ".\n";

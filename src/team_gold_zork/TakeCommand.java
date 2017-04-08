@@ -27,14 +27,16 @@ class TakeCommand extends Command{
      */
     String execute() throws NoItemException{
 
-        ArrayList<String> inventory = state.getInventoryNames(false);
+        Player adventurer = state.getAdventurer();
+
+        ArrayList<String> inventory = adventurer.getInventoryNames(false);
         if(inventory.contains(itemName)){
             return "You already have the " + itemName + ".\n";
         }
 
-        Item takenItem = state.getItemInVicinityNamed(itemName);
-        state.addToInventory(takenItem);
-        state.getAdventurersCurrentRoom().remove(takenItem);
+        Item takenItem = adventurer.getItemInVicinityNamed(itemName);
+        adventurer.addToInventory(takenItem);
+        adventurer.getCurrentRoom().remove(takenItem);
         return "Taken.\n";
     }
 }

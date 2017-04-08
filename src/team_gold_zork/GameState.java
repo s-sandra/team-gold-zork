@@ -64,7 +64,7 @@ class GameState {
             adventurer.getCurrentDungeon().storeState(saver);
 
             saver.println("Adventurer:");
-            saver.println("Current room: " + getAdventurersCurrentRoom().getTitle());
+            saver.println("Current room: " + adventurer.getCurrentRoom().getTitle());
 
             //if the player has items in their inventory at save time.
             if(!adventurer.isEmptyInventory()){
@@ -140,29 +140,11 @@ class GameState {
     }
     
     /**
-     * Returns the player's current room.
-     * @return currentRoom the player's current room.
+     * Returns GameState's instance of the Player class.
+     * @return adventurer the player object.
      */
-    Room getAdventurersCurrentRoom(){
-	return adventurer.getCurrentRoom();
-    }
-
-
-    /**
-     * Returns the player's current dungeon.
-     * @return currentRoom the player's current dungeon.
-     */
-    Dungeon getAdventurersCurrentDungeon(){
-        return adventurer.getCurrentDungeon();
-    }
-    
-    
-    /**
-    * Changes the player's current room.
-    * @param room the player's current room.
-    */
-    void setAdventurersCurrentRoom(Room room){
-        adventurer.setCurrentRoom(room);
+    Player getAdventurer(){
+	return adventurer;
     }
 
     /**

@@ -48,12 +48,12 @@ class ItemSpecificCommand extends Command{
     private boolean existsInRoom(String item){
 
         try{ //attempts to find the item in the inventory.
-            this.item = state.getItemFromInventoryNamed(item);
+            this.item = state.getAdventurer().getItemFromInventoryNamed(item);
             return true;
         }
         catch(NoItemException e){
             try{ //attempts to find the item in the room.
-                this.item = state.getItemInVicinityNamed(item);
+                this.item = state.getAdventurer().getItemInVicinityNamed(item);
                 return true;
             }
             catch(NoItemException w){

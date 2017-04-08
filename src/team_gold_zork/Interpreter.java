@@ -37,7 +37,7 @@ class Interpreter {
 			if(input.endsWith(".sav")){
 				input = "saves/" + input; //.sav files are contained in the saves folder.
 				state.restore(input);
-				dungeon = state.getAdventurersCurrentDungeon();
+				dungeon = state.getAdventurer().getDungeon();
 				System.out.println();
 			}
 			else if(input.endsWith(".zork")){
@@ -56,8 +56,10 @@ class Interpreter {
 			System.out.println(e.getMessage());
 			System.exit(22);
 		}
+
+		Player adventurer = state.getAdventurer();
 		
-		System.out.println(state.getAdventurersCurrentRoom().describe());
+		System.out.println(adventurer.getCurrentRoom().describe());
 		input = promptUser(commandLine);
 		
 		while(!input.equals("q")){
@@ -84,7 +86,7 @@ class Interpreter {
 			}
 			catch(Exception e){
 				System.out.println(e.getMessage());
-				System.out.println(state.getAdventurersCurrentRoom().describeExits());
+				System.out.println(adventurer.getCurrentRoom().describeExits());
 			}
 			
 			input = promptUser(commandLine);

@@ -20,7 +20,7 @@ class InventoryCommand extends Command{
      * @return  the message detailing the inventory contents.
      */
     String execute(){
-        ArrayList<String> items = state.getInventoryNames(false);
+        ArrayList<String> items = state.getAdventurer().getInventoryNames(false);
         String inventory = "You are carrying:";
         if(items.isEmpty()){
             return "You are empty handed.\n";

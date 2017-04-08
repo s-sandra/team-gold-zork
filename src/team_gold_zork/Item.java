@@ -2,6 +2,7 @@ package team_gold_zork;
 
 import java.util.Hashtable;
 import java.util.Scanner;
+import java.lang.Character;
 
 /**
  * This class stores attributes for an item contained within a dungeon
