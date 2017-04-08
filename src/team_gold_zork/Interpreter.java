@@ -40,8 +40,8 @@ class Interpreter {
 				dungeon = state.getAdventurersCurrentDungeon();
 				System.out.println();
 			}
-			else if(input.endsWith(".bork")){
-				input = "dungeons/" + input; //.bork files are contained in the dungeons folder.
+			else if(input.endsWith(".zork")){
+				input = "dungeons/" + input; //.zork files are contained in the dungeons folder.
 				
 				dungeon = new Dungeon(input, true);
 				state.initialize(dungeon);
