@@ -1,0 +1,29 @@
+Group Bork v1.0
+save data
+Dungeon file: dungeons/dungeon.bork
+Room states:
+Stephen's office:
+beenHere=true
+Contents: StarWarsToy
+---
+Room B6:
+beenHere=true
+Contents: DrPepper
+---
+Basement hallway:
+beenHere=true
+---
+Rotunda balcony:
+beenHere=true
+Contents: chainsaw,magicWand
+---
+Rotunda:
+beenHere=true
+---
+===
+Adventurer state:
+Current room: Basement hallway
+Inventory: donut,WawaTravelMug
+Damage: 56
+Score: 75
+Rank: amateur
