@@ -218,11 +218,16 @@ class Player extends Character{
      * Returns the player's rank based on their score.
      * @return rank the player's rank.
      */
-    public String getRank(){
+    String getRank(){
         return rank; 
     }
-
-
+    /**
+     * Returns the player's score
+     * @return player's score.
+     */
+    int getScore(){
+        return score;
+    }
     /**
      * Determines whether the player has won the game.
      * @return If the player has won.
