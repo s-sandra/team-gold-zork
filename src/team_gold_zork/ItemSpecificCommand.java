@@ -25,8 +25,9 @@ class ItemSpecificCommand extends Command{
     /**
      * Executes a command to do something to an Item
      * @return  the result of the command.
+     * @throws NoItemException if the command had an invalid event.
      */
-    String execute(){
+    String execute() throws NoItemException{
        if(!existsInRoom(noun)){
            return "There's no " + noun + " here.\n";
        }
@@ -34,6 +35,16 @@ class ItemSpecificCommand extends Command{
 
        if(message == null){
            return "You can't " + verb + " the " + noun + ".\n";
+       }
+
+       String events = item.getEventForVerb(verb);
+       if(!events.isEmpty()){
+           Event result = new Event(events, item);
+           message += "\n" + result.execute();
+       }
+
+       if(message.endsWith("\n")){
+           return message;
        }
         return message + "\n";
     }
