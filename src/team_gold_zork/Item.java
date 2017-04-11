@@ -166,12 +166,11 @@ public class Item {
         
     }
     /**
-     * This method will remove an already existing item from the dungeon
+     * This method will remove this item from the dungeon
      * and player's inventory, if needed.
-     * @param removedItem the item that is being removed
      * @author Margaux Tucker
      */
-    public void disappear(Item removedItem){
+    public void disappear(){
         
     }
 }

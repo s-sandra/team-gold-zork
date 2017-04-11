@@ -44,9 +44,10 @@ class Event {
     /**
      * This method will take in a string of events obtained from the constructor,
      * parses it for meaning, and performs the appropriate methods.
-     * @param events the string of events obtained form the constructor 
+     * @param events the string of events obtained form the constructor
+     * @throws NoItemException if the transform event had an invalid item name parameter.
      */
-    void execute(String events){
+    void execute(String events) throws NoItemException{
         events = events.toLowerCase();
         String[] result = events.split(",");
 
@@ -62,7 +63,7 @@ class Event {
                 teleport();
             }
             if(event.startsWith("disappear")){
-                disappear(this.item);
+                disappear();
             }
 
             if(event.startsWith("score")){
@@ -79,6 +80,15 @@ class Event {
             }
 
             if(event.startsWith("transform")){
+                String transformedItemName = null;
+
+                try{
+                    transform(transformedItemName);
+                }
+                catch(NoItemException e){
+                    throw new NoItemException("The transform event parameter for the item "
+                            + item.getPrimaryName() + " does not exist in the dungeon.");
+                }
 
             }
         }
@@ -117,20 +127,25 @@ class Event {
         player.setHasWon();
         
     }
+
     /**
-     * This method will remove and item from the room, dungeon, and inventory
-     * @param itemName the name of the item being removed
+     * This method will remove the item which triggered the event
+     * from the room, dungeon, and inventory.
      */
-    private void disappear(Item itemName){
-        
+    private void disappear(){
+        item.disappear();
     }
+
     /**
      * This method allows the item that triggered the event to disappear and be
      * replaced with an item of the given name.
      * @param newItemName the name of the existing item that replaces the old item.
+     * @throws NoItemException if the transformed item is not found in the dungeon.
      */
-    private void transform(String newItemName){
-        
+    private void transform(String newItemName) throws NoItemException{
+        disappear();
+        Item transformedItem = player.getCurrentDungeon().getItem(newItemName);
+        player.getCurrentRoom().add(transformedItem);
     }
 
     /**
