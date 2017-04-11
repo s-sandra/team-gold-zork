@@ -44,6 +44,12 @@ class CommandFactory {
 		if(command.equals("i") || command.equals("inventory")){
 			return new InventoryCommand();
 		}
+                if(command.equals("score")){
+                    return new ScoreCommand();
+                }
+                if(command.equals("health")){
+                    return new HealthCommand();
+                }
 
 		String verb = "";
 		String noun = "";
