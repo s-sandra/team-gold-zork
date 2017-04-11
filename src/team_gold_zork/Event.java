@@ -130,16 +130,28 @@ class Event {
     void transform(String newItemName){
         
     }
+
     /**
      *This method will change the adventurer's current room to a randomly generated room,
      *other than the current room.
      */
     void teleport(){
        Room playersCurrentRoom = state.getAdventurer().getCurrentRoom();
-       Collection<Room> temp = state.getAdventurer().getCurrentDungeon().getRooms();
+       Player adventurer = state.getAdventurer();
+       Collection<Room> temp = adventurer.getCurrentDungeon().getRooms();
        Room[] rooms = (Room[]) temp.toArray();
+
        Random rand = new Random();
-       int n = rand.nextInt(rooms.length); 
+       int n = rand.nextInt(rooms.length);
+       Room randomRoom = rooms[n];
+
+       //generates a new random room if the last one was the same as the player's current room.
+       while(playersCurrentRoom.equals(randomRoom)){
+           n = rand.nextInt(rooms.length);
+           randomRoom = rooms[n];
+       }
+
+       adventurer.setCurrentRoom(randomRoom);
     }
     /**
      * This method turns a light on or off in a room
