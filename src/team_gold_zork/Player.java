@@ -243,6 +243,9 @@ class Player extends Character{
     void setHasWon(){
         hasWon = true;
     }
+    void kill(){
+        hasDied = true;
+    }
 
 
     /**
