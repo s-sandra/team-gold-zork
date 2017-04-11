@@ -104,6 +104,16 @@ public class Room {
 
 
     /**
+     * Determines if the given room is the same as this room.
+     * @return if the given room has the same name as the room
+     * the method was called on.
+     */
+    boolean equals(Room otherRoom){
+        return otherRoom.getTitle().equals(title);
+    }
+
+
+    /**
      * Gets the item with a given name from the room's contents.
      * @param name the name of the item.
      * @return	the item in the room's contents.
