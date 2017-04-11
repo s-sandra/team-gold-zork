@@ -19,6 +19,7 @@ class Event {
     private Item item;
     private Character character;
     GameState state = GameState.instance(); //stores the state of the game.
+    Player player = state.getAdventurer();
     
     /**
      * Constructs an Event object related to ItemSpecificCommands
@@ -46,35 +47,40 @@ class Event {
      * @param events the string of events obtained form the constructor 
      */
     void execute(String events){
-        String command = events.toLowerCase();
-        if (command.startsWith("win")){
-            win();
-        }
-        if (command.startsWith("die")){
-            die();
-        }
-        if (command.startsWith("teleport")){
-            teleport();
-        }
-        if(command.startsWith("disappear")){
-           disappear(this.item);
-        }
-        
-        if(command.startsWith("score")){
-           String line = events.substring(events.indexOf("(")+1);
-           line = events.substring(0,line.indexOf(")"));
-           int points = Integer.parseInt(line);
-           score(points);
-        }
-        if(command.startsWith("wound")){
-           String line = events.substring(events.indexOf("(")+1);
-           line = events.substring(0,line.indexOf(")"));
-           int damage = Integer.parseInt(line);
-           wound(damage);
-        }
-        
-        if(command.startsWith("transform")){
-            
+        events = events.toLowerCase();
+        String[] result = events.split(",");
+
+        //executes all events
+        for(String event: result){
+            if (event.startsWith("win")){
+                win();
+            }
+            if (event.startsWith("die")){
+                die();
+            }
+            if (event.startsWith("teleport")){
+                teleport();
+            }
+            if(event.startsWith("disappear")){
+                disappear(this.item);
+            }
+
+            if(event.startsWith("score")){
+                String line = events.substring(events.indexOf("(")+1);
+                line = events.substring(0,line.indexOf(")"));
+                int points = Integer.parseInt(line);
+                score(points);
+            }
+            if(event.startsWith("wound")){
+                String line = events.substring(events.indexOf("(")+1);
+                line = events.substring(0,line.indexOf(")"));
+                int damage = Integer.parseInt(line);
+                wound(damage);
+            }
+
+            if(event.startsWith("transform")){
+
+            }
         }
     }
 
@@ -84,15 +90,14 @@ class Event {
      * Hashtable of verb-events.
      * @param pointValue the amount of points to add to the player's score.
      */
-    void score(int pointValue){
-        Player player = state.getAdventurer();
+    private void score(int pointValue){
         player.addScore(pointValue);
     }
     /**
      * This method modifies the player's damage depending on the given point value.
      * @param pointValue the amount of points to add to the player's damage.
      */
-    void wound(int pointValue){
+    private void wound(int pointValue){
         Player player = state.getAdventurer();
         player.addDamage(pointValue);
     }
@@ -100,14 +105,14 @@ class Event {
      * This method increases the player's damage to the maximum threshold, thus
      * killing the player.
      */
-    void die(){
+    private void die(){
         Player player = state.getAdventurer();
         player.kill();
     }
     /**
      *This method will change hasWon to true in the Player class.
      */
-    void win(){
+    private void win(){
         Player player  = state.getAdventurer();
         player.setHasWon();
         
@@ -116,7 +121,7 @@ class Event {
      * This method will remove and item from the room, dungeon, and inventory
      * @param itemName the name of the item being removed
      */
-    void disappear(Item itemName){
+    private void disappear(Item itemName){
         
     }
     /**
@@ -124,7 +129,7 @@ class Event {
      * replaced with an item of the given name.
      * @param newItemName the name of the existing item that replaces the old item.
      */
-    void transform(String newItemName){
+    private void transform(String newItemName){
         
     }
 
@@ -132,10 +137,9 @@ class Event {
      *This method will change the adventurer's current room to a randomly generated room,
      *other than the current room.
      */
-    void teleport(){
-       Room playersCurrentRoom = state.getAdventurer().getCurrentRoom();
-       Player adventurer = state.getAdventurer();
-       Collection<Room> temp = adventurer.getCurrentDungeon().getRooms();
+    private void teleport(){
+       Room playersCurrentRoom = player.getCurrentRoom();
+       Collection<Room> temp = player.getCurrentDungeon().getRooms();
        Room[] rooms = (Room[]) temp.toArray();
 
        Random rand = new Random();
@@ -148,14 +152,14 @@ class Event {
            randomRoom = rooms[n];
        }
 
-       adventurer.setCurrentRoom(randomRoom);
+       player.setCurrentRoom(randomRoom);
     }
     /**
      * This method turns a light on or off in a room
      * @param status if the light should be turned on, or off
      * @author KatieMelhuish
      */
-    void light(String status){
+    private void light(String status){
         
     }
 }
