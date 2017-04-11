@@ -1,6 +1,5 @@
 package team_gold_zork;
 
-import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
 /**

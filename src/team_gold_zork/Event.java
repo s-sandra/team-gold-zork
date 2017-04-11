@@ -5,6 +5,7 @@
  */
 package team_gold_zork;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
@@ -44,10 +45,11 @@ class Event {
     /**
      * This method will take in a string of events obtained from the constructor,
      * parses it for meaning, and performs the appropriate methods.
-     * @param events the string of events obtained form the constructor
+     * @return a message detailing the result of the execution.
      * @throws NoItemException if the transform event had an invalid item name parameter.
      */
-    void execute(String events) throws NoItemException{
+    String execute() throws NoItemException{
+        String message = "";
         events = events.toLowerCase();
         String[] result = events.split(",");
 
@@ -56,42 +58,42 @@ class Event {
             if (event.startsWith("win")){
                 win();
             }
-            if (event.startsWith("die")){
+            else if (event.startsWith("die")){
                 die();
+                message += player.getHealthWarning();
             }
-            if (event.startsWith("teleport")){
-                teleport();
+            else if (event.startsWith("teleport")){
+                message += teleport();
             }
-            if(event.startsWith("disappear")){
+            else if(event.startsWith("disappear")){
                 disappear();
             }
-
-            if(event.startsWith("score")){
-                String line = events.substring(events.indexOf("(")+1);
-                line = events.substring(0,line.indexOf(")"));
+            else if(event.startsWith("score")){
+                String line = event.substring(event.indexOf("(")+1);
+                line = line.substring(0,line.indexOf(")"));
                 int points = Integer.parseInt(line);
                 score(points);
             }
-            if(event.startsWith("wound")){
-                String line = events.substring(events.indexOf("(")+1);
-                line = events.substring(0,line.indexOf(")"));
+            else if(event.startsWith("wound")){
+                String line = event.substring(event.indexOf("(")+1);
+                line = line.substring(0,line.indexOf(")"));
                 int damage = Integer.parseInt(line);
                 wound(damage);
             }
-
-            if(event.startsWith("transform")){
+            else if(event.startsWith("transform")){
                 String transformedItemName = null;
 
-                try{
+                try{ //the transformed item may not exist in the zork file.
                     transform(transformedItemName);
                 }
                 catch(NoItemException e){
                     throw new NoItemException("The transform event parameter for the item "
                             + item.getPrimaryName() + " does not exist in the dungeon.");
                 }
-
             }
         }
+
+        return message;
     }
 
     /**
@@ -151,23 +153,25 @@ class Event {
     /**
      *This method will change the adventurer's current room to a randomly generated room,
      *other than the current room.
+     * @return a message detailing the result of the teleport event.
      */
-    private void teleport(){
+    private String teleport(){
        Room playersCurrentRoom = player.getCurrentRoom();
        Collection<Room> temp = player.getCurrentDungeon().getRooms();
-       Room[] rooms = (Room[]) temp.toArray();
+       ArrayList<Room> rooms = new ArrayList<>(temp);
 
        Random rand = new Random();
-       int n = rand.nextInt(rooms.length);
-       Room randomRoom = rooms[n];
+       int n = rand.nextInt(rooms.size());
+       Room randomRoom = rooms.get(n);
 
        //generates a new random room if the last one was the same as the player's current room.
        while(playersCurrentRoom.equals(randomRoom)){
-           n = rand.nextInt(rooms.length);
-           randomRoom = rooms[n];
+           n = rand.nextInt(rooms.size());
+           randomRoom = rooms.get(n);
        }
 
        player.setCurrentRoom(randomRoom);
+       return "The " + item.getSecondaryName() + " has teleported you to " + randomRoom.describe();
     }
     /**
      * This method turns a light on or off in a room

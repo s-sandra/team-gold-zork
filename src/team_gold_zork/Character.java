@@ -12,7 +12,6 @@ abstract class Character {
     Dungeon currentDungeon; //stores the character's current dungeon.
     ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
     String name; //stores the name of the character.
-    GameState state = GameState.instance(); //stores the state of the game.
     
     /**
      * Stores the state of the character to a .sav file.
