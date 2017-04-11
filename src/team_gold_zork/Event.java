@@ -56,6 +56,13 @@ class Event {
         if (command.startsWith("teleport")){
             teleport();
         }
+        if(command.startsWith("disappear")){
+           String line = events.substring(events.indexOf("(")+1);
+           line = events.substring(0,line.indexOf(")"));
+           String itemName = line;
+           disappear(itemName);
+        }
+        
         if(command.startsWith("score")){
            String line = events.substring(events.indexOf("(")+1);
            line = events.substring(0,line.indexOf(")"));
@@ -112,7 +119,7 @@ class Event {
      * This method will remove and item from the room, dungeon, and inventory
      * @param itemName the name of the item being removed
      */
-    void dissappear(String itemName){
+    void disappear(String itemName){
         
     }
     /**
