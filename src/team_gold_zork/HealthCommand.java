@@ -18,6 +18,8 @@ class HealthCommand extends Command{
      * @return A message describing the state of the player's health. 
      */
     String execute(){
-        return "";
+        Player player = state.getAdventurer();
+        String playerHealth = player.getHealthWarning();
+        return playerHealth +"\n";
     }
 }
