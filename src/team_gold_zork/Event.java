@@ -15,6 +15,7 @@ class Event {
     private String events;
     private Item item;
     private Character character;
+    GameState state = GameState.instance(); //stores the state of the game.
     
     /**
      * Constructs an Event object related to ItemSpecificCommands
@@ -22,6 +23,8 @@ class Event {
      * @param item the Item involved in triggering the event.
      */
     Event(String event, Item item){
+        this.events = event;
+        this.item = item;
         
     }
     
@@ -31,7 +34,7 @@ class Event {
      * @param character the Character involved in triggering the event.
      */
     Event(String event, Character character){
-        
+        this.character = character;
     }
     
     /**
@@ -63,12 +66,15 @@ class Event {
      * killing the player.
      */
     void die(){
-    
+        Player player = state.getAdventurer();
+        player.kill();
     }
     /**
      *This method will change hasWon to true in the Player class.
      */
     void win(){
+        Player player  = state.getAdventurer();
+        player.setHasWon();
         
     }
     /**
