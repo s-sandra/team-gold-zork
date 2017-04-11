@@ -25,7 +25,7 @@ class ScoreCommand extends Command {
         Player player = state.getAdventurer();
         int playerScore= player.getScore();
         String playerRank = player.getRank();
-        return " You have " +playerScore+ " points. You are now "+playerRank+ " adventurer.\n";
+        return "You have " +playerScore+ " points. You are now "+playerRank+ " adventurer.\n";
     
     }
 
