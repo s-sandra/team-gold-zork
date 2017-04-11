@@ -235,4 +235,12 @@ public class Dungeon {
 		}
 	}
 
+	/**
+	 * This method returns the collection of rooms contained in the dungeon.
+	 * @return the collection of rooms in the dungeon.
+	 */
+	Collection<Room> getRooms(){
+		return rooms.values();
+	}
+
 }
