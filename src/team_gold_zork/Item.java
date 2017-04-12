@@ -15,7 +15,7 @@ public class Item {
     private int weight; //how much the item weighs.
     private Hashtable<String, String> messages = new Hashtable<>(); //stores the message corresponding with the verb key.
     private Hashtable<String, String> events = new Hashtable<>(); //stores the events corresponding with the verb key.
-
+    GameState state = GameState.instance();
 
     /**
      * This constructs an Item object given a scanner reading a zork file.
@@ -156,21 +156,18 @@ public class Item {
     public String toString(){
         return "There is a " + secondaryName + " here.";
     }
-    /**
-     * This method will add a transformed item with a given name to the Dungeon using
-     * the ArrayList of transformed items in Dungeon.
-     * @param newItem the transformed Item to add to the Dungeon.
-     * @author Margaux Tucker
-     */
-    public void transform(Item newItem){
-        
-    }
+
     /**
      * This method will remove this item from the dungeon
      * and player's inventory, if needed.
      * @author Margaux Tucker
      */
     public void disappear(){
-        
+        Player player = state.getAdventurer();
+        player.removeFromInventory(this);
+        Room room = player.getCurrentRoom();
+        room.remove(this);
+        Dungeon dungeon = player.getCurrentDungeon();
+        dungeon.remove(this);
     }
 }
