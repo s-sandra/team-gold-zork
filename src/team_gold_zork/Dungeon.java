@@ -240,7 +240,14 @@ public class Dungeon {
 	 * @return the collection of rooms in the dungeon.
 	 */
 	Collection<Room> getRooms(){
-		return rooms.values();
+            return rooms.values();
 	}
+        /**
+        * Removes an item from the contents of the room.
+        * @param item the item to remove.
+        */
+        void remove(Item item){
+            items.remove(item);
+        }
 
 }
