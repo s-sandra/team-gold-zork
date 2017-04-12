@@ -62,24 +62,8 @@ class GameState {
 
             saver.println(GameConfig.VERSION);
             adventurer.getCurrentDungeon().storeState(saver);
-
-            saver.println("Adventurer:");
-            saver.println("Current room: " + adventurer.getCurrentRoom().getTitle());
-
-            //if the player has items in their inventory at save time.
-            if(!adventurer.isEmptyInventory()){
-                    saver.print("Inventory: ");
-                    ArrayList<String> itemNames = adventurer.getInventoryNames(true);
-
-                    for(int i = 0; i < itemNames.size(); i++){
-                            saver.print(itemNames.get(i));
-
-                            //if the inventory has more items.
-                            if(i + 1 < itemNames.size()){
-                                    saver.print(",");
-                            }
-                    }
-            }
+            adventurer.storeState(saver);
+            
 
             writer.close();
             saver.close();
