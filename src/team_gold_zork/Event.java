@@ -50,38 +50,38 @@ class Event {
      */
     String execute() throws NoItemException{
         String message = "";
-        events = events.toLowerCase();
         String[] result = events.split(",");
 
         //executes all events
         for(String event: result){
-            if (event.startsWith("win")){
+            if (event.startsWith("Win")){
                 win();
             }
-            else if (event.startsWith("die")){
+            else if (event.startsWith("Die")){
                 die();
                 message += player.getHealthWarning();
             }
-            else if (event.startsWith("teleport")){
+            else if (event.startsWith("Teleport")){
                 message += teleport();
             }
-            else if(event.startsWith("disappear")){
+            else if(event.startsWith("Disappear")){
                 disappear();
             }
-            else if(event.startsWith("score")){
+            else if(event.startsWith("Score")){
                 String line = event.substring(event.indexOf("(")+1);
                 line = line.substring(0,line.indexOf(")"));
                 int points = Integer.parseInt(line);
                 score(points);
             }
-            else if(event.startsWith("wound")){
+            else if(event.startsWith("Wound")){
                 String line = event.substring(event.indexOf("(")+1);
                 line = line.substring(0,line.indexOf(")"));
                 int damage = Integer.parseInt(line);
                 wound(damage);
             }
-            else if(event.startsWith("transform")){
-                String transformedItemName = null;
+            else if(event.startsWith("Transform")){
+                String transformedItemName = event.substring(event.indexOf("(")+1);
+                transformedItemName = transformedItemName.substring(0,transformedItemName.indexOf(")"));
 
                 try{ //the transformed item may not exist in the zork file.
                     transform(transformedItemName);
