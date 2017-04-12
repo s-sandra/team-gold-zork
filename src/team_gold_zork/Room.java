@@ -293,7 +293,7 @@ public class Room {
                     w.println();
             }
             
-            saveUnlockedExits(w);
+          //  saveUnlockedExits(w);
             
             w.println("---");
     }
