@@ -52,7 +52,7 @@ class Player extends Character{
                     }
             }
         w.write("Damage: " + getDamage() + "\n"); 
-        w.write("Score: " + getScore()); 
+        w.write("Score: " + getScore() + "\n"); 
         w.write("Rank: " + getRank() + "\n"); 
     }
     
