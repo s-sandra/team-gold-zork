@@ -293,10 +293,12 @@ public class Room {
                     w.println();
             }
             
+            saveUnlockedExits(w);
+            
             w.println("---");
     }
     
-    void printUnlockedExits(PrintWriter w)
+    void saveUnlockedExits(PrintWriter w)
        {
           String directions = ""; 
             for(Exit exit : this.exits){
