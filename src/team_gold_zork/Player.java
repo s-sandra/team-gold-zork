@@ -33,6 +33,24 @@ class Player extends Character{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
+        w.write("===\n"); 
+        w.write("Adventurer:\n"); 
+        w.write("Current room: " + getCurrentRoom().getTitle() + "\n");
+        w.write("Damage: " + getDamage() + "\n"); 
+        w.write("Score: " + getScore()); 
+        if(!inventory.isEmpty())
+        {
+            String s = ""; 
+            String r = ""; 
+            w.write("\n"); 
+            w.write("Inventory: "); 
+            for(Item item : inventory)
+            {
+                s = s + item.getPrimaryName() + ","; 
+            }
+            r = s.substring(0, s.lastIndexOf(",")); 
+            w.write(r); 
+        }
         
     }
     
@@ -250,7 +268,11 @@ class Player extends Character{
     void kill(){
         hasDied = true;
     }
-
+  
+    int getDamage(){
+        return damage; 
+    }
+    
 
     /**
      * Changes the player's fatigue, damage and hunger to reflect the
