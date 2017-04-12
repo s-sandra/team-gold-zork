@@ -140,7 +140,6 @@ class Player extends Character{
      */
     String getHealthWarning(){
         String healthWarning = "";
-
         if(damage == 0){
             healthWarning += "You are fit as a fiddle!";
         }
