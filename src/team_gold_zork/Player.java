@@ -50,6 +50,7 @@ class Player extends Character{
                                     w.print(",");
                             }
                     }
+                    w.write("\n");
             }
         w.write("Damage: " + getDamage() + "\n"); 
         w.write("Score: " + getScore() + "\n"); 
