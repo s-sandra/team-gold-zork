@@ -24,6 +24,7 @@ class Player extends Character{
         score = 0;
         damage = 0;
         hasWon = false;
+        hasDied = false;
         name = "adventurer";
     }
     
@@ -128,7 +129,7 @@ class Player extends Character{
      * is healed.
      */
     void addDamage(int n){
-        damage += n;
+        damage += Math.abs(n);
     }
 
 
