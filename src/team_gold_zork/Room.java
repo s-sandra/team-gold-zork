@@ -292,9 +292,24 @@ public class Room {
                     }
                     w.println();
             }
+            
             w.println("---");
     }
-
+    
+    void printUnlockedExits(PrintWriter w)
+       {
+          String directions = ""; 
+            for(Exit exit : this.exits){
+                if (!exit.getLock()){
+                    directions = directions + exit.getDir() + ","; 
+                    
+                }
+                
+            }
+            w.write("UnlockedExits: ");
+            w.write(directions.substring(0, directions.lastIndexOf(","))  + "\n"); 
+            
+       }
 
     /**
      * Restores the state of the room, including items, from a .sav file.
