@@ -80,6 +80,10 @@ public class Exit {
     public Room getSrc(){
             return currentRoom;
     }
+    
+    public boolean getLock(){
+        return isLocked; 
+    }
 
 
     /**
@@ -118,6 +122,7 @@ public class Exit {
     }
 
 }
+
 
 /**
  * This Exception is thrown when there are no more exits to 
