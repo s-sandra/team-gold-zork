@@ -140,7 +140,12 @@ class Player extends Character{
      */
     String getHealthWarning(){
         String healthWarning = "";
-        if(damage == 0){
+
+        if(hasDied){
+            healthWarning += "You have died from your wounds.";
+        }
+        else if(damage == 0){
+
             healthWarning += "You are fit as a fiddle!";
         }
         else if(isMinor(damage)){
