@@ -179,6 +179,7 @@ class Event {
      * @author KatieMelhuish
      */
     private void light(String status){
+       
         
     }
 }
