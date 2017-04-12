@@ -1,6 +1,7 @@
 package team_gold_zork;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *This class stores attributes related to the adventurer
@@ -33,25 +34,25 @@ class Player extends Character{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-        w.write("===\n"); 
-        w.write("Adventurer:\n"); 
-        w.write("Current room: " + getCurrentRoom().getTitle() + "\n");
+        w.println("Adventurer:");
+            w.println("Current room: " + getCurrentRoom().getTitle());
+
+            //if the player has items in their inventory at save time.
+            if(!isEmptyInventory()){
+                    w.print("Inventory: ");
+                    ArrayList<String> itemNames = getInventoryNames(true);
+
+                    for(int i = 0; i < itemNames.size(); i++){
+                            w.print(itemNames.get(i));
+
+                            //if the inventory has more items.
+                            if(i + 1 < itemNames.size()){
+                                    w.print(",");
+                            }
+                    }
         w.write("Damage: " + getDamage() + "\n"); 
         w.write("Score: " + getScore()); 
-        if(!inventory.isEmpty())
-        {
-            String s = ""; 
-            String r = ""; 
-            w.write("\n"); 
-            w.write("Inventory: "); 
-            for(Item item : inventory)
-            {
-                s = s + item.getPrimaryName() + ","; 
-            }
-            r = s.substring(0, s.lastIndexOf(",")); 
-            w.write(r); 
-        }
-        
+        w.write("Rank: " + getRank() + "\n"); 
     }
     
     /**
