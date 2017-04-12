@@ -3,27 +3,31 @@ save data
 Dungeon file: dungeons/trinkleG3a.zork
 Room states:
 Stephen's office:
-beenHere=true
-Contents: StarWarsToy
+beenHere=false
+Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Room B6:
-beenHere=true
-Contents: DrPepper
+beenHere=false
 ---
 Basement hallway:
-beenHere=true
+beenHere=false
+Contents: DrPepper
+---
+Room B13:
+beenHere=false
+Contents: Bomb
 ---
 Rotunda balcony:
 beenHere=true
-Contents: chainsaw,magicWand
+Contents: chainsaw
 ---
 Rotunda:
 beenHere=true
 ---
 ===
-Adventurer state:
-Current room: Basement hallway
-Inventory: donut,WawaTravelMug
-Damage: 56
-Score: 75
-Rank: amateur
+Adventurer:
+Current room: Rotunda balcony
+Inventory: magicWand
+Damage: 0
+Score: 0
+Rank: an amatuer
