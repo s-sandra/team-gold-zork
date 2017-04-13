@@ -12,7 +12,7 @@ class Interpreter {
 	public static void main(String[] args) {
 		Scanner commandLine = new Scanner(System.in);
 		CommandFactory commandFactory = CommandFactory.instance(); 
-		GameState state = GameState.instance();
+		GameState state = GameState.instance();               
 		String input;
 		Dungeon dungeon = null;
 		
