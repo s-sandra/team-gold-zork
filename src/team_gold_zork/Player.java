@@ -150,7 +150,9 @@ class Player extends Character{
      * is healed.
      */
     void addDamage(int n){
-        damage += n;
+        if(damage + n > 0){
+            damage += n;
+        }
 
         if(isDeadly(damage)){
             hasDied = true;
