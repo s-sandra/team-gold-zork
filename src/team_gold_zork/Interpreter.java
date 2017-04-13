@@ -78,14 +78,6 @@ class Interpreter {
 					input += ".sav";
 				}
 			}
-                        if(state.hasWon()){
-                            System.out.println("Congratulations, you have won the game!");
-                            break;
-                        }
-                        if(state.hasLost()){
-                            System.out.println("You have lost the game! :( ");
-                            break;
-                        }
 
 			Command order = commandFactory.parse(input);
 			
@@ -96,7 +88,16 @@ class Interpreter {
 				System.out.println(e.getMessage());
 				System.out.println(adventurer.getCurrentRoom().describeExits());
 			}
-			
+
+			if(state.hasWon()){
+				System.out.println("Congratulations, you have won the game!");
+				System.exit(22);
+			}
+			if(state.hasLost()){
+				System.out.println("You have lost the game! :( ");
+				System.exit(22);
+			}
+
 			input = promptUser(commandLine);
 			
 		}
