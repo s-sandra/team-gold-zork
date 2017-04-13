@@ -59,7 +59,6 @@ class Event {
             }
             else if (event.startsWith("Die")){
                 die();
-                message += player.getHealthWarning();
             }
             else if (event.startsWith("Teleport")){
                 message += teleport();

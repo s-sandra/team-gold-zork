@@ -19,7 +19,7 @@ class HealthCommand extends Command{
      */
     String execute(){
         Player player = state.getAdventurer();
-        String playerHealth = player.getHealthWarning();
+        String playerHealth = player.getHealthWarning(true);
         return playerHealth +"\n";
     }
 }

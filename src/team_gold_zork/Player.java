@@ -150,24 +150,28 @@ class Player extends Character{
      * is healed.
      */
     void addDamage(int n){
-        damage += Math.abs(n);
+        damage += n;
+
+        if(isDeadly(damage)){
+            hasDied = true;
+        }
     }
 
 
     /**
      * Prints out the state of the player's health, if a 
-     * threshold for damage, fatigue or hunger has been reached. 
+     * threshold for damage, fatigue or hunger has been reached.
+     * @param hasRequested if the player has requested a health message.
      * @return the warning message associated with the player's health.
      * If a threshold has not been reached, then it returns an empty string.
      */
-    String getHealthWarning(){
+    String getHealthWarning(boolean hasRequested){
         String healthWarning = "";
 
         if(hasDied){
             healthWarning += "You have died from your wounds.";
         }
-        else if(damage == 0){
-
+        else if(damage <= 0 && hasRequested){
             healthWarning += "You are fit as a fiddle!";
         }
         else if(isMinor(damage)){
@@ -179,10 +183,6 @@ class Player extends Character{
         else if(isCritical(damage)){
             healthWarning += "You are near death from your wounds.";
         }
-        else{
-            healthWarning += "You have died from your wounds.";
-            hasDied = true;
-        }
 
         return healthWarning;
     }
@@ -190,11 +190,11 @@ class Player extends Character{
 
     /**
      * This helper method determines if the given health point value
-     * has reached a critical level.
+     * has reached a deadly level
      * @param healthValue the point value of the aspect of health being assessed.
-     * @return if the given health point value is critical.
+     * @return if the given health point value is deadly.
      */
-    private boolean isCritical(int healthValue){
+    private boolean isDeadly(int healthValue){
         return healthValue > GameConfig.MAX_THRESHOLD;
     }
 
@@ -206,7 +206,7 @@ class Player extends Character{
      * @return if the given health point value is moderate.
      */
     private boolean isModerate(int healthValue){
-        return healthValue < GameConfig.MAX_THRESHOLD && healthValue >= GameConfig.MID_THRESHOLD;
+        return healthValue <= GameConfig.MID_THRESHOLD && healthValue > GameConfig.MIN_THRESHOLD;
     }
 
 
@@ -219,6 +219,17 @@ class Player extends Character{
     private boolean isMinor(int healthValue){
         return healthValue > 0 && healthValue <= GameConfig.MIN_THRESHOLD;
     }
+
+    /**
+     * This helper method determines if the given health point value
+     * has reached a near death level.
+     * @param healthValue the point value of the aspect of health being assessed.
+     * @return if the given health point value is critical.
+     */
+    private boolean isCritical(int healthValue){
+        return healthValue > GameConfig.MIN_THRESHOLD && healthValue < GameConfig.MAX_THRESHOLD;
+    }
+
 
 
     /**

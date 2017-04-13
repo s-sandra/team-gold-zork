@@ -43,6 +43,8 @@ class ItemSpecificCommand extends Command{
            message += "\n" + result.execute();
        }
 
+       message += state.getAdventurer().getHealthWarning(false);
+
        if(message.endsWith("\n")){
            return message;
        }
