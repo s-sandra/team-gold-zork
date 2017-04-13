@@ -78,6 +78,14 @@ class Interpreter {
 					input += ".sav";
 				}
 			}
+                        if(state.hasWon()){
+                            System.out.println("Congratulations, you have won the game!");
+                            break;
+                        }
+                        if(state.hasLost()){
+                            System.out.println("You have lost the game! :( ");
+                            break;
+                        }
 
 			Command order = commandFactory.parse(input);
 			
