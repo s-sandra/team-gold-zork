@@ -7,7 +7,7 @@ beenHere=false
 Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Room B6:
-beenHere=true
+beenHere=false
 ---
 Basement hallway:
 beenHere=true
@@ -24,7 +24,7 @@ Rotunda:
 beenHere=true
 ---
 ===
-Adventurer:
+Adventurer state:
 Current room: Basement hallway
 Damage: 0
 Score: 5

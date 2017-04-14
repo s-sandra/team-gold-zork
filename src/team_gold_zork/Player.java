@@ -34,7 +34,7 @@ class Player extends Character{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-        w.println("Adventurer:");
+        w.println("Adventurer state:");
             w.println("Current room: " + getCurrentRoom().getTitle());
 
             //if the player has items in their inventory at save time.
@@ -94,7 +94,6 @@ class Player extends Character{
         }
 
         //if the "Damage:" title is not found.
-        line = s.nextLine();
         if(!line.startsWith("Damage:")){
             throw new IllegalSaveFormatException();
         }
