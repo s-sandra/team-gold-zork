@@ -254,13 +254,20 @@ class Player extends Character{
     }
     
     void setRank(){
-        if(score <= GameConfig.MIN_THRESHOLD){
-            this.rank = "an amatuer";
-        } else if (score > GameConfig.MIN_THRESHOLD
-                && score <= GameConfig.MID_THRESHOLD){
-            this.rank = "an intermediate";
-        } else if (score > GameConfig.MAX_THRESHOLD){
-            this.rank = "an expert";
+        int midRankMinScore = GameConfig.RANK[1].getLowerRange();
+        int highRankMinScore = GameConfig.RANK[2].getLowerRange();
+
+        String amatuerRank = GameConfig.RANK[0].getTitle();
+        String intermediateRank = GameConfig.RANK[1].getTitle();
+        String expertRank = GameConfig.RANK[2].getTitle();
+
+        if(score < midRankMinScore){
+            this.rank = amatuerRank;
+        } else if (score >= midRankMinScore
+                && score < highRankMinScore){
+            this.rank = intermediateRank;
+        } else if (score >= highRankMinScore){
+            this.rank = expertRank;
         }
     }
     

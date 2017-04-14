@@ -15,7 +15,7 @@ class GameConfig {
     static final int MAX_THRESHOLD = 15;
 
     //List of ranks for the player.
-    static final Rank[] RANK = {new Rank(5, "an amatuer"), new Rank(10, "an intermediate"),
+    static final Rank[] RANK = {new Rank(0, "an amatuer"), new Rank(6, "an intermediate"),
                                 new Rank(11, "an expert")};
 }
 
@@ -23,19 +23,20 @@ class GameConfig {
  * This class stores attributes related to a player's rank.
  */
 class Rank {
-    private int upperRange; //the last point value of the rank.
+    private int lowerRange; //the first point value of the rank.
     private String title; //the name of the rank.
 
-    Rank(int upperRange, String title) {
-        this.upperRange = upperRange;
+    Rank(int lowerRange, String title) {
+        this.lowerRange = lowerRange;
         this.title = title;
+
     }
 
     String getTitle() {
         return title;
     }
 
-    int getUpperRange() {
-        return upperRange;
+    int getLowerRange() {
+        return lowerRange;
     }
 }
