@@ -250,6 +250,18 @@ class Player extends Character{
      */
     void addScore(int n){
         score += n;
+        setRank();
+    }
+    
+    void setRank(){
+        if(score <= GameConfig.MIN_THRESHOLD){
+            this.rank = "an amatuer";
+        } else if (score > GameConfig.MIN_THRESHOLD
+                && score <= GameConfig.MID_THRESHOLD){
+            this.rank = "an intermediate";
+        } else if (score > GameConfig.MAX_THRESHOLD){
+            this.rank = "an expert";
+        }
     }
     
     /**
