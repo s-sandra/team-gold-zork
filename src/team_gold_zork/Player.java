@@ -91,6 +91,7 @@ class Player extends Character{
                     throw new IllegalSaveFormatException(e.getMessage());
                 }
             }
+            line = s.nextLine();
         }
 
         //if the "Damage:" title is not found.
