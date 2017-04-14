@@ -144,8 +144,13 @@ class Event {
      * @throws NoItemException if the transformed item is not found in the dungeon.
      */
     private void transform(String newItemName) throws NoItemException{
-        disappear();
         Item transformedItem = player.getCurrentDungeon().getItem(newItemName);
+        try{
+            player.getItemFromInventoryNamed(item.getPrimaryName());
+            player.addToInventory(transformedItem);
+        }
+        catch(NoItemException e){}
+        disappear();
         player.getCurrentRoom().add(transformedItem);
     }
 

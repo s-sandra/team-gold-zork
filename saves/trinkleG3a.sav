@@ -7,27 +7,25 @@ beenHere=false
 Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Room B6:
-beenHere=false
+beenHere=true
 ---
 Basement hallway:
-beenHere=false
-Contents: DrPepper
+beenHere=true
 ---
 Room B13:
 beenHere=false
 Contents: Bomb
 ---
 Rotunda balcony:
-beenHere=true
-Contents: chainsaw
+beenHere=false
+Contents: chainsaw,magicWand
 ---
 Rotunda:
 beenHere=true
 ---
 ===
 Adventurer:
-Current room: Rotunda balcony
-Inventory: magicWand
+Current room: Basement hallway
 Damage: 0
-Score: 0
+Score: 5
 Rank: an amatuer
