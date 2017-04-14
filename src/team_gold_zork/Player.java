@@ -163,17 +163,16 @@ class Player extends Character{
     /**
      * Prints out the state of the player's health, if a 
      * threshold for damage, fatigue or hunger has been reached.
-     * @param hasRequested if the player has requested a health message.
      * @return the warning message associated with the player's health.
      * If a threshold has not been reached, then it returns an empty string.
      */
-    String getHealthWarning(boolean hasRequested){
+    String getHealthWarning(){
         String healthWarning = "";
 
         if(hasDied){
             healthWarning += "You have died from your wounds.";
         }
-        else if(damage <= 0 && hasRequested){
+        else if(damage <= 0){
             healthWarning += "You are fit as a fiddle!";
         }
         else if(isMinor(damage)){

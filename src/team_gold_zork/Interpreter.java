@@ -91,12 +91,13 @@ class Interpreter {
 
 			if(state.hasWon()){
 				System.out.println("Congratulations, you have won the game!");
-				System.out.println("You ended the game with "+adventurer.getScore()+" points.");
+				//System.out.println("Total points: "+adventurer.getScore()+" points.");
 				System.exit(22);
 			}
 			if(state.hasLost()){
+				System.out.println(adventurer.getHealthWarning());
 				System.out.println("You have lost the game! :( ");
-				System.out.println("You ended the game with "+adventurer.getScore()+" points.");
+				//System.out.println("Total points: "+adventurer.getScore()+" points.");
 				System.exit(22);
 			}
 
