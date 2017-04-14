@@ -38,7 +38,7 @@ class ItemSpecificCommand extends Command{
        }
 
        String events = item.getEventForVerb(verb);
-       if(!events.isEmpty()){
+       if(events != null){
            Event result = new Event(events, item);
            message += "\n" + result.execute();
        }
