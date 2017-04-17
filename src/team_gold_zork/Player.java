@@ -24,6 +24,8 @@ class Player extends Character{
         rank = GameConfig.RANK[0].getTitle();
         score = 0;
         damage = 0;
+        fatigue = 0;
+        hunger = 0;
         hasWon = false;
         hasDied = false;
         name = "adventurer";
@@ -52,9 +54,11 @@ class Player extends Character{
                     }
                     w.write("\n");
             }
-        w.write("Damage: " + getDamage() + "\n"); 
-        w.write("Score: " + getScore() + "\n"); 
-        w.write("Rank: " + getRank() + "\n"); 
+        w.write("Damage: " + damage + "\n");
+        w.write("Hunger: " + hunger + "\n");
+        w.write("Fatigue: " + fatigue + "\n");
+        w.write("Score: " + score + "\n");
+        w.write("Rank: " + rank + "\n");
     }
     
     /**
@@ -96,6 +100,22 @@ class Player extends Character{
 
         //if the "Damage:" title is not found.
         if(!line.startsWith("Damage:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        damage = Integer.parseInt(line);
+
+        //if the "Hunger:" title is not found.
+        if(!line.startsWith("Hunger:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        damage = Integer.parseInt(line);
+
+        //if the "Fatigue:" title is not found.
+        if(!line.startsWith("Fatigue:")){
             throw new IllegalSaveFormatException();
         }
 
