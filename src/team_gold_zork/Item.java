@@ -170,4 +170,12 @@ public class Item {
         Dungeon dungeon = player.getCurrentDungeon();
         dungeon.remove(this);
     }
+
+    /**
+     * Returns the weight of this item.
+     * @return how much this item weighs.
+     */
+    public int getWeight(){
+        return weight;
+    }
 }

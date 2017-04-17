@@ -334,5 +334,20 @@ class Player extends Character{
      */
     void sleep(){
     }
+
+
+    /**
+     * Gets the total weight of all the items in the player's inventory.
+     * @return the weight of all the items in the player's inventory.
+     */
+    int getInventoryWeight(){
+        int inventoryWeight = 0;
+
+        for(Item item: inventory){
+            inventoryWeight += item.getWeight();
+        }
+
+        return inventoryWeight;
+    }
         
 }
