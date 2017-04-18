@@ -37,6 +37,7 @@ class TakeCommand extends Command{
         Item takenItem = adventurer.getItemInVicinityNamed(itemName);
         adventurer.addToInventory(takenItem);
         adventurer.getCurrentRoom().remove(takenItem);
+        state.getAdventurer().passTime();
         return "Taken.\n";
     }
 }

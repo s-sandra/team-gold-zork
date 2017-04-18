@@ -23,6 +23,7 @@ class UnlockCommand extends Command {
      * @return The result of the unlock command. 
      */
     String execute(){
+        state.getAdventurer().passTime();
         return "";
     }
 }

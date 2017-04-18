@@ -34,6 +34,7 @@ class MovementCommand extends Command{
 			return "You can't go " + dir + ".\n";
 		}
 
+        state.getAdventurer().passTime();
 		return adventurer.getCurrentRoom().describe();
     }
 }

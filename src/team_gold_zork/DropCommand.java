@@ -32,6 +32,7 @@ class DropCommand extends Command{
             return "You don't have a " + itemName + ".\n";
         }
 
+        state.getAdventurer().passTime();
         return "Dropped.\n";
     }
 }

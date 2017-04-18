@@ -313,6 +313,7 @@ class Player extends Character{
         return healthValue > 0 && healthValue <= GameConfig.MIN_THRESHOLD;
     }
 
+
     /**
      * This helper method determines if the given health point value
      * has reached a near death level.
@@ -429,6 +430,16 @@ class Player extends Character{
         }
 
         return sleepMessage + " As a result of your nap:\n " + getHealthWarning();
+    }
+
+
+    /**
+     * Recalculates fatigue and hunger to reflect the passage of time,
+     * measured by the execution of a valid command.
+     */
+    void passTime(){
+        fatigue += 1 + getInventoryWeight();
+        hunger++;
     }
 
 
