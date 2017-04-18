@@ -13,7 +13,7 @@ public class VerboseCommand extends Command{
     /**
      * Creates a VerboseCommand.
      */
-    VerboseCommand(){
+    VerboseCommand(boolean state){
     }
     
     
