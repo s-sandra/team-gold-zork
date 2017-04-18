@@ -52,7 +52,13 @@ class CommandFactory {
                 }
                 if(command.equals("sleep")){
                 	return new SleepCommand();
-				}
+                }
+                if(command.equals("verbose on")){
+                    return new VerboseCommand(true);
+                }
+                if(command.equals("verbose off")){
+                    return new VerboseCommand(false);
+                }
 
 		String verb = "";
 		String noun = "";
