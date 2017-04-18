@@ -59,6 +59,9 @@ class CommandFactory {
                 if(command.equals("verbose off")){
                     return new VerboseCommand(false);
                 }
+                if(command.startsWith("verbose")){
+                	return new UnknownCommand(commandString);
+				}
 
 		String verb = "";
 		String noun = "";

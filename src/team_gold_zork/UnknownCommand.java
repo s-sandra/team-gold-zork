@@ -23,6 +23,9 @@ class UnknownCommand extends Command {
      * @return the error message.
      */
     String execute() {
+        if(bogusCommand.startsWith("verbose")){
+            return "Do you want to turn verbose on or off?\n";
+        }
         return capitalize(bogusCommand).trim() + " what?\n";
     }
 
