@@ -179,7 +179,7 @@ class Player extends Character{
         }
 
         if(isDeadly(fatigue)){
-            hasDied = true;
+            sleep();
         }
     }
 
@@ -216,7 +216,14 @@ class Player extends Character{
         String healthWarning = "";
 
         if(hasDied){
-            healthWarning += "You have died from your wounds.";
+            healthWarning += "You have died from";
+            if(damage >= 0){
+                healthWarning += " your wounds.";
+            }
+            else if(hunger >= 0){
+                healthWarning += " hunger.";
+            }
+            return healthWarning;
         }
         else if(damage <= 0){
             healthWarning += "You are fit as a fiddle!";
@@ -229,6 +236,32 @@ class Player extends Character{
         }
         else if(isCritical(damage)){
             healthWarning += "You are near death from your wounds.";
+        }
+
+        if(fatigue <= 0){
+            healthWarning += "You have plenty of energy.";
+        }
+        else if(isMinor(fatigue)){
+            healthWarning += "You are slightly tired.";
+        }
+        else if(isModerate(fatigue)){
+            healthWarning += "Your eyes droop from your fatigue.";
+        }
+        else if(isCritical(fatigue)){
+            healthWarning += "You are getting dangerously exhausted.";
+        }
+
+        if(hunger <= 0){
+            healthWarning += "You are full.";
+        }
+        else if(isMinor(hunger)){
+            healthWarning += "You feel a bit peckish.";
+        }
+        else if(isModerate(hunger)){
+            healthWarning += "Your stomach growls ferociously.";
+        }
+        else if(isCritical(hunger)){
+            healthWarning += "You feel light-headed from starvation.";
         }
 
         return healthWarning;
