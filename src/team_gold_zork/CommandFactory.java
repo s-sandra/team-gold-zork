@@ -50,6 +50,9 @@ class CommandFactory {
                 if(command.equals("health")){
                     return new HealthCommand();
                 }
+                if(command.equals("sleep")){
+                	return new SleepCommand();
+				}
 
 		String verb = "";
 		String noun = "";
