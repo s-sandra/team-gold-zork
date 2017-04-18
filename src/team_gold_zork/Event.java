@@ -75,8 +75,26 @@ class Event {
             else if(event.startsWith("Wound")){
                 String line = event.substring(event.indexOf("(")+1);
                 line = line.substring(0,line.indexOf(")"));
-                int damage = Integer.parseInt(line);
-                wound(damage);
+                int value = Integer.parseInt(line);
+
+                try{
+                    wound(value);
+                }
+                catch(HealthStateException e){
+                    message += e.getMessage();
+                }
+            }
+            else if(event.startsWith("Hunger")){
+                String line = event.substring(event.indexOf("(")+1);
+                line = line.substring(0,line.indexOf(")"));
+                int value = Integer.parseInt(line);
+
+                try{
+                    hunger(value);
+                }
+                catch(HealthStateException e){
+                    message += e.getMessage();
+                }
             }
             else if(event.startsWith("Transform")){
                 String transformedItemName = event.substring(event.indexOf("(")+1);
@@ -104,14 +122,29 @@ class Event {
     private void score(int pointValue){
         player.addScore(pointValue);
     }
+
+
     /**
      * This method modifies the player's damage depending on the given point value.
      * @param pointValue the amount of points to add to the player's damage.
+     * @throws HealthStateException if pointValue is negative and the player is already healed.
      */
-    private void wound(int pointValue){
+    private void wound(int pointValue) throws HealthStateException{
         Player player = state.getAdventurer();
         player.addDamage(pointValue);
     }
+
+    /**
+     * This method modifies the player's hunger depending on the given point value.
+     * @param pointValue the amount of points to add to the player's hunger.
+     * @throws HealthStateException if pointValue is negative and the player is not hungry.
+     */
+    private void hunger(int pointValue) throws HealthStateException{
+        Player player = state.getAdventurer();
+        player.addHunger(pointValue);
+    }
+
+
     /**
      * This method increases the player's damage to the maximum threshold, thus
      * killing the player.

@@ -12,7 +12,7 @@ DrPepper
 10
 kick:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
-drink[Transform(emptyCan),Wound(-1)]:Gulp, gulp -- that was GOOD!
+drink[Transform(emptyCan),Hunger(-1)]:Gulp, gulp -- that was GOOD!
 ---
 emptyCan
 2
@@ -45,7 +45,7 @@ refill[Win]:You refill the mug with everlasting light roast coffee, and live hap
 ---
 donut
 7
-eat[Disappear,Wound(-2)]:You feel mildly guilt-ridden.
+eat[Disappear,Hunger(-2)]:You feel mildly guilt-ridden.
 stomp:The donut is now smooshed.
 ---
 ===
