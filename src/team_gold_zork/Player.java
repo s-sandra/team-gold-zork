@@ -453,7 +453,7 @@ class Player extends Character{
             sleepMessage += "You curl up into a deep slumber.";
         }
 
-        return sleepMessage + " As a result of your nap:\n " + getHealthWarning();
+        return sleepMessage + " After your nap, you find:\n" + getHealthWarning();
     }
 
 
