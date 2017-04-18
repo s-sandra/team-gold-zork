@@ -147,4 +147,7 @@ class GameState {
     boolean hasLost(){
         return adventurer.hasDied();
     }
+    void setVerbose(){
+        
+    }
 }
