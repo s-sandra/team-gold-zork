@@ -18,6 +18,6 @@ class SleepCommand extends Command{
      * @return The result of the sleep command. 
      */
     String execute(){
-        return "";
+        return state.getAdventurer().sleep();
     }
 }

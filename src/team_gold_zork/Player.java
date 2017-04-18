@@ -390,8 +390,10 @@ class Player extends Character{
     /**
      * Changes the player's fatigue, damage and hunger to reflect the
      * health consequences of a player going to sleep.
+     * @return a message detailing the result of the sleep command.
      */
-    void sleep(){
+    String sleep(){
+        return "";
     }
 
 
