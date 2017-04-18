@@ -147,9 +147,19 @@ class Player extends Character{
      * Modifies the player's hunger.
      * @param n The number to add to the player's hunger. This number 
      * is negative if the hunger should diminish.
+     * @throws HealthStateException if the player is not hungry.
      */
-    void addHunger(int n){
-        hunger += n;
+    void addHunger(int n) throws HealthStateException{
+        if(hunger + n > 0){
+            hunger += n;
+        }
+        else{
+            //if adding hunger makes hunger negative.
+            throw new HealthStateException("You are not hungry.");
+        }
+        if(isDeadly(hunger)){
+            hasDied = true;
+        }
     }
 
 
@@ -157,9 +167,20 @@ class Player extends Character{
      * Modifies the player's fatigue.
      * @param n The number to add to the player's fatigue. This number 
      * is negative if the fatigue should diminish.
+     * @throws HealthStateException if the player is not tired.
      */
-    void addFatigue(int n){
-        fatigue += n;
+    void addFatigue(int n) throws HealthStateException{
+        if(fatigue + n > 0){
+            fatigue += n;
+        }
+        else{
+            //if adding fatigue makes fatigue negative.
+            throw new HealthStateException("You are not tired.");
+        }
+
+        if(isDeadly(fatigue)){
+            hasDied = true;
+        }
     }
 
 
@@ -168,12 +189,17 @@ class Player extends Character{
      * @param n The number to add to the player's damage. This number 
      * is negative if the player is wounded and positive if the player
      * is healed.
+     * @throws HealthStateException if the player does not need healing.
      */
-    void addDamage(int n){
+    void addDamage(int n) throws HealthStateException{
         if(damage + n > 0){
             damage += n;
         }
 
+        else{
+            //if adding damage makes damage negative.
+            throw new HealthStateException("You do not need healing.");
+        }
         if(isDeadly(damage)){
             hasDied = true;
         }
