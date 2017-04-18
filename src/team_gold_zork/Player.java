@@ -239,7 +239,7 @@ class Player extends Character{
             return healthWarning;
         }
         else if(damage <= 0){
-            healthWarning += "You are fit as a fiddle!";
+            healthWarning += "You have no wounds.";
         }
         else if(isMinor(damage)){
             healthWarning += "You have minor wounds.";
@@ -252,28 +252,52 @@ class Player extends Character{
         }
 
         if(fatigue <= 0){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You have plenty of energy.";
         }
         else if(isMinor(fatigue)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You are slightly tired.";
         }
         else if(isModerate(fatigue)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "Your eyes droop from your fatigue.";
         }
         else if(isCritical(fatigue)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You are getting dangerously exhausted.";
         }
 
         if(hunger <= 0){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You are full.";
         }
         else if(isMinor(hunger)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You feel a bit peckish.";
         }
         else if(isModerate(hunger)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "Your stomach growls ferociously.";
         }
         else if(isCritical(hunger)){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += "You feel light-headed from starvation.";
         }
 
