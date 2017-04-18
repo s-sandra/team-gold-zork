@@ -16,6 +16,7 @@ class Player extends Character{
     private String rank;
     private boolean hasWon;
     private boolean hasDied;
+    private boolean hasFainted;
  
     /**
      * Creates a new player from scratch.
@@ -28,6 +29,7 @@ class Player extends Character{
         hunger = 0;
         hasWon = false;
         hasDied = false;
+        hasFainted = false;
         name = "adventurer";
     }
     
@@ -150,13 +152,17 @@ class Player extends Character{
      * @throws HealthStateException if the player is not hungry.
      */
     void addHunger(int n) throws HealthStateException{
-        if(hunger + n > 0){
-            hunger += n;
-        }
-        else{
-            //if adding hunger makes hunger negative.
+        if(hunger == 0){
             throw new HealthStateException("You are not hungry.");
         }
+
+        hunger += n;
+
+        //if adding hunger makes hunger negative, sets hunger to zero.
+        if(hunger < 0){
+            hunger = 0;
+        }
+
         if(isDeadly(hunger)){
             hasDied = true;
         }
@@ -170,15 +176,19 @@ class Player extends Character{
      * @throws HealthStateException if the player is not tired.
      */
     void addFatigue(int n) throws HealthStateException{
-        if(fatigue + n > 0){
-            fatigue += n;
+        if(fatigue == 0){
+            throw new HealthStateException("You are not tired right now.");
         }
-        else{
-            //if adding fatigue makes fatigue negative.
-            throw new HealthStateException("You are not tired.");
+
+        fatigue += n;
+
+        //if adding fatigue makes it negative, sets fatigue to zero.
+        if(fatigue < 0){
+            fatigue = 0;
         }
 
         if(isDeadly(fatigue)){
+            hasFainted = true;
             sleep();
         }
     }
@@ -192,14 +202,17 @@ class Player extends Character{
      * @throws HealthStateException if the player does not need healing.
      */
     void addDamage(int n) throws HealthStateException{
-        if(damage + n > 0){
-            damage += n;
-        }
-
-        else{
-            //if adding damage makes damage negative.
+        if(damage == 0){
             throw new HealthStateException("You do not need healing.");
         }
+
+        damage += n;
+
+        //if adding damage made it negative, sets damage to zero.
+        if(damage < 0){
+            damage = 0;
+        }
+
         if(isDeadly(damage)){
             hasDied = true;
         }
@@ -393,7 +406,29 @@ class Player extends Character{
      * @return a message detailing the result of the sleep command.
      */
     String sleep(){
-        return "";
+        String sleepMessage = "";
+
+        if(fatigue == 0){
+            return "You aren't tired.";
+        }
+
+        try{
+            addHunger(fatigue);
+        }
+        catch(HealthStateException e){}
+
+        fatigue = 0;
+        damage = 0;
+
+        if(hasFainted){
+            hasFainted = false;
+            sleepMessage += "You have collapsed from utter exhaustion. Sweet sleep sooths your fatigue.";
+        }
+        else{
+            sleepMessage += "You curl up into a deep slumber.";
+        }
+
+        return sleepMessage + " As a result of your nap:\n " + getHealthWarning();
     }
 
 
