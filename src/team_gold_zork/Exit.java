@@ -81,7 +81,7 @@ public class Exit {
             return currentRoom;
     }
     
-    public boolean getLock(){
+    public boolean isLocked(){
         return isLocked; 
     }
 

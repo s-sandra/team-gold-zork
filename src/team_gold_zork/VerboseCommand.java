@@ -33,6 +33,6 @@ public class VerboseCommand extends Command{
          return playersCurrentRoom.describe();
       }
 
-        return "verbose turned off";
+        return "Turned off.";
     }
 }

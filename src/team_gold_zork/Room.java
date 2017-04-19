@@ -294,23 +294,21 @@ public class Room {
                     w.println();
             }
             
-          //  saveUnlockedExits(w);
+          storeLockedExits(w);
             
             w.println("---");
     }
     
-    void saveUnlockedExits(PrintWriter w)
+    void storeLockedExits(PrintWriter w)
        {
           String directions = ""; 
             for(Exit exit : this.exits){
-                if (!exit.getLock()){
-                    directions = directions + exit.getDir() + ","; 
-                    
+                if (exit.isLocked()){
+                    directions = directions + exit.getDir() + ",";
                 }
                 
             }
-            w.write("UnlockedExits: ");
-            w.write(directions.substring(0, directions.lastIndexOf(","))  + "\n"); 
+            w.println("Locked exits: " + directions);
             
        }
 
