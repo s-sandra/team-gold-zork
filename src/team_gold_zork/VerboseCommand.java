@@ -9,11 +9,16 @@ package team_gold_zork;
  * Deals with the command to change the game to verbose mode.
  * @author Lauren
  */
+ 
 public class VerboseCommand extends Command{
+    private boolean isVerbose;
     /**
      * Creates a VerboseCommand.
+     * 
      */
-    VerboseCommand(boolean state){
+    
+    VerboseCommand(boolean isVerbose){
+     this.isVerbose = isVerbose;
     }
     
     
@@ -22,7 +27,12 @@ public class VerboseCommand extends Command{
      * @return The result of the verboseCommand 
      */
     String execute(){
-        Room playersCurrentRoom = state.getAdventurer().getCurrentRoom();
-        return "";
+      state.setVerbose(isVerbose);
+      if(isVerbose == true){
+         Room playersCurrentRoom = state.getAdventurer().getCurrentRoom();
+         return playersCurrentRoom.describe();
+      }
+
+        return "verbose turned off";
     }
 }
