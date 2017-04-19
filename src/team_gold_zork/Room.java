@@ -166,6 +166,14 @@ public class Room {
 
 
     /**
+     * Returns whether the player has been in this room before.
+     * @return whether the player has been here.
+     */
+    boolean hasBeenThere(){
+        return beenHere;
+    }
+
+    /**
      * This method returns the description of a Room.
      * @return desc	the description of the Room object.
      */
