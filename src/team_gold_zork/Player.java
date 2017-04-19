@@ -333,6 +333,34 @@ class Player extends Character{
 
 
     /**
+     * This method warns the player that they have reached a threshold for
+     * health, hunger or fatigue, if applicable.
+     * @return the warning associated with an aspect of the player's health.
+     */
+    String checkHealth(){
+        String healthWarning = "";
+        int midLevel = GameConfig.MID_THRESHOLD;
+        int maxLevel = GameConfig.MAX_THRESHOLD;
+
+        if(fatigue == midLevel || fatigue >= maxLevel - 25){
+            healthWarning += getFatigueWarning();
+        }
+        if(hunger == midLevel || hunger >= maxLevel - 25){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
+            healthWarning += getHungerWarning();
+        }
+        if(damage == midLevel || damage >= maxLevel - 25){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
+            healthWarning += getDamageWarning();
+        }
+        return healthWarning;
+    }
+
+    /**
      * This helper method determines if the given health point value
      * has reached a deadly level
      * @param healthValue the point value of the aspect of health being assessed.
@@ -490,7 +518,7 @@ class Player extends Character{
      */
     void passTime(){
         try{
-            addFatigue(1 + getInventoryWeight());
+            addFatigue(1 + getInventoryWeight() / 5);
         }
         catch(HealthStateException e){};
         hunger++;

@@ -33,6 +33,12 @@ class DropCommand extends Command{
         }
 
         state.getAdventurer().passTime();
-        return "Dropped.\n";
+        String healthWarning = state.getAdventurer().checkHealth();
+
+        if(!healthWarning.isEmpty()){
+            healthWarning += "\n";
+        }
+
+        return "Dropped.\n" + healthWarning;
     }
 }
