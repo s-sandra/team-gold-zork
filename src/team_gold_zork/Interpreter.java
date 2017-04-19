@@ -95,7 +95,6 @@ class Interpreter {
 				System.exit(22);
 			}
 			if(state.hasLost()){
-				System.out.println(adventurer.getHealthWarning());
 				System.out.println("You have lost the game! :( ");
 				//System.out.println("Total points: "+adventurer.getScore()+" points.");
 				System.exit(22);

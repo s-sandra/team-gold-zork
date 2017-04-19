@@ -107,6 +107,7 @@ class Player extends Character{
 
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
         damage = Integer.parseInt(line);
+        line = s.nextLine();
 
         //if the "Hunger:" title is not found.
         if(!line.startsWith("Hunger:")){
@@ -114,7 +115,8 @@ class Player extends Character{
         }
 
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        damage = Integer.parseInt(line);
+        hunger = Integer.parseInt(line);
+        line = s.nextLine();
 
         //if the "Fatigue:" title is not found.
         if(!line.startsWith("Fatigue:")){
@@ -122,8 +124,7 @@ class Player extends Character{
         }
 
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        damage = Integer.parseInt(line);
-
+        fatigue = Integer.parseInt(line);
 
         //if the "Score:" title is not found.
         line = s.nextLine();
@@ -202,7 +203,7 @@ class Player extends Character{
      * @throws HealthStateException if the player does not need healing.
      */
     void addDamage(int n) throws HealthStateException{
-        if(damage == 0){
+        if(n < 0 && damage == 0){
             throw new HealthStateException("You do not need healing.");
         }
 
@@ -277,16 +278,16 @@ class Player extends Character{
         String fatigueWarning = "";
 
         if(fatigue <= 0){
-            fatigueWarning += "You are full.";
+            fatigueWarning += "You feel energetic.";
         }
         else if(isMinor(fatigue)){
-            fatigueWarning += "You feel a bit peckish.";
+            fatigueWarning += "You are slightly tired.";
         }
         else if(isModerate(fatigue)){
-            fatigueWarning += "Your stomach growls ferociously.";
+            fatigueWarning += "Your eyes droop from fatigue.";
         }
         else if(isCritical(fatigue)){
-            fatigueWarning += "You feel light-headed from starvation.";
+            fatigueWarning += "You are getting dangerously exhausted.";
         }
 
         return fatigueWarning;
