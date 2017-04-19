@@ -220,10 +220,83 @@ class Player extends Character{
 
 
     /**
-     * Prints out the state of the player's health, if a 
-     * threshold for damage, fatigue or hunger has been reached.
+     * Prints out the state of the player's damage, based on the
+     * minor, moderate or critical thresholds.
+     * @return the warning message associated with the player's damage.
+     */
+    String getDamageWarning() {
+        String damageWarning = "";
+
+        if(damage <= 0){
+            damageWarning += "You have no wounds.";
+        }
+        else if(isMinor(damage)){
+            damageWarning += "You have minor wounds.";
+        }
+        else if(isModerate(damage)){
+            damageWarning += "You have moderate wounds.";
+        }
+        else if(isCritical(damage)){
+            damageWarning += "You are near death from your wounds.";
+        }
+        return damageWarning;
+    }
+
+
+    /**
+     * Prints out the state of the player's hunger, based on the
+     * minor, moderate or critical thresholds.
+     * @return the warning message associated with the player's hunger.
+     */
+    String getHungerWarning() {
+        String hungerWarning = "";
+
+        if(hunger <= 0){
+            hungerWarning += "You are full.";
+        }
+        else if(isMinor(hunger)){
+            hungerWarning += "You feel a bit peckish.";
+        }
+        else if(isModerate(hunger)){
+            hungerWarning += "Your stomach growls ferociously.";
+        }
+        else if(isCritical(hunger)){
+            hungerWarning += "You feel light-headed from starvation.";
+        }
+
+        return hungerWarning;
+    }
+
+
+    /**
+     * Prints out the state of the player's fatigue, based on the
+     * minor, moderate or critical thresholds.
+     * @return the warning message associated with the player's fatigue.
+     */
+    String getFatigueWarning() {
+        String fatigueWarning = "";
+
+        if(fatigue <= 0){
+            fatigueWarning += "You are full.";
+        }
+        else if(isMinor(fatigue)){
+            fatigueWarning += "You feel a bit peckish.";
+        }
+        else if(isModerate(fatigue)){
+            fatigueWarning += "Your stomach growls ferociously.";
+        }
+        else if(isCritical(fatigue)){
+            fatigueWarning += "You feel light-headed from starvation.";
+        }
+
+        return fatigueWarning;
+    }
+
+
+    /**
+     * Prints out the state of the player's total health, based on the
+     * threshold for damage, fatigue or hunger.
      * @return the warning message associated with the player's health.
-     * If a threshold has not been reached, then it returns an empty string.
      */
     String getHealthWarning(){
         String healthWarning = "";
@@ -238,68 +311,21 @@ class Player extends Character{
             }
             return healthWarning;
         }
-        else if(damage <= 0){
-            healthWarning += "You have no wounds.";
-        }
-        else if(isMinor(damage)){
-            healthWarning += "You have minor wounds.";
-        }
-        else if(isModerate(damage)){
-            healthWarning += "You have moderate wounds.";
-        }
-        else if(isCritical(damage)){
-            healthWarning += "You are near death from your wounds.";
+
+        healthWarning += getDamageWarning();
+
+        if(healthWarning.endsWith(".")){
+            healthWarning += " ";
         }
 
-        if(fatigue <= 0){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You have plenty of energy.";
-        }
-        else if(isMinor(fatigue)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You are slightly tired.";
-        }
-        else if(isModerate(fatigue)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "Your eyes droop from your fatigue.";
-        }
-        else if(isCritical(fatigue)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You are getting dangerously exhausted.";
+        healthWarning += getHungerWarning();
+
+        if(healthWarning.endsWith(".")){
+            healthWarning += " ";
         }
 
-        if(hunger <= 0){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You are full.";
-        }
-        else if(isMinor(hunger)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You feel a bit peckish.";
-        }
-        else if(isModerate(hunger)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "Your stomach growls ferociously.";
-        }
-        else if(isCritical(hunger)){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += "You feel light-headed from starvation.";
-        }
+        healthWarning += getFatigueWarning();
+
 
         return healthWarning;
     }
