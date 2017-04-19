@@ -79,6 +79,7 @@ class Event {
 
                 try{
                     wound(value);
+                    message += player.getDamageWarning() + "\n";
                 }
                 catch(HealthStateException e){
                     message += e.getMessage();
@@ -91,6 +92,7 @@ class Event {
 
                 try{
                     hunger(value);
+                    message += "After your snack, " + player.getHungerWarning().toLowerCase() + "\n";
                 }
                 catch(HealthStateException e){
                     message += e.getMessage();
