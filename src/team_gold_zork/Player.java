@@ -342,16 +342,16 @@ class Player extends Character{
         int midLevel = GameConfig.MID_THRESHOLD;
         int maxLevel = GameConfig.MAX_THRESHOLD;
 
-        if(fatigue == midLevel || fatigue >= maxLevel - 25){
+        if(fatigue == midLevel || fatigue > maxLevel - 25){
             healthWarning += getFatigueWarning();
         }
-        if(hunger == midLevel || hunger >= maxLevel - 25){
+        if(hunger == midLevel || hunger > maxLevel - 25){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
             healthWarning += getHungerWarning();
         }
-        if(damage == midLevel || damage >= maxLevel - 25){
+        if(damage == midLevel || damage > maxLevel - 25){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
@@ -518,7 +518,7 @@ class Player extends Character{
      */
     void passTime(){
         try{
-            addFatigue(1 + getInventoryWeight() / 5);
+            addFatigue(1 + getInventoryWeight() / 20);
         }
         catch(HealthStateException e){};
         hunger++;
