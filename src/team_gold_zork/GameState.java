@@ -16,6 +16,7 @@ import java.util.ArrayList;
 class GameState {
     private static GameState theInstance; //stores the single instance of GameState.
     private Player adventurer; //stores the single instance of Player.
+    private boolean isVerbose = false;
 
     /**
      * Constructs a GameState instance and a new Player.
@@ -147,7 +148,10 @@ class GameState {
     boolean hasLost(){
         return adventurer.hasDied();
     }
-    void setVerbose(){
-        
+    void setVerbose(boolean isVerbose){
+        this.isVerbose = isVerbose;
+    }
+    boolean getVerbose(){
+        return isVerbose;
     }
 }
