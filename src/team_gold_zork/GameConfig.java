@@ -10,9 +10,9 @@ class GameConfig {
     static final String VERSION = "Group Bork v1.0";
     
     //Thresholds for player's health.
-    static final int MIN_THRESHOLD = 5;
-    static final int MID_THRESHOLD = 10;
-    static final int MAX_THRESHOLD = 15;
+    static final int MIN_THRESHOLD = 50;
+    static final int MID_THRESHOLD = 100;
+    static final int MAX_THRESHOLD = 150;
 
     //List of ranks for the player.
     static final Rank[] RANK = {new Rank(0, "an amatuer"), new Rank(6, "an intermediate"),
