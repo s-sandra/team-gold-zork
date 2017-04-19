@@ -153,7 +153,7 @@ class Player extends Character{
      * @throws HealthStateException if the player is not hungry.
      */
     void addHunger(int n) throws HealthStateException{
-        if(hunger == 0){
+        if(n < 0 && hunger == 0){
             throw new HealthStateException("You are not hungry.");
         }
 
@@ -177,7 +177,7 @@ class Player extends Character{
      * @throws HealthStateException if the player is not tired.
      */
     void addFatigue(int n) throws HealthStateException{
-        if(fatigue == 0){
+        if(n < 0 && fatigue == 0){
             throw new HealthStateException("You are not tired right now.");
         }
 
@@ -304,10 +304,10 @@ class Player extends Character{
 
         if(hasDied){
             healthWarning += "You have died from";
-            if(damage >= 0){
+            if(isDeadly(damage)){
                 healthWarning += " your wounds.";
             }
-            else if(hunger >= 0){
+            else if(isDeadly(hunger)){
                 healthWarning += " hunger.";
             }
             return healthWarning;
@@ -489,7 +489,10 @@ class Player extends Character{
      * measured by the execution of a valid command.
      */
     void passTime(){
-        fatigue += 1 + getInventoryWeight();
+        try{
+            addFatigue(1 + getInventoryWeight());
+        }
+        catch(HealthStateException e){};
         hunger++;
     }
 
