@@ -3,18 +3,6 @@ package team_gold_zork;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
- * @version 4
- */
-public class Room {
-    private String title; //stores the name of the room.
-    private String desc = ""; //stores the description of the room.
-    private boolean beenHere = false; //determines if the adventurer has already visited the room.
-    private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
-    private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
-    private ArrayList<Character> npcs = new ArrayList<>(); //stores all the items in the room.
-    private int exitCount = 0;
-    private String fDesc = "";//Stroes the final description of room 
-    /**
 
 /**
  * This class allows for the creation and storage of rooms.
@@ -29,7 +17,7 @@ public class Room {
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<Character> npcs = new ArrayList<>(); //stores all the items in the room.
     private int exitCount = 0;
-    private String fDesc = "";//Stroes the final description of room 
+    private String fDesc = "";//Stroes the final description of  
     /**
      * This constructs a Room object, as well as the items in it.
      * @param s the Scanner reading a zork file.
@@ -196,9 +184,10 @@ public class Room {
             if(!beenHere|| isVerbose ){
                     beenHere = true;
                     
-                     = title + "\n" + desc + describeItems() + describeExits();
+                     fDesc = title + "\n" + desc + describeItems() + describeExits();
+                     goN
             }
-          = title + describeItems() + describeExits();
+         fDesc = title + describeItems() + describeExits();
             
     }
 
@@ -289,6 +278,10 @@ public class Room {
             exits.add(exit);
     }
     
+    
+    String goNPC(){
+        return "";
+    }
     
     /**
      * Returns the Exit in the room with the given name.
@@ -415,14 +408,6 @@ public class Room {
             npcs.add(npc);
     }
     
-    /**
-     * 
-     * @return 
-     */
-    String goNPC( )
-    {
-        
-    }
     
 }
 
