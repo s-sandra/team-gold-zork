@@ -235,11 +235,16 @@ public class Room {
      * This method returns the Room object in the given direction, if applicable.
      * @param dir the desired direction through which to exit.
      * @return the Room object in the desired direction.
+     * @throws LockedExitException if the exit in the given direction is locked.
      */
-    Room leaveBy(String dir){
+    Room leaveBy(String dir) throws LockedExitException{
             int exitIndex = indexOf(dir);
             if(exitIndex > -1){
-                    return exits.get(exitIndex).getDest();
+                Exit door = exits.get(exitIndex);
+                if(door.isLocked()){
+                    throw new LockedExitException("You can't go " + dir + ". The door is locked.\n");
+                }
+                return exits.get(exitIndex).getDest();
             }
             return null;
     }

@@ -98,7 +98,7 @@ public class Exit {
      * Unlocks a locked exit.
      */
     void unlock(){
-        
+        isLocked = false;
     }
     
     

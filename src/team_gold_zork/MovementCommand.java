@@ -25,7 +25,14 @@ class MovementCommand extends Command{
         Player adventurer = state.getAdventurer();
         GameState state = GameState.instance();
 		Room currentRoom = adventurer.getCurrentRoom();
-		Room newRoom = currentRoom.leaveBy(dir);
+		Room newRoom;
+
+		try{ //the exit may be locked.
+            newRoom = currentRoom.leaveBy(dir);
+        }
+		catch(LockedExitException e){
+		    return e.getMessage();
+        }
 
 		if(newRoom != null){
             adventurer.setCurrentRoom(newRoom);
