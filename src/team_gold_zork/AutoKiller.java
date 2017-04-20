@@ -57,7 +57,7 @@ class AutoKiller extends Character{
      */
    String kill() 
    {
-       
+       return "";
    }
     
    String describe(){

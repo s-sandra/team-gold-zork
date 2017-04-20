@@ -115,6 +115,14 @@ public class Exit {
     void unlock(){
         isLocked = false;
     }
+
+
+    /**
+     * Locks an unlocked exit.
+     */
+    void lock(){
+        isLocked = true;
+    }
     
     
     /**
