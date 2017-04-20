@@ -33,11 +33,23 @@ public class Exit {
 
                     //gets the room we want to add an exit to from the dungeon. 
                     Room room = d.getRoom(input);
-
                     String dir = s.nextLine();
                     Room dest = d.getRoom(s.nextLine());
-                    room.addExit(new Exit(dir, room, dest));
+
+                    Exit door = new Exit(dir, room, dest);
+                    room.addExit(door);
                     input = s.nextLine();
+
+                    if(input.startsWith("isLocked")){
+                        door.isLocked = true;
+                        input = s.nextLine();
+
+                        door.doorName = input.substring(input.indexOf(":") + 1); //chops off data to the left of semi-colon.
+                        input = s.nextLine();
+
+                        door.keyName = input.substring(input.indexOf(":") + 1); //chops off data to the left of semi-colon.
+                        input = s.nextLine();
+                    }
             }
 
     }
@@ -61,7 +73,7 @@ public class Exit {
      */
     String describe(){
         if(isLocked){
-            return "There is a locked " + doorName + " to the " + dir + ".";
+            return "There is a locked " + doorName + " to the " + dir;
         }
         return "You can go " + dir + " to " + destination.getTitle();
     }
