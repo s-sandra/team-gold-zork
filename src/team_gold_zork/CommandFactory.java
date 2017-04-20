@@ -34,7 +34,7 @@ class CommandFactory {
 	 * @return	a Command object.
 	 */
 	public Command parse(String commandString){
-		String command = commandString.toLowerCase();
+		String command = commandString.toLowerCase().trim();
 		if(commandString.endsWith(".sav")){
 			return new SaveCommand(commandString);
 		}
@@ -63,23 +63,36 @@ class CommandFactory {
                 	return new UnknownCommand(commandString);
 				}
 
+
 		String verb = "";
 		String noun = "";
 
 		//if the command contains more than one word.
 		if(command.contains(" ")){
 			//splits up the command into verb-noun.
-			verb = command.substring(0, command.indexOf(" ")).trim();
-			noun = commandString.substring(command.indexOf(" ") + 1, command.length()).trim();
+			verb = command.substring(0, command.indexOf(" "));
+			noun = command.substring(commandString.indexOf(" ") + 1, command.length()).trim();
 
 			//if the verb and noun are split with a "the", removes it.
 			if(noun.startsWith("the")){
-				noun = commandString.substring(command.indexOf("the") + 3, command.length()).trim();
+				noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
+			}
+
+			if(verb.equals("unlock") || verb.equals("open")){
+				String keyName = "";
+				noun = noun.substring(0, noun.indexOf("with")).trim();
+				keyName = command.substring(commandString.indexOf("with") + 4, command.length()).trim();
+
+				//if the key name is preceded with a "the", removes it.
+				if(keyName.startsWith("the")){
+					keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
+				}
+				return new UnlockCommand(noun, keyName);
 			}
 		}
-		else{
-			verb = command;
-		}
+//		else{
+//			verb = command;
+//		}
 
 		//if the command doesn't have a verb-noun structure.
 		if(noun.isEmpty()) {
