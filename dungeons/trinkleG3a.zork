@@ -8,6 +8,10 @@ examine:The bomb is a heavy, glistening black sphere. On the top appears to be s
 kick[Wound(2)]:Ouch! That hurt your foot.
 detonate[Die]:An ear-splitting halo of shrapnel kills you and seriously degrades the room's interior.
 ---
+force
+0
+use:You hear the ghost of Obi-Wan Kenobi say "the force is strong with this one."
+---
 DrPepper
 10
 kick:The can skitters down the hallway.
@@ -51,6 +55,7 @@ stomp:The donut is now smooshed.
 ===
 Rooms:
 Rotunda
+Contents: force
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
@@ -116,6 +121,9 @@ Room B6
 Basement hallway
 w
 Stephen's office
+isLocked=true
+name:wooden door
+key:force
 ---
 Stephen's office
 e
