@@ -42,17 +42,27 @@ class AutoKiller extends Character{
      */
     boolean hasExit()
     {
-      return true;
+      if (getCurrentRoom().getNumExit() < 2){
+          return false;
+          
+      }
+      else{
+          return true;
+      }
+  
     } 
-    
     
     /**
      * Triggers a die event if the room is a dead end. 
      */
-   void kill() 
+   String kill() 
    {
        
    }
     
+   String describe(){
+      desc = desc +  name + " looms in the darkness\n"; 
+      return desc; 
+   }
     
 }

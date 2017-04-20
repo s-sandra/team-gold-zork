@@ -16,6 +16,7 @@ public class Room {
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<Character> npcs = new ArrayList<>(); //stores all the items in the room.
+    private int exitCount = 0;
 
     /**
      * This constructs a Room object, as well as the items in it.
@@ -225,6 +226,7 @@ public class Room {
 
             for(Exit exit: exits){
                     desc += exit.describe() + ". ";
+                    exitCount++; 
             }
 
             return desc + "\n";
@@ -361,6 +363,14 @@ public class Room {
                     }
                     input = s.nextLine();
             }
+    }
+    /**
+     * gets the numbe of exits in a room
+     * @return exitCount
+     */
+    int getNumExit()
+    {
+      return exitCount;   
     }
      /**
      * Adds an npc to the contents of the room.
