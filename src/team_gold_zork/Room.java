@@ -322,13 +322,21 @@ public class Room {
     void storeLockedExits(PrintWriter w)
        {
           String directions = ""; 
-            for(Exit exit : this.exits){
-                if (exit.isLocked()){
-                    directions = directions + exit.getDir() + ",";
+            for(int i = 0; i < exits.size(); i++){
+                if (exits.get(i).isLocked()){
+
+                    if(i + 1 == exits.size()){
+                        directions = directions + exits.get(i).getDir();
+                    }
+                    else {
+                        directions = directions + exits.get(i).getDir() + ",";
+                    }
                 }
-                
             }
-            w.println("Locked exits: " + directions);
+
+            if(!directions.isEmpty()) {
+                w.println("Locked exits: " + directions);
+            }
             
        }
 
@@ -362,6 +370,19 @@ public class Room {
 
                     }
                     input = s.nextLine();
+
+                    if(input.startsWith("Locked exits: ")){
+                        String lockedDirs = input.substring(input.indexOf(":") + 1); //chops off data to the left of semi-colon.
+                        String[] lockedDoors = lockedDirs.split(",");
+
+                        for(String door: lockedDoors){
+                            for(Exit exit : exits){
+                                if(exit.getDir().equals(door)){
+                                    exit.lock();
+                                }
+                            }
+                        }
+                    }
             }
     }
     /**
