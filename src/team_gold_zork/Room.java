@@ -17,7 +17,7 @@ public class Room {
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<Character> npcs = new ArrayList<>(); //stores all the items in the room.
     private int exitCount = 0;
-
+    private String fDesc = "";//Stroes the final description of  
     /**
      * This constructs a Room object, as well as the items in it.
      * @param s the Scanner reading a zork file.
@@ -183,9 +183,12 @@ public class Room {
 
             if(!beenHere|| isVerbose ){
                     beenHere = true;
-                    return title + "\n" + desc + describeItems() + describeExits();
+                    
+                     fDesc = title + "\n" + desc + describeItems() + describeExits();
+                     goN
             }
-            return title + describeItems() + describeExits();
+         fDesc = title + describeItems() + describeExits();
+            
     }
 
 
@@ -275,6 +278,10 @@ public class Room {
             exits.add(exit);
     }
     
+    
+    String goNPC(){
+        return "";
+    }
     
     /**
      * Returns the Exit in the room with the given name.
