@@ -27,7 +27,31 @@ class UnlockCommand extends Command {
         if(key.isEmpty()){
             return "Open the " + door + " with what?\n";
         }
-        state.getAdventurer().passTime();
-        return "";
+        else if(door.isEmpty()){
+            return "Open what with the " + key + "?\n";
+        }
+
+        Player adventurer = state.getAdventurer();
+        Exit lockedDoor;
+        try{
+            lockedDoor = adventurer.getCurrentRoom().getExitNamed(door);
+        }
+        catch(NoExitException e){
+            return "There's no " + door + " here.\n";
+        }
+
+        adventurer.passTime();
+        String healthWarning = state.getAdventurer().checkHealth();
+
+        if(!healthWarning.isEmpty()){
+            healthWarning += "\n";
+        }
+
+        if(lockedDoor.keyFits(key)){
+            lockedDoor.unlock();
+            return "Unlocked.\n" + healthWarning;
+        }
+
+        return "You can't open the " + door + " with the " + key + ".\n" + healthWarning;
     }
 }
