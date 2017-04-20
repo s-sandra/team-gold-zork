@@ -37,7 +37,7 @@ class UnlockCommand extends Command {
             lockedDoor = adventurer.getCurrentRoom().getExitNamed(door);
         }
         catch(NoExitException e){
-            return "There's no " + door + " here.\n";
+            return "There's no exit named " + door + " here.\n";
         }
 
         adventurer.passTime();
