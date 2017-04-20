@@ -60,7 +60,10 @@ public class Exit {
      * @return The description of the direction and destination.
      */
     String describe(){
-            return "You can go " + dir + " to " + destination.getTitle();
+        if(isLocked){
+            return "There is a locked " + doorName + " to the " + dir + ".";
+        }
+        return "You can go " + dir + " to " + destination.getTitle();
     }
 
 
