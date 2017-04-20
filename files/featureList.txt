@@ -1,5 +1,14 @@
 Verbose- Rooms that have not been entered by the player will display a room description upon entry. Once the player 
-         re-enters a room, the room description will no longer be displayed. If the player forgets or wants the see 
+         re-enters a room, the room description will no longer be displayed. If the player forgets or wants to see
 	 the room description again, the player can type "verbose on" and the room description will be displayed. If 
          the player no longer wants to see the room description, they can type "verbose off" and the room description
-	 will be removed. 
+	 will be removed.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Locked Doors - Some rooms contain exits which barr entry to the player, unless they obtain the necessary item, known as
+a key, to open it. Each exit has its own unique key, which is located somewhere in the dungeon. To encounter a locked door,
+go to the () room (located () from the entry), whose() exit, called (), is listed in the room description as closed.
+If you attempt to go through the exit, you will be informed that the door is locked. The exit's unique key is found in the
+() room, located () from the () room. Return to the room with the locked door and type "unlock () door with ()" or "open
+() door with ()". The game will inform you that you have unlocked the exit, allowing you to advance () into the () room.
