@@ -60,7 +60,10 @@ public class Exit {
      * @return The description of the direction and destination.
      */
     String describe(){
-            return "You can go " + dir + " to " + destination.getTitle();
+        if(isLocked){
+            return "There is a locked " + doorName + " to the " + dir + ".";
+        }
+        return "You can go " + dir + " to " + destination.getTitle();
     }
 
 
@@ -108,7 +111,7 @@ public class Exit {
      * @return whether the key can open the door.
      */
     boolean keyFits(String keyName){
-        return true;
+        return keyName.equals(this.keyName);
     }
     
     
@@ -118,7 +121,7 @@ public class Exit {
      * @return if the Exit goes by the given name.
      */
     boolean isNamed(String name){
-        return true;
+        return name.equals(this.doorName);
     }
 
 }

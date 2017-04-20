@@ -283,7 +283,12 @@ public class Room {
      * @throws NoExitException if the Exit is not found.
      */
     Exit getExitNamed(String name) throws NoExitException{
-        return null;
+        for(Exit door : exits){
+            if(door.isNamed(name)){
+                return door;
+            }
+        }
+        throw new NoExitException();
     }
 
 
