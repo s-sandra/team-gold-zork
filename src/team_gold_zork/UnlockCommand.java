@@ -47,6 +47,18 @@ class UnlockCommand extends Command {
             healthWarning += "\n";
         }
 
+        try{
+            adventurer.getItemFromInventoryNamed(key);
+        }
+        catch(NoItemException e){
+            try{
+                adventurer.getItemInVicinityNamed(key);
+            }
+            catch(NoItemException w){
+                return "You don't have the " + key + ".\n";
+            }
+        }
+
         if(lockedDoor.keyFits(key)){
             lockedDoor.unlock();
             return "Unlocked.\n" + healthWarning;

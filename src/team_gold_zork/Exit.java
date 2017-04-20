@@ -72,8 +72,8 @@ public class Exit {
      * @return The description of the direction and destination.
      */
     String describe(){
-        if(isLocked){
-            return "There is a locked " + doorName + " to the " + dir;
+        if(isLocked) {
+            return "There is a closed " + doorName + " to the " + dir;
         }
         return "You can go " + dir + " to " + destination.getTitle();
     }
