@@ -18,6 +18,7 @@ class AutoKiller extends Character{
      * Creates a new AutoKiller from scratch.
      */
     AutoKiller(){
+        name = "Dog";
     }
     
     /**
@@ -56,13 +57,34 @@ class AutoKiller extends Character{
      * Triggers a die event if the room is a dead end. 
      */
    String kill() 
-   {
-       return "";
+   { String kill = null; 
+       if (hasExit()){
+           kill = name + " is sleeping pass through carefully";}
+       else {
+           kill = name + " attacked you as soon as you entered the room! \n"; 
+          player.kill();
+          kill = kill + "You died! Meowch";
+       }
+       return kill;
+       
    }
     
+   /**
+    * describes what the npc is doing 
+    * @return desc
+    */
    String describe(){
       desc = desc +  name + " looms in the darkness\n"; 
+      desc = desc + kill();
       return desc; 
+   }
+   
+   /**
+    * sets name
+    * @param name 
+    */
+   void setName(String name){
+       name = this.name;
    }
     
 }
