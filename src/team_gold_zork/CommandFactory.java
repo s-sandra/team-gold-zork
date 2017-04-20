@@ -80,8 +80,11 @@ class CommandFactory {
 
 			if(verb.equals("unlock") || verb.equals("open")){
 				String keyName = "";
-				noun = noun.substring(0, noun.indexOf("with")).trim();
-				keyName = command.substring(commandString.indexOf("with") + 4, command.length()).trim();
+
+				if(command.contains("with")){
+					noun = noun.substring(0, noun.indexOf("with")).trim();
+					keyName = command.substring(commandString.indexOf("with") + 4, command.length()).trim();
+				}
 
 				//if the key name is preceded with a "the", removes it.
 				if(keyName.startsWith("the")){

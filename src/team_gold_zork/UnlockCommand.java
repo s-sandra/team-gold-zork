@@ -14,7 +14,8 @@ class UnlockCommand extends Command {
      * @param key the name of the Item to open the door with. 
      */
     UnlockCommand(String door, String key){
-        
+        this.key = key;
+        this.door = door;
     }
     
     
@@ -23,6 +24,9 @@ class UnlockCommand extends Command {
      * @return The result of the unlock command. 
      */
     String execute(){
+        if(key.isEmpty()){
+            return "Open the " + door + " with what?\n";
+        }
         state.getAdventurer().passTime();
         return "";
     }
