@@ -14,8 +14,7 @@ abstract class Character {
     ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
     String name; //stores the name of the character.
     String desc; 
-    GameState state = GameState.instance(); //stores the state of the game.
-    Player player = state.getAdventurer();
+    
     /**
      * Stores the state of the character to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.

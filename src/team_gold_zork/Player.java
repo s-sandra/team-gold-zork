@@ -21,7 +21,8 @@ class Player extends Character{
     private boolean hungerHasPassedThreshold = false;
     private boolean damageHasPassedThreshold = false;
     private boolean fatigueHasPassedThreshold = false;
- 
+
+    private String descrition = null;
     /**
      * Creates a new player from scratch.
      */
@@ -381,23 +382,23 @@ class Player extends Character{
      */
     String checkHealth(){
         String healthWarning = "";
-        if(hungerHasPassedThreshold){
+        int midLevel = GameConfig.MID_THRESHOLD;
+        int maxLevel = GameConfig.MAX_THRESHOLD;
+
+        if(fatigue == midLevel || fatigue > maxLevel - 25){
+            healthWarning += getFatigueWarning();
+        }
+        if(hunger == midLevel || hunger > maxLevel - 25){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
             healthWarning += getHungerWarning();
-            hungerHasPassedThreshold = false;
         }
-        if(fatigueHasPassedThreshold){
+        if(damage == midLevel || damage > maxLevel - 25){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
-            healthWarning += getFatigueWarning();
-            fatigueHasPassedThreshold = false;
-        }
-        if(damageHasPassedThreshold){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
-            healthWarning += getFatigueWarning();
-            damageHasPassedThreshold = false;
+            healthWarning += getDamageWarning();
         }
         return healthWarning;
     }
@@ -580,5 +581,14 @@ class Player extends Character{
 
         return inventoryWeight;
     }
-        
+
+     /**
+     * This method will trigger the NPC's response
+     * This will be called with the room description
+     * @return desc
+     */
+    String describe(){
+        return desc;
+    }
+
 }
