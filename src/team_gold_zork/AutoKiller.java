@@ -56,7 +56,7 @@ class AutoKiller extends Character{
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = currentDungeon.getRoom(line);
         line = s.nextLine();
-    }
+    
     }
    
     /**
