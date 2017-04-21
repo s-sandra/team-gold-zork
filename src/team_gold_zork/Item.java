@@ -22,8 +22,9 @@ public class Item {
      * @param s the scanner reading the zork file.
      * @throws NoItemException  if there are no more items to read from the file.
      */
-    public Item(Scanner s) throws NoItemException{
+    public Item(Scanner s, Dungeon d) throws NoItemException{
         String input = s.nextLine();
+        Dungeon dungeon = d;
 
         //if there are no new items.
         if(input.equals("==="))
@@ -62,6 +63,7 @@ public class Item {
                 input = s.nextLine();
             }
             messages.put(verb, message);
+            dungeon.addItemVerb(verb);
         }
     }
 

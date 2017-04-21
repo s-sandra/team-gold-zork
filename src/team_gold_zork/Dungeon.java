@@ -3,6 +3,7 @@ package team_gold_zork;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -18,6 +19,8 @@ public class Dungeon {
 	private String fileName; //stores the file containing the dungeon.
 	private Hashtable<String, Room> rooms = new Hashtable<>(); //stores the rooms in the dungeon.
 	private Hashtable<String, Item> items = new Hashtable<>(); //stores all the items in the dungeon, with its primary name as the key.
+	private ArrayList<String> itemVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's items.
+	private ArrayList<String> charVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's characters.
 
 
 	/**
@@ -63,7 +66,7 @@ public class Dungeon {
 		try{
 			//continues to add an item while a new item exists.
 			while(true){
-				add(new Item(input));
+				add(new Item(input, this));
 			}
 		}
 		catch(NoItemException e){}
@@ -161,6 +164,60 @@ public class Dungeon {
 			entry = room;
 		}
 		rooms.put(room.getTitle(), room);
+	}
+
+
+	/**
+	 * Adds a verb to the list of item-specific itemVerbs the dungeon supports.
+	 * @param verb	the verb corresponding to an item.
+	 */
+	public void addItemVerb(String verb){
+		if(!itemVerbs.contains(verb)){
+			itemVerbs.add(verb);
+		}
+	}
+
+
+	/**
+	 * Adds a verb to the list of character-specific verbs the dungeon supports.
+	 * @param verb	the verb corresponding to a character.
+	 */
+	public void addCharacterVerb(String verb){
+		if(!charVerbs.contains(verb)){
+			charVerbs.add(verb);
+		}
+	}
+
+
+	/**
+	 * Returns a verb corresponding with an item in the dungeon,
+	 * if the verb is contained in a command string.
+	 * @param command the user's command.
+	 * @return the item specific verb, if contained within the command string.
+	 */
+	public String getItemVerbIn(String command){
+		for(String verb : itemVerbs){
+			if(command.contains(verb)){
+				return verb;
+			}
+		}
+		return null;
+	}
+
+
+	/**
+	 * Returns a verb corresponding with a character in the dungeon,
+	 * if the verb is contained in a command string.
+	 * @param command the user's command.
+	 * @return the character specific verb, if contained within the command string.
+	 */
+	public String getCharacterVerbIn(String command){
+		for(String verb : charVerbs){
+			if(command.contains(verb)){
+				return verb;
+			}
+		}
+		return null;
 	}
 
 
