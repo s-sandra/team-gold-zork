@@ -17,6 +17,10 @@ class Player extends Character{
     private boolean hasWon;
     private boolean hasDied;
     private boolean hasFainted;
+
+    private boolean hungerHasPassedThreshold = false;
+    private boolean damageHasPassedThreshold = false;
+    private boolean fatigueHasPassedThreshold = false;
  
     /**
      * Creates a new player from scratch.
@@ -157,6 +161,10 @@ class Player extends Character{
             throw new HealthStateException("You are not hungry.");
         }
 
+        if(hasPassedThreshold(hunger, hunger + n)){
+            hungerHasPassedThreshold = true;
+        }
+
         hunger += n;
 
         //if adding hunger makes hunger negative, sets hunger to zero.
@@ -179,6 +187,10 @@ class Player extends Character{
     void addFatigue(int n) throws HealthStateException{
         if(n < 0 && fatigue == 0){
             throw new HealthStateException("You are not tired right now.");
+        }
+
+        if(hasPassedThreshold(fatigue, fatigue + n)){
+            fatigueHasPassedThreshold = true;
         }
 
         fatigue += n;
@@ -207,6 +219,10 @@ class Player extends Character{
             throw new HealthStateException("You do not need healing.");
         }
 
+        if(hasPassedThreshold(damage, damage + n)){
+            damageHasPassedThreshold = true;
+        }
+
         damage += n;
 
         //if adding damage made it negative, sets damage to zero.
@@ -217,6 +233,32 @@ class Player extends Character{
         if(isDeadly(damage)){
             hasDied = true;
         }
+    }
+
+
+    /**
+     * This helper method determines if changing health
+     * causes the health to pass a moderate or critical threshold.
+     * @param healthBefore the health value prior to changing a health component.
+     * @param healthAfter the health value after changing a health component.
+     * @return whether the new health value has passed a threshold.
+     */
+    private boolean hasPassedThreshold(int healthBefore, int healthAfter){
+        int midLevel = GameConfig.MID_THRESHOLD;
+        int minLevel = GameConfig.MIN_THRESHOLD;
+
+        //if the health change has passed the minor threshold
+        if(healthBefore < minLevel && healthAfter >= minLevel){
+            return true;
+        }
+
+        //if the health change has passed the moderate threshold
+        if(healthBefore > minLevel && healthBefore < midLevel &&
+                healthAfter >= midLevel){
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -339,23 +381,23 @@ class Player extends Character{
      */
     String checkHealth(){
         String healthWarning = "";
-        int midLevel = GameConfig.MID_THRESHOLD;
-        int maxLevel = GameConfig.MAX_THRESHOLD;
-
-        if(fatigue == midLevel || fatigue > maxLevel - 25){
-            healthWarning += getFatigueWarning();
-        }
-        if(hunger == midLevel || hunger > maxLevel - 25){
-            if(healthWarning.endsWith(".")){
-                healthWarning += " ";
-            }
+        if(hungerHasPassedThreshold){
             healthWarning += getHungerWarning();
+            hungerHasPassedThreshold = false;
         }
-        if(damage == midLevel || damage > maxLevel - 25){
+        if(fatigueHasPassedThreshold){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
-            healthWarning += getDamageWarning();
+            healthWarning += getFatigueWarning();
+            fatigueHasPassedThreshold = false;
+        }
+        if(damageHasPassedThreshold){
+            if(healthWarning.endsWith(".")){
+                healthWarning += " ";
+            }
+            healthWarning += getFatigueWarning();
+            damageHasPassedThreshold = false;
         }
         return healthWarning;
     }
