@@ -228,7 +228,7 @@ public class Room {
             String desc = "\n";
 
             for(int i = 0; i < contents.size(); i++){
-                    desc += contents.get(i).toString();
+                    desc += contents.get(i).describe();
 
                     //if the room has more items.
                     if(i + 1 < contents.size()){

@@ -13,6 +13,7 @@ public class Item {
     private String primaryName; //the name of the item in camelCase.
     private String secondaryName; //the name of the item without camelCase.
     private int weight; //how much the item weighs.
+    private String desc; //the description of the object.
     private Hashtable<String, String> messages = new Hashtable<>(); //stores the message corresponding with the verb key.
     private Hashtable<String, String> events = new Hashtable<>(); //stores the events corresponding with the verb key.
     GameState state = GameState.instance();
@@ -33,6 +34,9 @@ public class Item {
         }
         primaryName = input;
         setSecondaryName();
+        input = s.nextLine();
+
+        desc = input;
         input = s.nextLine();
 
         weight = Integer.parseInt(input);
@@ -155,8 +159,8 @@ public class Item {
      * Defines what to print for an item object.
      * @return  the String representing the item object.
      */
-    public String toString(){
-        return "There is a " + secondaryName + " here.";
+    public String describe(){
+        return desc;
     }
 
     /**
