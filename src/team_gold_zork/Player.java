@@ -17,7 +17,7 @@ class Player extends Character{
     private boolean hasWon;
     private boolean hasDied;
     private boolean hasFainted;
- 
+    private String descrition = null; 
     /**
      * Creates a new player from scratch.
      */
@@ -537,6 +537,15 @@ class Player extends Character{
         }
 
         return inventoryWeight;
+    }
+    
+     /**
+     * This method will trigger the NPC's response 
+     * This will be called with the room description 
+     * @return desc
+     */
+    String describe(){
+        return desc;
     }
         
 }
