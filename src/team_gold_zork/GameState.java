@@ -17,6 +17,9 @@ class GameState {
     private static GameState theInstance; //stores the single instance of GameState.
     private Player adventurer; //stores the single instance of Player.
     private boolean isVerbose = false;
+    private QuestGiver qG; 
+    private AutoKiller aK; 
+    private ItemStealer iS; 
 
     /**
      * Constructs a GameState instance and a new Player.
@@ -117,6 +120,26 @@ class GameState {
                 }
 
                 adventurer.restoreState(input);
+                
+                line = input.nextLine(); 
+                if(!line.equals("Character states:")){
+                       throw new IllegalSaveFormatException();
+                }
+                while (!line.equals("===")){
+                if(line.equals("QuestGiver")){
+                    qG.restoreState(input);
+                }
+                else if(line.equals("ItemStealer")) {
+                    iS.restoreState(input);
+                }
+                else if(line.equals("AutoKiller")){
+                    ak.restoreState(input);
+                }
+                else{
+                     throw new IllegalSaveFormatException();
+                }
+                        
+              }
                 input.close();
             }
             catch(FileNotFoundException e){
