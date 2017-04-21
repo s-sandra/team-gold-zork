@@ -43,9 +43,7 @@ class AutoKiller extends Character{
         }
 
         //reads in the player's current room.
-        line = line.substring(line.indexOf(":") + 2);
-        this.setName(line);
-         
+        name = line.substring(line.indexOf(":") + 2);
         line = s.nextLine();
         
         //if the "Current room:" title is not found.
@@ -65,7 +63,7 @@ class AutoKiller extends Character{
      * Checks if the AutoKiller's current room is a dead end.
      * @return boolean hasExit If the room has another exit.
      */
-    boolean hasExit()
+    private boolean hasExit()
     {
       if (getCurrentRoom().getNumExit() < 2){
           return false;
@@ -77,39 +75,51 @@ class AutoKiller extends Character{
   
     } 
     
+//    /**
+//     * Triggers a die event if the room is a dead end.
+//     */
+//   String kill()
+//   { String kill = null;
+//       if (hasExit()){
+//           kill = name + " is sleeping pass through carefully";}
+//       else {
+//           kill = name + " attacked you as soon as you entered the room! \n";
+//          player.kill();
+//          kill = kill + "You died! Meowch";
+//       }
+//       return kill;
+//
+//   }
+
+
     /**
-     * Triggers a die event if the room is a dead end. 
+     * Triggers a die event if the room is a dead end.
      */
-   String kill() 
-   { String kill = null; 
-       if (hasExit()){
-           kill = name + " is sleeping pass through carefully";}
-       else {
-           kill = name + " attacked you as soon as you entered the room! \n"; 
-          player.kill();
-          kill = kill + "You died! Meowch";
-       }
-       return kill;
-       
-   }
+    void kill()
+    {
+        player.kill();
+    }
+
+
+    /**
+     * Reacts to a player entering the current room
+     * of the AutoKiller. It kills the player if they have
+     * no avenue of escape.
+     */
+    void greetPlayer(){
+        if(hasExit()){
+            kill();
+        }
+    }
     
-   /**
-    * describes what the npc is doing 
-    * @return desc
-    */
-   String describe(){
-      desc = desc +  name + " looms in the darkness\n"; 
-      desc = desc + kill();
-      return desc; 
-   }
-   
-  
-   /**
-    * sets name
-    * @param name 
-    */
-   void setName(String name){
-       name = this.name;
-   }
+//   /**
+//    * describes what the npc is doing
+//    * @return desc
+//    */
+//   String describe(){
+//      desc = desc +  name + " looms in the shadows\n";
+//      desc = desc + kill();
+//      return desc;
+//   }
     
 }
