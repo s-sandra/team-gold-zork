@@ -38,7 +38,54 @@ public class ItemStealer extends Character{
      * @throws IllegalSaveFormatException If the ItemStealer description contains invalid contents.
      */
     void restoreState(Scanner s)throws IllegalSaveFormatException{
-        
-    }
+          String line = s.nextLine();
+         
+         //if the "Current room:" title is not found.
+        if(!line.startsWith("Character Name:")){
+            throw new IllegalSaveFormatException();
+        }
 
+        //reads in the player's current room.
+        line = line.substring(line.indexOf(":") + 2);
+        setName(line);
+         
+        line = s.nextLine();
+        
+        //if the "Current room:" title is not found.
+        if(!line.startsWith("Current room:")){
+            throw new IllegalSaveFormatException();
+        }
+
+        //reads in the player's current room.
+        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        currentRoom = currentDungeon.getRoom(line);
+        
+
+        line = s.nextLine();
+
+        //if the player had items in their inventory at save time (the "Inventory:" title would not appear otherwise).
+        if(line.startsWith("Inventory: ")){
+            line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+
+            //chops off the commas from the inventory list.
+            String[] items = line.split(",");
+            for(String item: items){
+                try{ //the inventory might contain invalid items.
+                    this.inventory.add(currentDungeon.getItem(item));
+                }
+                catch(NoItemException e){
+                    throw new IllegalSaveFormatException(e.getMessage());
+                }
+            }
+            line = s.nextLine();
+    }
+     
+    }
+ /**
+    * sets name
+    * @param name 
+    */
+   void setName(String name){
+       name = this.name;
+   }
 }
