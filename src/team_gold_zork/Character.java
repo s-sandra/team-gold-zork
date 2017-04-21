@@ -146,4 +146,13 @@ abstract class Character {
     boolean isEmptyInventory(){
         return inventory.isEmpty();
     }
+    
+    /**
+     * This method will trigger the NPC's response 
+     * This will be called with the room description 
+     * @return desc
+     */
+    String describe(){
+        return desc;
+    }
 }

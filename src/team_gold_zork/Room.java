@@ -184,10 +184,12 @@ public class Room {
             if(!beenHere|| isVerbose ){
                     beenHere = true;
                     
-                     fDesc = title + "\n" + desc + describeItems() + describeExits();
-                     goN
+                     fDesc = title + "\n" + desc + describeItems() + describeExits() + goNPC();
+                     
             }
-         fDesc = title + describeItems() + describeExits();
+         fDesc = title + describeItems() + describeExits() + goNPC();
+   
+      return fDesc; 
             
     }
 
@@ -278,10 +280,28 @@ public class Room {
             exits.add(exit);
     }
     
-    
+    /**
+     * 
+     * @return NPCMess
+     */
     String goNPC(){
-        return "";
+
+            if(desc.isEmpty()){
+                    return "";
+            }
+
+            String desc = "\n";
+
+            for(Character npc: npcs){
+                    desc += npc.describe() + ". ";
+                     
+            }
+
+            return desc + "\n";
     }
+        
+      
+    
     
     /**
      * Returns the Exit in the room with the given name.
