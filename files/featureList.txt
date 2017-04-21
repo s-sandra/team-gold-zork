@@ -1,5 +1,29 @@
 Verbose- Rooms that have not been entered by the player will display a room description upon entry. Once the player 
-         re-enters a room, the room description will no longer be displayed. If the player forgets or wants the see 
+         re-enters a room, the room description will no longer be displayed. If the player forgets or wants to see
 	 the room description again, the player can type "verbose on" and the room description will be displayed. If 
          the player no longer wants to see the room description, they can type "verbose off" and the room description
-	 will be removed. 
+	 will be removed.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Locked Doors - Some rooms contain exits which barr entry to the player, unless they obtain the necessary item, known as
+a key, to open it. Each exit has its own unique key, which is located somewhere in the dungeon. To encounter a locked door,
+go to the () room (located () from the entry), whose() exit, called (), is listed in the room description as closed.
+If you attempt to go through the exit, you will be informed that the door is locked. Go to the () room, located () from the
+() room. Take the () key contained there. Return to the () room, and attempt to open the door with the () key by typing
+"unlock () door with ()" or "open () door with ()"." The game will inform you that you can't use the key to open the door.
+If you attempt to go () again, you will discover that the door is still locked. The exit's true key is found in the
+() room, located () from the () room. Return to the room with the locked door and type "unlock () door with ()" or "open
+() door with ()". The game will inform you that you have unlocked the exit, allowing you to advance () into the () room.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Hunger - In addition to healing wounds, the player must also maintain their hunger throughout their adventure. Each
+time the player enters a valid command (take, drop, move or unlock), their hunger increases by one point. Hunger is
+measured through three thresholds: minor (between () and () valid turns), moderate (between () and () valid turns) and
+critical (between () and () valid turns). Once a player passes into the moderate threshold or () points before
+reaching the maximum threshold, they are warned once. To test the hunger feature, waste time in the dungeon moving or
+picking up or dropping items. After the () turn, the program will state "Your stomach growls ferociously." To alleviate
+your hunger, go to the () room (located () from the entry), which contains a (). Eat the () by typing "eat ()". The
+game will say "(). You are full." Continue to move through the dungeon, allowing your hunger to increase to the critical
+level. Do not eat any food. After () turns, the game will inform you that you have died of hunger.
