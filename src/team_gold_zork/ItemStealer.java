@@ -47,7 +47,7 @@ public class ItemStealer extends Character{
 
         //reads in the player's current room.
         line = line.substring(line.indexOf(":") + 2);
-        setName(line);
+      this.setName(line);
          
         line = s.nextLine();
         
