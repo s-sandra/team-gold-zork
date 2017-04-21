@@ -42,11 +42,17 @@ class ItemSpecificCommand extends Command{
            Event result = new Event(events, item);
            message += "\n" + result.execute();
        }
+        state.getAdventurer().passTime();
+        String healthWarning = state.getAdventurer().checkHealth();
+
+        if(!healthWarning.isEmpty()){
+            healthWarning += "\n";
+        }
 
        if(message.endsWith("\n")){
            return message;
        }
-        return message + "\n";
+        return message + "\n" + healthWarning;
     }
 
 

@@ -18,7 +18,7 @@ If you attempt to go () again, you will discover that the door is still locked. 
 -------------------------------------------------------------------------------------------------------------------------
 
 Hunger - In addition to healing wounds, the player must also maintain their hunger throughout their adventure. Each
-time the player enters a valid command (take, drop, move or unlock), their hunger increases by one point. Hunger is
+time the player enters a valid command (take, drop, move or unlock or item specific), their hunger increases by one point. Hunger is
 measured through three thresholds: minor (between () and () valid turns), moderate (between () and () valid turns) and
 critical (between () and () valid turns). Once a player passes into the moderate threshold or () points before
 reaching the maximum threshold, they are warned once. To test the hunger feature, waste time in the dungeon moving or
