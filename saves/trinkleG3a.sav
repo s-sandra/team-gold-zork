@@ -11,6 +11,8 @@ beenHere=false
 ---
 Basement hallway:
 beenHere=true
+Contents: DrPepper
+Locked exits: w
 ---
 Room B13:
 beenHere=false
@@ -26,13 +28,9 @@ beenHere=true
 ===
 Adventurer state:
 Current room: Basement hallway
+Inventory: force
 Damage: 0
-Score: 5
+Hunger: 2
+Fatigue: 2
+Score: 0
 Rank: an amatuer
-===
-Character state:
-AutoKiller: 
-Character Name: Dog
-Current room: Basement Hallway
----
-===
