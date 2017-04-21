@@ -62,36 +62,55 @@ class CommandFactory {
                 if(command.startsWith("verbose")){
                 	return new UnknownCommand(commandString);
 				}
+				//if the command starts with give,
+				//instantiate a GiveCommand, by parsing the
+				//name of the character to receive an item,
+				//and the item to be received, then passing both to
+				//the GiveCommand.
 
 
 		String verb = "";
 		String noun = "";
+		GameState state = GameState.instance();
+		Dungeon dungeon = state.getAdventurer().getDungeon();
 
 		//if the command contains more than one word.
 		if(command.contains(" ")){
-			//splits up the command into verb-noun.
-			verb = command.substring(0, command.indexOf(" "));
-			noun = command.substring(commandString.indexOf(" ") + 1, command.length()).trim();
 
-			//if the verb and noun are split with a "the", removes it.
-			if(noun.startsWith("the")){
-				noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
-			}
+			String v = dungeon.getItemVerbIn(command);
+			if(v != null){
+				//splits up the command into verb-noun.
+				verb = command.substring(0, command.indexOf(v) + v.length());
+				noun = command.substring(command.indexOf(v) + v.length() + 1, command.length()).trim();
 
-			if(verb.equals("unlock") || verb.equals("open")){
-				String keyName = "";
-
-				if(command.contains("with")){
-					noun = noun.substring(0, noun.indexOf("with")).trim();
-					keyName = command.substring(commandString.indexOf("with") + 4, command.length()).trim();
+				//if the verb and noun are split with a "the", removes it.
+				if(noun.startsWith("the")){
+					noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
 				}
 
-				//if the key name is preceded with a "the", removes it.
-				if(keyName.startsWith("the")){
-					keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
+				if(verb.equals("unlock") || verb.equals("open")){
+					String keyName = "";
+
+					if(command.contains("with")){
+						noun = noun.substring(0, noun.indexOf("with")).trim();
+						keyName = command.substring(command.indexOf("with") + 4, command.length()).trim();
+					}
+
+					//if the key name is preceded with a "the", removes it.
+					if(keyName.startsWith("the")){
+						keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
+					}
+					return new UnlockCommand(noun, keyName);
 				}
-				return new UnlockCommand(noun, keyName);
 			}
+
+			v = dungeon.getCharacterVerbIn(command);
+			if(v != null){
+				//parse for verb.
+				//parse for character name.
+				//create character specific command.
+			}
+
 		}
 //		else{
 //			verb = command;
