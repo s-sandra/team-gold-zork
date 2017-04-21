@@ -13,7 +13,7 @@ abstract class Character {
     Dungeon currentDungeon; //stores the character's current dungeon.
     ArrayList<Item> inventory = new ArrayList<>(); //stores a Character's inventory.
     String name; //stores the name of the character.
-    String desc; 
+    String desc; //stores a description of the character.
     
     /**
      * Stores the state of the character to a .sav file.
@@ -145,11 +145,15 @@ abstract class Character {
     boolean isEmptyInventory(){
         return inventory.isEmpty();
     }
+
+
+    /**
+     * Used by NPCs to react to a player entering the room.
+     */
+    void greetPlayer(){}
     
     /**
-     * This method will trigger the NPC's response 
-     * This will be called with the room description 
-     * @return desc
+     * This method will return a description of the character.
      */
     String describe(){
         return desc;
