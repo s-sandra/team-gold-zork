@@ -48,6 +48,7 @@ class GameState {
     void initialize(Dungeon dungeon){
             adventurer.setCurrentRoom(dungeon.getEntry());
             adventurer.setCurrentDungeon(dungeon);
+            
     }
 
 
@@ -126,13 +127,13 @@ class GameState {
                        throw new IllegalSaveFormatException();
                 }
                 while (!line.equals("===")){
-                if(line.equals("QuestGiver")){
+                if(line.equals("QuestGiver:")){
                     qG.restoreState(input);
                 }
-                else if(line.equals("ItemStealer")) {
+                else if(line.equals("ItemStealer:")) {
                     iS.restoreState(input);
                 }
-                else if(line.equals("AutoKiller")){
+                else if(line.equals("AutoKiller:")){
                     aK.restoreState(input);
                 }
                 else{
