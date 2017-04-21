@@ -55,6 +55,7 @@ class AutoKiller extends Character{
         //reads in the player's current room.
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = currentDungeon.getRoom(line);
+        currentRoom.addNPC(this);
         line = s.nextLine();
     
     }
