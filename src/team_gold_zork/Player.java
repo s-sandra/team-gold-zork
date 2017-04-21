@@ -22,7 +22,6 @@ class Player extends Character{
     private boolean damageHasPassedThreshold = false;
     private boolean fatigueHasPassedThreshold = false;
 
-    private String descrition = null;
     /**
      * Creates a new player from scratch.
      */
@@ -382,23 +381,23 @@ class Player extends Character{
      */
     String checkHealth(){
         String healthWarning = "";
-        int midLevel = GameConfig.MID_THRESHOLD;
-        int maxLevel = GameConfig.MAX_THRESHOLD;
-
-        if(fatigue == midLevel || fatigue > maxLevel - 25){
-            healthWarning += getFatigueWarning();
+        if(hungerHasPassedThreshold){
+            healthWarning += getHungerWarning();
+            hungerHasPassedThreshold = false;
         }
-        if(hunger == midLevel || hunger > maxLevel - 25){
+        if(fatigueHasPassedThreshold){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
-            healthWarning += getHungerWarning();
+            healthWarning += getFatigueWarning();
+            fatigueHasPassedThreshold = false;
         }
-        if(damage == midLevel || damage > maxLevel - 25){
+        if(damageHasPassedThreshold){
             if(healthWarning.endsWith(".")){
                 healthWarning += " ";
             }
             healthWarning += getDamageWarning();
+            damageHasPassedThreshold = false;
         }
         return healthWarning;
     }
