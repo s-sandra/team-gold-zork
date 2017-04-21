@@ -42,6 +42,7 @@ class MovementCommand extends Command{
 		}
 
         state.getAdventurer().passTime();
+        adventurer.getCurrentRoom().visit();
 		String healthWarning = state.getAdventurer().checkHealth();
 
         if(!healthWarning.isEmpty()){
