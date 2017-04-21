@@ -78,30 +78,10 @@ class CommandFactory {
 		if(command.contains(" ")){
 
 			String v = dungeon.getItemVerbIn(command);
-			if(v != null){
+			if(v != null) {
 				//splits up the command into verb-noun.
 				verb = command.substring(0, command.indexOf(v) + v.length());
 				noun = command.substring(command.indexOf(v) + v.length() + 1, command.length()).trim();
-
-				//if the verb and noun are split with a "the", removes it.
-				if(noun.startsWith("the")){
-					noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
-				}
-
-				if(verb.equals("unlock") || verb.equals("open")){
-					String keyName = "";
-
-					if(command.contains("with")){
-						noun = noun.substring(0, noun.indexOf("with")).trim();
-						keyName = command.substring(command.indexOf("with") + 4, command.length()).trim();
-					}
-
-					//if the key name is preceded with a "the", removes it.
-					if(keyName.startsWith("the")){
-						keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
-					}
-					return new UnlockCommand(noun, keyName);
-				}
 			}
 
 			v = dungeon.getCharacterVerbIn(command);
@@ -111,10 +91,34 @@ class CommandFactory {
 				//create character specific command.
 			}
 
+			//splits up the command into verb-noun.
+			verb = command.substring(0, command.indexOf(" "));
+			noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
+
+			//if the verb and noun are split with a "the", removes it.
+			if(noun.startsWith("the")){
+				noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
+			}
+
+			if(verb.equals("unlock") || verb.equals("open")){
+				String keyName = "";
+
+				if(command.contains("with")){
+					noun = noun.substring(0, noun.indexOf("with")).trim();
+					keyName = command.substring(command.indexOf("with") + 4, command.length()).trim();
+				}
+
+				//if the key name is preceded with a "the", removes it.
+				if(keyName.startsWith("the")){
+					keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
+				}
+				return new UnlockCommand(noun, keyName);
+			}
+
 		}
-//		else{
-//			verb = command;
-//		}
+		else{
+			verb = command;
+		}
 
 		//if the command doesn't have a verb-noun structure.
 		if(noun.isEmpty()) {
