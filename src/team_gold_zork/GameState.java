@@ -133,7 +133,7 @@ class GameState {
                     iS.restoreState(input);
                 }
                 else if(line.equals("AutoKiller")){
-                    ak.restoreState(input);
+                    aK.restoreState(input);
                 }
                 else{
                      throw new IllegalSaveFormatException();
