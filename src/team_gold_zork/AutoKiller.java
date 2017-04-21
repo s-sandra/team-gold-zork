@@ -13,7 +13,8 @@ import java.util.Scanner;
  * @author Lauren
  */
 class AutoKiller extends Character{
-    
+    GameState state = GameState.instance(); //stores the state of the game.
+    Player player = state.getAdventurer();
     /**
      * Creates a new AutoKiller from scratch.
      */
