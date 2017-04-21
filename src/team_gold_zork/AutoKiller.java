@@ -79,6 +79,7 @@ class AutoKiller extends Character{
       return desc; 
    }
    
+  
    /**
     * sets name
     * @param name 
