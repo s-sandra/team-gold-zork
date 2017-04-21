@@ -248,13 +248,12 @@ class Player extends Character{
         int minLevel = GameConfig.MIN_THRESHOLD;
 
         //if the health change has passed the minor threshold
-        if(healthBefore < minLevel && healthAfter >= minLevel){
+        if(healthBefore <= minLevel && healthAfter > minLevel){
             return true;
         }
 
         //if the health change has passed the moderate threshold
-        if(healthBefore > minLevel && healthBefore < midLevel &&
-                healthAfter >= midLevel){
+        if(healthBefore <= midLevel && healthAfter > midLevel){
             return true;
         }
 
@@ -402,6 +401,7 @@ class Player extends Character{
         return healthWarning;
     }
 
+
     /**
      * This helper method determines if the given health point value
      * has reached a deadly level
@@ -442,7 +442,7 @@ class Player extends Character{
      * @return if the given health point value is critical.
      */
     private boolean isCritical(int healthValue){
-        return healthValue > GameConfig.MIN_THRESHOLD && healthValue < GameConfig.MAX_THRESHOLD;
+        return healthValue > GameConfig.MIN_THRESHOLD && healthValue <= GameConfig.MAX_THRESHOLD;
     }
 
 
