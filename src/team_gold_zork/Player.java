@@ -581,14 +581,4 @@ class Player extends Character{
 
         return inventoryWeight;
     }
-
-     /**
-     * This method will trigger the NPC's response
-     * This will be called with the room description
-     * @return desc
-     */
-    String describe(){
-        return desc;
-    }
-
 }
