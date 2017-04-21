@@ -33,7 +33,7 @@ public class VerboseCommand extends Command{
 
          //if the player is in a room they haven't been to before, then the room description is already displayed,
          // so there is no need to print it again.
-         if(!playersCurrentRoom.hasBeenThere() || playersCurrentRoom == state.getAdventurer().getCurrentDungeon().getEntry()){
+         if(playersCurrentRoom.hasBeenThere()){
              return "Turned on.\n";
          }
          return playersCurrentRoom.describe();

@@ -49,9 +49,9 @@ public class Room {
 
             //while the room description has not ended,
             while(!input.equals("---")){
-                    desc += input + "\n";
-                    input = s.nextLine();
-            }
+            desc += input + "\n";
+            input = s.nextLine();
+        }
     }
 
 
@@ -183,12 +183,14 @@ public class Room {
         String description = "";
 
             if(!beenHere|| isVerbose ){
-                    beenHere = true;
-                    
-                     description = title + "\n" + desc + describeItems() + describeExits() + describeNPCs();
+                beenHere = true;
+                description = title + "\n" + desc + describeItems() + describeExits() + describeNPCs();
                      
             }
-         description = title + describeItems() + describeExits() + describeNPCs();
+            else{
+                description = title + describeItems() + describeExits() + describeNPCs();
+            }
+
    
       return description;
             
