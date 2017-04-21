@@ -110,6 +110,16 @@ class Event {
                             + item.getPrimaryName() + " does not exist in the dungeon.");
                 }
             }
+             else if(event.startsWith("Light")){
+                String status = event.substring(6);
+                if(status.equals("on")){
+                    player.currentRoom.setLightState(false);
+                }
+                else if(status.equals("off")){
+                    player.currentRoom.setLightState(true);
+                }
+            }
+
         }
 
         return message;
