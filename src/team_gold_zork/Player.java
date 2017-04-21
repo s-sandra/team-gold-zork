@@ -561,9 +561,9 @@ class Player extends Character{
     void passTime(){
         try{
             addFatigue(1 + getInventoryWeight() / 20);
+            addHunger(1);
         }
         catch(HealthStateException e){};
-        hunger++;
     }
 
 
