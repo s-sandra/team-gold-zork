@@ -188,6 +188,8 @@ public class Room {
                      
             }
          fDesc = title + describeItems() + describeExits() + goNPC();
+   
+      return fDesc; 
             
     }
 
