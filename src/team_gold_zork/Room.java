@@ -15,9 +15,9 @@ public class Room {
     private boolean beenHere = false; //determines if the adventurer has already visited the room.
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
-    private ArrayList<Character> npcs = new ArrayList<>(); //stores all the items in the room.
+    private ArrayList<Character> npcs = new ArrayList<>(); //stores all the npcs in the room.
     private int exitCount = 0;
-    private String fDesc = "";//Stroes the final description of  
+//    private String fDesc = "";//Stroes the final description of
     /**
      * This constructs a Room object, as well as the items in it.
      * @param s the Scanner reading a zork file.
@@ -180,19 +180,41 @@ public class Room {
      */
     String describe(){
         boolean isVerbose = GameState.instance().getVerbose();
+        String description = "";
 
             if(!beenHere|| isVerbose ){
                     beenHere = true;
                     
-                     fDesc = title + "\n" + desc + describeItems() + describeExits() + goNPC();
+                     description = title + "\n" + desc + describeItems() + describeExits() + describeNPCs();
                      
             }
-         fDesc = title + describeItems() + describeExits() + goNPC();
+         description = title + describeItems() + describeExits() + describeNPCs();
    
-      return fDesc; 
+      return description;
             
     }
 
+    /**
+     * This method returns the description of the room's characters.
+     * @return a description of all the characters in the room.
+     */
+    String describeNPCs(){
+        if(npcs.isEmpty()){
+            return "";
+        }
+        String desc = "\n";
+
+        for(int i = 0; i < npcs.size(); i++){
+            desc += npcs.get(i).describe();
+
+            //if the room has more items.
+            if(i + 1 < npcs.size()){
+                desc += "\n";
+            }
+        }
+
+        return desc;
+    }
 
     /**
      * This method returns the description of the room's contents.
@@ -239,6 +261,17 @@ public class Room {
 
 
     /**
+     * Informs characters in the room that the player has
+     * entered.
+     */
+    void visit(){
+        for(Character NPC : npcs){
+            NPC.greetPlayer();
+        }
+    }
+
+
+    /**
      * This method returns the Room object in the given direction, if applicable.
      * @param dir the desired direction through which to exit.
      * @return the Room object in the desired direction.
@@ -280,29 +313,27 @@ public class Room {
             exits.add(exit);
     }
     
-    /**
-     * 
-     * @return NPCMess
-     */
-    String goNPC(){
-
-            if(desc.isEmpty()){
-                    return "";
-            }
-
-            String desc = "\n";
-
-            for(Character npc: npcs){
-                    desc += npc.describe() + ". ";
-                     
-            }
-
-            return desc + "\n";
-    }
+//    /**
+//     *
+//     * @return NPCMess
+//     */
+//    String goNPC(){
+//
+//            if(desc.isEmpty()){
+//                    return "";
+//            }
+//
+//            String desc = "\n";
+//
+//            for(Character npc: npcs){
+//                    desc += npc.describe() + ". ";
+//
+//            }
+//
+//            return desc + "\n";
+//    }
         
-      
-    
-    
+
     /**
      * Returns the Exit in the room with the given name.
      * @param name the name of the Exit.
