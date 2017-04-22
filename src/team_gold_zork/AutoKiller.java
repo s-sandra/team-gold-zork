@@ -77,9 +77,10 @@ class AutoKiller extends NPC{
     /**
      * Restores the state of a AutoKiller from a .sav file.
      * @param s the Scanner reading the .sav file.
+     * @param d the dungeon the AutoKiller is in.
      * @throws IllegalSaveFormatException If the AutoKiller description contains invalid contents.
      */
-    void restoreState(Scanner s)throws IllegalSaveFormatException{
+    void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
          String line = s.nextLine();
          
          //if the "Current room:" title is not found.
@@ -118,23 +119,7 @@ class AutoKiller extends NPC{
           return true;
       }
   
-    } 
-    
-//    /**
-//     * Triggers a die event if the room is a dead end.
-//     */
-//   String kill()
-//   { String kill = null;
-//       if (hasExit()){
-//           kill = name + " is sleeping pass through carefully";}
-//       else {
-//           kill = name + " attacked you as soon as you entered the room! \n";
-//          player.kill();
-//          kill = kill + "You died! Meowch";
-//       }
-//       return kill;
-//
-//   }
+    }
 
 
     /**
@@ -156,15 +141,5 @@ class AutoKiller extends NPC{
             kill();
         }
     }
-    
-//   /**
-//    * describes what the npc is doing
-//    * @return desc
-//    */
-//   String describe(){
-//      desc = desc +  name + " looms in the shadows\n";
-//      desc = desc + kill();
-//      return desc;
-//   }
     
 }

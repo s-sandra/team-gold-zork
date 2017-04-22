@@ -282,6 +282,16 @@ public class Dungeon {
 
 
 	/**
+	 * Returns the NPC associated with a given name.
+	 * @param npcName		the name of the NPC.
+	 * @return				the NPC object.
+	 */
+	public NPC getNPC(String npcName){
+		return NPCs.get(npcName);
+	}
+
+
+	/**
 	 * Saves a dungeon to a .sav file.
 	 * @param w		the PrintWriter for outputting to the .sav file.
 	 */
@@ -322,6 +332,13 @@ public class Dungeon {
 			input = input.substring(0, input.length() - 1); //removes colon from room name.
 			getRoom(input).restoreState(r, this);
 			input = r.nextLine();
+		}
+
+		r.nextLine(); //reads in "Character states:" heading.
+
+		//while there are more characters to read,
+		while(!input.equals("===")){
+			NPC.reloadNPCs(r, this);
 		}
 	}
 

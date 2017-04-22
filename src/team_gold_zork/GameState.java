@@ -121,26 +121,6 @@ class GameState {
                 }
 
                 adventurer.restoreState(input);
-                
-                line = input.nextLine(); 
-                if(!line.equals("Character states:")){
-                       throw new IllegalSaveFormatException();
-                }
-                while (!line.equals("===")){
-                if(line.equals("QuestGiver:")){
-                    qG.restoreState(input);
-                }
-                else if(line.equals("ItemStealer:")) {
-                    iS.restoreState(input);
-                }
-                else if(line.equals("AutoKiller:")){
-                    aK.restoreState(input);
-                }
-                else{
-                     throw new IllegalSaveFormatException();
-                }
-                        
-              }
                 input.close();
             }
             catch(FileNotFoundException e){

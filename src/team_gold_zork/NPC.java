@@ -41,6 +41,17 @@ public class NPC extends Character{
         return null;
     }
 
+
+    /**
+     * Restores the state of all NPCs in the dungeon.
+     * @param s the Scanner reading the .sav file.
+     * @param d the Dungeon the NPCs are in.
+     * @throws IllegalSaveFormatException if the Character description contains invalid contents.
+     */
+    static void reloadNPCs(Scanner s, Dungeon d) throws IllegalSaveFormatException{
+
+    }
+
     /**
      * Stores the state of the NPC to a .sav file.
      * @param w the PrintWriter for outputting to a .sav file.
