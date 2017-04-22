@@ -438,6 +438,7 @@ public class Room {
      * @param npc	the item to add.
      */
     void add(NPC npc){
+        if(!npcs.contains(npc))
             npcs.add(npc);
     }
     

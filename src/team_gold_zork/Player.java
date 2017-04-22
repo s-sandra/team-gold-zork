@@ -71,7 +71,7 @@ class Player extends Character{
      * @param s the Scanner reading the .sav file.
      * @throws IllegalSaveFormatException If the player description contains invalid contents.
      */
-    void restoreState(Scanner s)throws IllegalSaveFormatException{
+    void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
         String line = s.nextLine();
 
         //if the "Current room:" title is not found.

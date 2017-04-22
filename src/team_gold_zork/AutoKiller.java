@@ -84,25 +84,17 @@ class AutoKiller extends NPC{
          String line = s.nextLine();
          
          //if the "Current room:" title is not found.
-        if(!line.startsWith("Character Name:")){
-            throw new IllegalSaveFormatException();
-        }
-
-        //reads in the player's current room.
-        name = line.substring(line.indexOf(":") + 2);
-        line = s.nextLine();
-        
-        //if the "Current room:" title is not found.
         if(!line.startsWith("Current room:")){
             throw new IllegalSaveFormatException();
         }
 
-        //reads in the player's current room.
+        //reads in the AutoKiller's current room.
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        currentRoom = currentDungeon.getRoom(line);
+        currentDungeon = d;
+        currentRoom = d.getRoom(line);
         currentRoom.add(this);
-        line = s.nextLine();
-    
+
+        s.nextLine(); // reads in the "---" denoting the end of the section.
     }
    
     /**

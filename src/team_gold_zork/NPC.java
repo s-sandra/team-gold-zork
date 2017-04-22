@@ -49,7 +49,9 @@ public class NPC extends Character{
      * @throws IllegalSaveFormatException if the Character description contains invalid contents.
      */
     static void reloadNPCs(Scanner s, Dungeon d) throws IllegalSaveFormatException{
-
+        String name = s.nextLine();
+        NPC npc = d.getNPCNamed(name);
+        npc.restoreState(s, d);
     }
 
     /**
@@ -63,7 +65,7 @@ public class NPC extends Character{
      * @param s the Scanner reading the .sav file.
      * @throws IllegalSaveFormatException If the NPC description contains invalid contents.
      */
-    void restoreState(Scanner s) throws IllegalSaveFormatException {}
+    void restoreState(Scanner s, Dungeon d) throws IllegalSaveFormatException {}
 
     /**
      * Used by NPCs to react to a player entering the room.

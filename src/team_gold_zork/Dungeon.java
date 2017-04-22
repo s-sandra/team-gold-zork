@@ -286,7 +286,7 @@ public class Dungeon {
 	 * @param npcName		the name of the NPC.
 	 * @return				the NPC object.
 	 */
-	public NPC getNPC(String npcName){
+	public NPC getNPCNamed(String npcName){
 		return NPCs.get(npcName);
 	}
 
@@ -334,11 +334,16 @@ public class Dungeon {
 			input = r.nextLine();
 		}
 
-		r.nextLine(); //reads in "Character states:" heading.
+		input = r.nextLine(); //reads in "Character states:" heading.
+		if(!input.equals("Character states:")){
+			throw new IllegalSaveFormatException();
+		}
 
+		input = r.nextLine();
 		//while there are more characters to read,
 		while(!input.equals("===")){
 			NPC.reloadNPCs(r, this);
+			input = r.nextLine();
 		}
 	}
 

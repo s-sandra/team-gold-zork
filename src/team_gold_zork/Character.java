@@ -26,7 +26,7 @@ abstract class Character {
      * @param s the Scanner reading the .sav file.
      * @throws IllegalSaveFormatException If the character description contains invalid contents.
      */
-    abstract void restoreState(Scanner s) throws IllegalSaveFormatException;
+    abstract void restoreState(Scanner s, Dungeon d) throws IllegalSaveFormatException;
     
     
     /**

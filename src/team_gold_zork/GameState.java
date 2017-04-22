@@ -120,7 +120,7 @@ class GameState {
                         throw new IllegalSaveFormatException();
                 }
 
-                adventurer.restoreState(input);
+                adventurer.restoreState(input, dungeon);
                 input.close();
             }
             catch(FileNotFoundException e){
