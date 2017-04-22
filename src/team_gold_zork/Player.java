@@ -351,7 +351,7 @@ class Player extends Character{
                 healthWarning += " hunger.";
             }
             else {
-                healthWarning += " " + killer; 
+                healthWarning += " the " + killer + ".";
             }
             return healthWarning;
         }
