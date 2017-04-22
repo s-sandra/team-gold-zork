@@ -127,7 +127,7 @@ class AutoKiller extends NPC{
      */
     void kill()
     {
-        player.kill();
+        player.kill(name);
     }
 
 
