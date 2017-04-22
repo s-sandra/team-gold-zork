@@ -24,13 +24,19 @@ Contents: chainsaw,magicWand
 ---
 Rotunda:
 beenHere=true
+Contents: force
+---
+===
+Character states:
+AutoKiller
+black dog
+Current room: Room B6
 ---
 ===
 Adventurer state:
 Current room: Basement hallway
-Inventory: force
 Damage: 0
-Hunger: 2
-Fatigue: 2
+Hunger: 1
+Fatigue: 1
 Score: 0
 Rank: an amatuer
