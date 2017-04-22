@@ -67,12 +67,19 @@ class CommandFactory {
 				//name of the character to receive an item,
 				//and the item to be received, then passing both to
 				//the GiveCommand.
+		GameState state = GameState.instance();
+		Dungeon dungeon = state.getAdventurer().getDungeon();
+
+		if(command.startsWith("give")){
+			String charName = dungeon.getNPCNameIn(command);
+			String itemName = dungeon.getItemNameIn(command);
+
+			return new GiveCommand(charName, itemName);
+		}
 
 
 		String verb = "";
 		String noun = "";
-		GameState state = GameState.instance();
-		Dungeon dungeon = state.getAdventurer().getDungeon();
 
 		//if the command contains more than one word.
 		if(command.contains(" ")){

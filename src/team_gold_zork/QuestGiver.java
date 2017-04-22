@@ -15,13 +15,13 @@ public class QuestGiver extends NPC{
     boolean hasItem = false; 
     Item itemToLookFor = null;
     Item reward = null;
-    
+
     /**
-     * Creates a new QuestGiver from scratch.
-     * @param itemToLookFor the Item the QuestGiver wants.
-     * @param reward the Item the QuestGiver exchanges for the Item it wants.
+     * Creates a new QuestGiver from a dungeon file.
+     * @param s the scanner reading the zork file.
+     * @param d the Dungeon the AutoKiller is in.
      */
-    QuestGiver(Item itemToLookFor, Item reward){
+    QuestGiver(Scanner s, Dungeon d){
     }
     
     /**

@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * This class allows for the storage and creation of rooms in a dungeon.
@@ -226,6 +228,40 @@ public class Dungeon {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * Returns an item name corresponding with an item in the room,
+	 * if the item name is contained in a command string.
+	 * @param command the user's command.
+	 * @return the item name, if contained within the command string.
+	 */
+	public String getItemNameIn(String command){
+		Set<String> itemNames = items.keySet();
+
+		for(String name : itemNames){
+			if(command.contains(name)){
+				return name;
+			}
+		}
+		return "";
+	}
+
+	/**
+	 * Returns the NPC name corresponding with an NPC in the room,
+	 * if the NPC name is contained in a command string.
+	 * @param command the user's command.
+	 * @return the NPC name, if contained within the command string.
+	 */
+	public String getNPCNameIn(String command){
+		Set<String> npcNames = NPCs.keySet();
+
+		for(String npcName : npcNames){
+			if(command.contains(npcName)){
+				return npcName;
+			}
+		}
+		return "";
 	}
 
 

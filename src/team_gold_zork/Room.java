@@ -131,6 +131,22 @@ public class Room {
 
 
     /**
+     * Gets the NPC with a given name from the room's contents.
+     * @param name the name of the NPC.
+     * @return	the NPC in the room's contents.
+     * @throws NoCharacterException	if the NPC is not in the room.
+     */
+    NPC getNPCNamed(String name) throws NoCharacterException{
+        for(NPC npc: npcs){
+            if(npc.getName().equals(name)){
+                return npc;
+            }
+        }
+        throw new NoCharacterException();
+    }
+
+
+    /**
      * Gets all the items contained in the room.
      * @return the contents of the room
      */

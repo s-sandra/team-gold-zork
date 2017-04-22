@@ -87,6 +87,16 @@ public class NPC extends Character{
     String getName(){
         return name;
     }
+
+
+    /**
+     * Gets the message associated with a verb.
+     * @param verb  the action to be done on the item.
+     * @return  the message detailing the result of the action.
+     */
+    public String getMessageForVerb(String verb){
+        return messages.get(verb);
+    }
 }
 
 /** Thrown when there are no more characters to read from
