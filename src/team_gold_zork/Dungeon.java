@@ -19,6 +19,7 @@ public class Dungeon {
 	private String fileName; //stores the file containing the dungeon.
 	private Hashtable<String, Room> rooms = new Hashtable<>(); //stores the rooms in the dungeon.
 	private Hashtable<String, Item> items = new Hashtable<>(); //stores all the items in the dungeon, with its primary name as the key.
+	private Hashtable<String, Character> NPCs = new Hashtable<>(); //stores all the NPCs in the dungeon, with their names as the key.
 	private ArrayList<String> itemVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's items.
 	private ArrayList<String> charVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's characters.
 
@@ -103,6 +104,20 @@ public class Dungeon {
 			}
 		}
 		catch(NoExitException e){}
+
+		//if the Characters: heading is not found.
+		line = input.nextLine();
+		if(!line.equals("Characters:")){
+			throw new IllegalDungeonFormatException("'Characters:' is expected. Found '" + line + "'.");
+		}
+
+		try{
+			while(true){
+				add(NPC.loadNPCs(input, this));
+			}
+		}
+		catch(NoCharacterException e){}
+
 		input.close();
 	}
 
@@ -164,6 +179,15 @@ public class Dungeon {
 			entry = room;
 		}
 		rooms.put(room.getTitle(), room);
+	}
+
+
+	/**
+	 * Adds an NPC to the Dungeon.
+	 * @param npc	the NPC.
+	 */
+	public void add(NPC npc){
+		NPCs.put(npc.getName(), npc);
 	}
 
 

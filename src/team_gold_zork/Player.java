@@ -34,7 +34,6 @@ class Player extends Character{
         hasWon = false;
         hasDied = false;
         hasFainted = false;
-        name = "adventurer";
     }
     
     /**

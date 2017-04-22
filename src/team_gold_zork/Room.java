@@ -15,7 +15,7 @@ public class Room {
     private boolean beenHere = false; //determines if the adventurer has already visited the room.
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
-    private ArrayList<Character> npcs = new ArrayList<>(); //stores all the npcs in the room.
+    private ArrayList<NPC> npcs = new ArrayList<>(); //stores all the npcs in the room.
     private int exitCount = 0;
 //    private String fDesc = "";//Stroes the final description of
     /**
@@ -267,8 +267,8 @@ public class Room {
      * entered.
      */
     void visit(){
-        for(Character NPC : npcs){
-            NPC.greetPlayer();
+        for(NPC npc : npcs){
+            npc.greetPlayer();
         }
     }
 
@@ -457,7 +457,7 @@ public class Room {
      * Adds an npc to the contents of the room.
      * @param npc	the item to add.
      */
-    void addNPC(Character npc){
+    void addNPC(NPC npc){
             npcs.add(npc);
     }
     

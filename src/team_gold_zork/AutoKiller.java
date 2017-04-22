@@ -12,13 +12,13 @@ import java.util.Scanner;
  * This class stores information pertaining to the AutoKiller type NPC
  * @author Lauren
  */
-class AutoKiller extends Character{
+class AutoKiller extends NPC{
     GameState state = GameState.instance(); //stores the state of the game.
     Player player = state.getAdventurer();
     /**
      * Creates a new AutoKiller from scratch.
      */
-    AutoKiller(){
+    AutoKiller(Scanner s, Dungeon d){
         name = " ";
     }
     
