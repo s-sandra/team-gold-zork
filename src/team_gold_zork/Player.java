@@ -457,14 +457,6 @@ class Player extends Character{
         return hasDied;
     }
     
-    /**
-     * Determines whether the player has died.
-     * @return If the player has died. 
-     */
-    boolean hasDied(String killer){
-        this.killer = killer;
-        return hasDied;
-    }
     
     
     /**
@@ -590,5 +582,9 @@ class Player extends Character{
         }
 
         return inventoryWeight;
+    }
+    void kill(String killer){
+        this.killer = killer; 
+        hasDied = true;
     }
 }
