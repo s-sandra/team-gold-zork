@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Stores information pertaining to ItemStealer type NPC
  * @author Lauren
  */
-public class ItemStealer extends Character{
+public class ItemStealer extends NPC{
     private boolean hasItem = false;
     private Item itemToLookFor = null;
     

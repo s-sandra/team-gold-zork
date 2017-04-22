@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Stores information pertaining to QuestGiver type NPC
  * @author Lauren
  */
-public class QuestGiver extends Character{
+public class QuestGiver extends NPC{
     boolean hasItem = false; 
     Item itemToLookFor = null;
     Item reward = null;
