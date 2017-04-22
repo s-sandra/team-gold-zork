@@ -237,11 +237,15 @@ public class Dungeon {
 	 * @return the item name, if contained within the command string.
 	 */
 	public String getItemNameIn(String command){
-		Set<String> itemNames = items.keySet();
+		Collection<Item> objects = items.values();
+		command = command.toLowerCase();
 
-		for(String name : itemNames){
-			if(command.contains(name)){
-				return name;
+		for(Item item : objects){
+			if(command.contains(item.getSecondaryName().toLowerCase())){
+				return item.getSecondaryName();
+			}
+			if(command.contains(item.getPrimaryName().toLowerCase())){
+				return item.getSecondaryName();
 			}
 		}
 		return "";

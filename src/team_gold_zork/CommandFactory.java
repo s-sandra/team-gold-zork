@@ -74,6 +74,31 @@ class CommandFactory {
 			String charName = dungeon.getNPCNameIn(command);
 			String itemName = dungeon.getItemNameIn(command);
 
+			//if the NPC or item was not found in the dungeon, parse the command.
+			if(charName.isEmpty() || itemName.isEmpty()){
+				String[] giveCommand = command.split(" ");
+				for(String word : giveCommand){
+					if(word.equals("the")){
+						continue;
+					}
+					if(word.equals("give")){
+						continue;
+					}
+					if(charName.contains(word)){
+						continue;
+					}
+					if (itemName.contains(word)) {
+						continue;
+					}
+					if(charName.isEmpty()){
+						charName = word;
+					}
+					if(itemName.isEmpty()){
+						itemName = word;
+					}
+				}
+			}
+
 			return new GiveCommand(charName, itemName);
 		}
 
