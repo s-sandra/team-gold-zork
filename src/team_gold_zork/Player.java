@@ -17,7 +17,7 @@ class Player extends Character{
     private boolean hasWon;
     private boolean hasDied;
     private boolean hasFainted;
-
+    private String killer; 
     private boolean hungerHasPassedThreshold = false;
     private boolean damageHasPassedThreshold = false;
     private boolean fatigueHasPassedThreshold = false;
@@ -350,6 +350,9 @@ class Player extends Character{
             else if(isDeadly(hunger)){
                 healthWarning += " hunger.";
             }
+            else {
+                healthWarning += " " + killer; 
+            }
             return healthWarning;
         }
 
@@ -451,6 +454,15 @@ class Player extends Character{
      * @return If the player has died. 
      */
     boolean hasDied(){
+        return hasDied;
+    }
+    
+    /**
+     * Determines whether the player has died.
+     * @return If the player has died. 
+     */
+    boolean hasDied(String killer){
+        this.killer = killer;
         return hasDied;
     }
     
