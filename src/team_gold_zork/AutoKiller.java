@@ -14,8 +14,12 @@ import java.util.Scanner;
  */
 class AutoKiller extends NPC{
 
+    private String deathMsg = "";
+
     /**
-     * Creates a new AutoKiller from scratch.
+     * Creates a new AutoKiller from a dungeon file.
+     * @param s the scanner reading the zork file.
+     * @param d the Dungeon the AutoKiller is in.
      */
     AutoKiller(Scanner s, Dungeon d){
         String input = s.nextLine();
@@ -27,6 +31,13 @@ class AutoKiller extends NPC{
         input = s.nextLine();
         input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
 
+        //while the death description has not ended,
+        while(!input.startsWith("Current room:")){
+            deathMsg += input + "\n";
+            input = s.nextLine();
+        }
+
+        input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = d.getRoom(input);
         d.getRoom(input).add(this);
 
@@ -36,6 +47,7 @@ class AutoKiller extends NPC{
             String verbLine = input;
             String verb = "";
             String message = "";
+
 
             //checks to see if the verb triggers events.
             if(verbLine.contains("[")){
@@ -119,7 +131,7 @@ class AutoKiller extends NPC{
      */
     void kill()
     {
-        player.kill(name);
+        player.kill(deathMsg);
     }
 
 

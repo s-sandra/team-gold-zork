@@ -17,7 +17,7 @@ class Player extends Character{
     private boolean hasWon;
     private boolean hasDied;
     private boolean hasFainted;
-    private String killer; 
+    private String deathDesc;
     private boolean hungerHasPassedThreshold = false;
     private boolean damageHasPassedThreshold = false;
     private boolean fatigueHasPassedThreshold = false;
@@ -343,15 +343,14 @@ class Player extends Character{
         String healthWarning = "";
 
         if(hasDied){
-            healthWarning += "You have died from";
             if(isDeadly(damage)){
-                healthWarning += " your wounds.";
+                healthWarning += "The severity of your wounds has killed you.";
             }
             else if(isDeadly(hunger)){
-                healthWarning += " hunger.";
+                healthWarning += "You have died from your hunger.";
             }
             else {
-                healthWarning += " the " + killer + ".";
+                healthWarning += deathDesc;
             }
             return healthWarning;
         }
@@ -583,8 +582,8 @@ class Player extends Character{
 
         return inventoryWeight;
     }
-    void kill(String killer){
-        this.killer = killer; 
+    void kill(String deathMsg){
+        deathDesc = deathMsg;
         hasDied = true;
     }
 }

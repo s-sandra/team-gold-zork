@@ -144,6 +144,8 @@ Characters:
 AutoKiller
 black dog
 A menacing black dog looms in the corner.
+death message: You attempt to flee from the black dog, but there is no escape.
+The creature bites you on the leg and you bleed to death.
 Current room: Room B6
 talk to[Die()]:The dog has killed you.
 ---
