@@ -13,13 +13,53 @@ import java.util.Scanner;
  * @author Lauren
  */
 class AutoKiller extends NPC{
-    GameState state = GameState.instance(); //stores the state of the game.
-    Player player = state.getAdventurer();
+
     /**
      * Creates a new AutoKiller from scratch.
      */
     AutoKiller(Scanner s, Dungeon d){
-        name = " ";
+        String input = s.nextLine();
+        name = input;
+
+        input = s.nextLine();
+        desc = input;
+
+        input = s.nextLine();
+        input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
+
+        currentRoom = d.getRoom(input);
+        d.getRoom(input).add(this);
+
+        input = s.nextLine();
+        //while the verb description has not ended.
+        while(!input.equals("---")){
+            String verbLine = input;
+            String verb = "";
+            String message = "";
+
+            //checks to see if the verb triggers events.
+            if(verbLine.contains("[")){
+                verb = verbLine.substring(0, verbLine.indexOf("[")); //chops off data to the right of bracket.
+                String event = verbLine.substring(verbLine.indexOf("[") + 1, verbLine.indexOf("]")); //gets all events between brackets.
+                events.put(verb, event);
+            }
+            else{
+                verb = verbLine.substring(0, verbLine.indexOf(":")); //chops off data to the right of colon.
+            }
+
+            message = verbLine.substring(verbLine.indexOf(":") + 1); //chops off data to the left of colon.
+            input = s.nextLine();
+
+            //while the message description has not ended.
+            while(!input.contains(":") && !input.equals("---")){
+                message += "\n" + input;
+                input = s.nextLine();
+            }
+            messages.put(verb, message);
+            d.addCharacterVerb(verb);
+        }
+
+
     }
     
     /**
@@ -54,7 +94,7 @@ class AutoKiller extends NPC{
         //reads in the player's current room.
         line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = currentDungeon.getRoom(line);
-        currentRoom.addNPC(this);
+        currentRoom.add(this);
         line = s.nextLine();
     
     }

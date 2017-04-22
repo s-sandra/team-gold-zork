@@ -1,6 +1,7 @@
 package team_gold_zork;
 
 import java.io.PrintWriter;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /**
@@ -9,6 +10,10 @@ import java.util.Scanner;
 public class NPC extends Character{
     String name; //stores the name of the NPC.
     String desc; //stores a description of the NPC.
+    GameState state = GameState.instance(); //stores the state of the game.
+    Player player = state.getAdventurer();
+    Hashtable<String, String> messages = new Hashtable<>(); //stores the message corresponding with the verb key.
+    Hashtable<String, String> events = new Hashtable<>(); //stores the events corresponding with the verb key.
 
     /**
      * This constructs NPCs given a scanner reading a zork file.

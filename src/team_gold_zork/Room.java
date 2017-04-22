@@ -17,7 +17,7 @@ public class Room {
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<NPC> npcs = new ArrayList<>(); //stores all the npcs in the room.
     private int exitCount = 0;
-//    private String fDesc = "";//Stroes the final description of
+
     /**
      * This constructs a Room object, as well as the items in it.
      * @param s the Scanner reading a zork file.
@@ -184,11 +184,11 @@ public class Room {
 
             if(!beenHere|| isVerbose ){
                 beenHere = true;
-                description = title + "\n" + desc + describeItems() + describeExits() + describeNPCs();
+                description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();
                      
             }
             else{
-                description = title + describeItems() + describeExits() + describeNPCs();
+                description = title + describeItems() + describeNPCs() + describeExits();
             }
 
    
@@ -314,26 +314,6 @@ public class Room {
     public void addExit(Exit exit){
             exits.add(exit);
     }
-    
-//    /**
-//     *
-//     * @return NPCMess
-//     */
-//    String goNPC(){
-//
-//            if(desc.isEmpty()){
-//                    return "";
-//            }
-//
-//            String desc = "\n";
-//
-//            for(Character npc: npcs){
-//                    desc += npc.describe() + ". ";
-//
-//            }
-//
-//            return desc + "\n";
-//    }
         
 
     /**
@@ -457,7 +437,7 @@ public class Room {
      * Adds an npc to the contents of the room.
      * @param npc	the item to add.
      */
-    void addNPC(NPC npc){
+    void add(NPC npc){
             npcs.add(npc);
     }
     
