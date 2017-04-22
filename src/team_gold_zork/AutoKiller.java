@@ -67,8 +67,13 @@ class AutoKiller extends NPC{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-        
-    } 
+        w.println("AutoKiller");
+        w.println(name + ":");
+        w.println("Current room: " + currentRoom.getTitle());
+        w.println("---");
+    }
+
+
     /**
      * Restores the state of a AutoKiller from a .sav file.
      * @param s the Scanner reading the .sav file.

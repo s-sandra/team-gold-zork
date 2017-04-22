@@ -19,7 +19,7 @@ public class Dungeon {
 	private String fileName; //stores the file containing the dungeon.
 	private Hashtable<String, Room> rooms = new Hashtable<>(); //stores the rooms in the dungeon.
 	private Hashtable<String, Item> items = new Hashtable<>(); //stores all the items in the dungeon, with its primary name as the key.
-	private Hashtable<String, Character> NPCs = new Hashtable<>(); //stores all the NPCs in the dungeon, with their names as the key.
+	private Hashtable<String, NPC> NPCs = new Hashtable<>(); //stores all the NPCs in the dungeon, with their names as the key.
 	private ArrayList<String> itemVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's items.
 	private ArrayList<String> charVerbs = new ArrayList<>(); //stores all the verbs supported by all the dungeon's characters.
 
@@ -294,6 +294,15 @@ public class Dungeon {
 
 		for(Room room : values){
 			room.storeState(w);
+		}
+
+		w.println("===");
+
+		w.println("Character states:");
+		Collection<NPC> npcs = NPCs.values();
+
+		for(NPC npc : npcs){
+			npc.storeState(w);
 		}
 
 		w.println("===");
