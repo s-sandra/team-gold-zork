@@ -147,7 +147,7 @@ class AutoKiller extends NPC{
      * no avenue of escape.
      */
     void greetPlayer(){
-        if(hasExit()){
+        if(!hasExit()){
             kill();
         }
     }
