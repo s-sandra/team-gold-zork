@@ -47,7 +47,7 @@ public class QuestGiver extends NPC{
 
         //reads in the player's current room.
         line = line.substring(line.indexOf(":") + 2);
-        this.setName(line);
+        name = line;
          
         line = s.nextLine();
         
@@ -96,14 +96,22 @@ public class QuestGiver extends NPC{
      * This method adds the QuestGiver's reward to the player's inventory, while
      * removing the QuestGiver's desired item from the player's inventory.
      */
-    void giveReward(){
+    String giveReward(){
+        return "";
     }
-    
-     /**
-    * sets name
-    * @param name 
-    */
-   void setName(String name){
-       name = this.name;
-   }
+
+
+    /**
+     * Accepts a gift from the player and reciprocates if the given item
+     * is the item the QuestGiver needs.
+     * @param item the item from the player.
+     * @return the QuestGiver's response to the gift.
+     */
+    String give(Item item){
+        if(item.getPrimaryName().equals(itemToLookFor)){
+            addToInventory(item);
+            return giveReward();
+        }
+        return super.give(item);
+    }
 }

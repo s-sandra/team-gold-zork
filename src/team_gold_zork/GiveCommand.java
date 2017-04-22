@@ -59,19 +59,13 @@ public class GiveCommand extends Command{
             return "There's no " + receiver + " here.\n";
         }
 
-        npc.addToInventory(item);
+        String message = npc.give(item);
         Event event = new Event("Disappear(" + gift + ")", item);
         try{
             event.execute();
         }
         catch(NoItemException e){}
 
-
-        String message = npc.getMessageForVerb("give");
-        if(message != null){
-            return message + " " + gift + ".\n";
-        }
-
-        return "The " + receiver + " has accepted your " + gift + ".\n";
+        return message + "\n";
     }
 }

@@ -90,6 +90,22 @@ public class NPC extends Character{
 
 
     /**
+     * Accepts a gift from the player and adds it
+     * to the NPC's inventory.
+     * @param item the item from the player.
+     * @return the NPC's reaction to the gift.
+     */
+    String give(Item item){
+        addToInventory(item);
+        String message = messages.get("give");
+        if(message != null){
+            return message + " " + item.getSecondaryName() + ".";
+        }
+        return "The " + name + " has accepted your " + item.getSecondaryName() + ".";
+    }
+
+
+    /**
      * Gets the message associated with a verb.
      * @param verb  the action to be done on the item.
      * @return  the message detailing the result of the action.
