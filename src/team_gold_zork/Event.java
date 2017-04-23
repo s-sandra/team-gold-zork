@@ -29,7 +29,6 @@ class Event {
     Event(String event, Item item){
         this.events = event;
         this.item = item;
-        
     }
     
     /**
@@ -110,12 +109,7 @@ class Event {
             }
              else if(event.startsWith("Light")){
                 String status = event.substring(6);
-                if(status.equals("on")){
-                    player.currentRoom.setLightState(false);
-                }
-                else if(status.equals("off")){
-                    player.currentRoom.setLightState(true);
-                }
+                light(status);
             }
 
         }
@@ -226,8 +220,12 @@ class Event {
      * @author KatieMelhuish
      */
     private void light(String status){
-       
-        
+        if(status.equals("on")){
+            player.currentRoom.setLightState(false);
+        }
+        else if(status.equals("off")){
+            player.currentRoom.setLightState(true);
+        }
     }
 }
 
