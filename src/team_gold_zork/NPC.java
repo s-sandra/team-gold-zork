@@ -32,9 +32,9 @@ public class NPC extends Character{
         if(input.equals("AutoKiller")){
             return new AutoKiller(s, d);
         }
-//        if(input.equals("QuestGiver")){
-//            return new QuestGiver(s, d);
-//        }
+          if(input.equals("QuestGiver")){
+            return new QuestGiver(s, d);
+         }
 //        if(input.equals("ItemStealer")){
 //            return new ItemStealer(s, d);
 //        }
