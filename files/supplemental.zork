@@ -1,15 +1,12 @@
-Dungeon Name
+the World of Felines
 Group Bork v2.0
 ===
 Items:
 foodBowl
-There is a shiny food bowl here filled with your favorite lunch, tuna.
+There is a shiny food bowl here perpetually filled with your favorite lunch, tuna.
 5
-eat out of[Transform(emptyBowl),Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
----
-emptyBowl
-There is an empty bowl here.
-5
+eat out of[Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
+take:Your human would get mad at you if you take that.
 ---
 scratchingPost
 A tall scratching post, much like the trunk of a tree, forms the base of your cat condo.
@@ -42,10 +39,23 @@ Contents: mouseToy
 ---
 ===
 Exits:
-
+Cat Tree Porch
+u
+Cat Tree Interior
+---
+Cat Tree Interior
+d
+Cat Tree Porch
+---
+Cat Tree Interior
+u
+Cat Tree Balcony
+---
+Cat Tree Balcony
+d
+Cat Tree Interior
 ---
 ===
 Characters:
-
 ---
 ===
