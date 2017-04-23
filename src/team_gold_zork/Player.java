@@ -349,7 +349,7 @@ class Player extends Character{
             else if(isDeadly(hunger)){
                 healthWarning += "You have died from your hunger.";
             }
-            else {
+            else if(deathDesc != null){
                 healthWarning += deathDesc;
             }
             return healthWarning;

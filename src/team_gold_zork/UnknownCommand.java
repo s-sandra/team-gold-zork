@@ -26,7 +26,8 @@ class UnknownCommand extends Command {
         if(bogusCommand.startsWith("verbose")){
             return "Do you want to turn verbose on or off?\n";
         }
-        return capitalize(bogusCommand).trim() + " what?\n";
+        //return capitalize(bogusCommand).trim() + " what?\n";
+        return "You can't " + bogusCommand.toLowerCase() + ".\n";
     }
 
 

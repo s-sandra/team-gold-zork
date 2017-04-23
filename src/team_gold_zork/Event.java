@@ -37,6 +37,7 @@ class Event {
      * @param event describes the consequence of a command related to a Character.
      */
     Event(String event){
+        events = event;
     }
     
     /**

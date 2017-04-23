@@ -74,16 +74,10 @@ class CommandFactory {
 			if(charName.isEmpty() || itemName.isEmpty()){
 				String[] giveCommand = command.split(" ");
 				for(String word : giveCommand){
-					if(word.equals("the")){
+					if(word.equals("the") || word.equals("give") || word.equals("to")){
 						continue;
 					}
-					if(word.equals("give")){
-						continue;
-					}
-					if(charName.contains(word)){
-						continue;
-					}
-					if (itemName.contains(word)) {
+					if(charName.contains(word) || itemName.contains(word)){
 						continue;
 					}
 					if(charName.isEmpty()){
@@ -105,49 +99,22 @@ class CommandFactory {
 		//if the command contains more than one word.
 		if(command.contains(" ")){
 
-			String v = dungeon.getItemVerbIn(command);
-			if(v != null) {
-				//splits up the command into verb-noun.
-				verb = v;
-				noun = command.substring(command.indexOf(v) + v.length() + 1, command.length()).trim();
-			}
-
-			v = dungeon.getCharacterVerbIn(command);
-			if(v != null){
-				String charName = "";
-				verb = v;
-				charName = dungeon.getNPCNameIn(command);
-
-				//if the NPC was not found in the dungeon, parse the command.
-				if(charName.isEmpty()){
-					String[] npcCommand = command.split(" ");
-					for(String word : npcCommand){
-						if(word.equals("the")){
-							continue;
-						}
-						if (verb.contains(word)) {
-							continue;
-						}
-						if(charName.isEmpty()){
-							charName = word;
-						}
-					}
-				}
-				return new CharacterSpecificCommand(verb, charName);
-			}
-
-			//splits up the command into verb-noun.
-			verb = command.substring(0, command.indexOf(" "));
-			noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
-
-			//if the verb and noun are split with a "the", removes it.
-			if(noun.startsWith("the")){
+			//parses for non-item specific commands.
+			if(command.contains("the")){
+				verb = command.substring(0, command.indexOf("the")).trim();
 				noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
 			}
+			else{
+				verb = command.substring(0, command.indexOf(" ") + 1).trim();
+				noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
+			}
 
-			if(verb.equals("unlock") || verb.equals("open")){
+
+			//if the user wants to unlock something,
+			if(verb.startsWith("unlock") || verb.startsWith("open")){
 				String keyName = "";
 
+				//if the noun is followed by a "with", removes it.
 				if(command.contains("with")){
 					noun = noun.substring(0, noun.indexOf("with")).trim();
 					keyName = command.substring(command.indexOf("with") + 4, command.length()).trim();
@@ -160,15 +127,41 @@ class CommandFactory {
 				return new UnlockCommand(noun, keyName);
 			}
 
+			if(verb.equals("take")){
+				return new TakeCommand(noun);
+			}
+			if(verb.equals("drop")){
+				return new DropCommand(noun);
+			}
+
+			//searches for item-specific commands in the command line.
+			String itemVerb = dungeon.getItemVerbIn(command);
+			String itemName = dungeon.getItemNameIn(command);
+
+			//searches for npc-specific commands in the command line.
+			String charVerb = dungeon.getCharacterVerbIn(command);
+			String charName = dungeon.getNPCNameIn(command);
+
+			if(!charVerb.isEmpty() && !charName.isEmpty()){
+				return new CharacterSpecificCommand(charVerb, charName);
+			}
+			else if(!itemVerb.isEmpty() && !itemName.isEmpty()){
+				return new ItemSpecificCommand(itemVerb, itemName);
+			}
+			else if(charVerb.isEmpty() && !charName.isEmpty()){
+				return new CharacterSpecificCommand(verb, charName);
+			}
+			else if(charVerb.isEmpty() && itemVerb.isEmpty() && !itemName.isEmpty()){
+				return new ItemSpecificCommand(verb, itemName);
+			}
+			else if(!charVerb.isEmpty() && charName.isEmpty() && itemName.isEmpty()){
+				return new CharacterSpecificCommand(charVerb, noun);
+			}
+			else if(!itemVerb.isEmpty() && itemName.isEmpty()){
+				return new ItemSpecificCommand(itemVerb, noun);
+			}
+
 			return new ItemSpecificCommand(verb, noun);
-
-		}
-
-		if(verb.equals("take")){
-			return new TakeCommand(noun);
-		}
-		if(verb.equals("drop")){
-			return new DropCommand(noun);
 		}
 
 		return new UnknownCommand(commandString);
