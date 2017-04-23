@@ -18,8 +18,9 @@ public class ItemStealer extends NPC{
     private String stealMsg = "";
     
     /**
-     * Creates a new ItemStealer from scratch.
-     * @param itemToLookFor The item the ItemStealer wants.
+     * Creates a new QuestGiver from a dungeon file.
+     * @param s the scanner reading the zork file.
+     * @param d the Dungeon the AutoKiller is in.
      */
     ItemStealer(Scanner s, Dungeon d){
         String input = s.nextLine();
@@ -44,8 +45,13 @@ public class ItemStealer extends NPC{
         currentDungeon = d; 
         input = s.nextLine();
        
-     
-       
+        input = input.substring(input.indexOf(":") + 2); 
+        try {
+            itemToLookFor = currentDungeon.getItem(input);
+        } catch (NoItemException e) {
+           
+        }            
+        input = s.nextLine();
         //while the verb description has not ended.
         while(!input.equals("---")){
             String verbLine = input;
@@ -102,14 +108,14 @@ public class ItemStealer extends NPC{
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = name;
+         name = line;
          line = s.nextLine();
           
         if(!line.startsWith("Description: ")){
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = desc;
+         desc = line;
          line = s.nextLine();
          
          //if the "Current room:" title is not found.
@@ -117,7 +123,7 @@ public class ItemStealer extends NPC{
             throw new IllegalSaveFormatException();
         }
         line =  line.substring(line.indexOf(":") + 2);
-         line = stealMsg;
+         stealMsg = line;
          line = s.nextLine();
          
         //if the "Current room:" title is not found.
@@ -129,8 +135,6 @@ public class ItemStealer extends NPC{
         currentDungeon = d;
         currentRoom = d.getRoom(line);
         currentRoom.add(this);
-
-       
           line = s.nextLine();
           if(!line.startsWith("Looking for: ")){
             throw new IllegalSaveFormatException();
@@ -142,71 +146,35 @@ public class ItemStealer extends NPC{
            throw new IllegalSaveFormatException(e.getMessage()); 
         }
     }
-}
     
-    /**
-     * Stores the state of the ItemStealer to a .sav file.
-     * @param w the PrintWriter for outputting to a .sav file.
-     */
-    void storeState(PrintWriter w){
-        
+    boolean checkItem(){
+        for(Item item : player.inventory){
+            if (item.getPrimaryName().equals(itemToLookFor.getPrimaryName())){
+                hasItem = true;
+                return hasItem;
+                 }
+           }
+        hasItem = false; 
+        return hasItem;
     }
-
-     
-    /**
-     * Restores the state of a ItemStealer from a .sav file.
-     * @param s the Scanner reading the .sav file.
-     * @throws IllegalSaveFormatException If the ItemStealer description contains invalid contents.
-     */
-    void restoreState(Scanner s)throws IllegalSaveFormatException{
-          String line = s.nextLine();
-         
-         //if the "Current room:" title is not found.
-        if(!line.startsWith("Character Name:")){
-            throw new IllegalSaveFormatException();
+    
+    void steal() {
+        if(checkItem()){
+            player.removeFromInventory(itemToLookFor);
+            addToInventory(itemToLookFor);
+            System.out.println(stealMsg);
         }
-
-        //reads in the player's current room.
-        line = line.substring(line.indexOf(":") + 2);
-      this.setName(line);
-         
-        line = s.nextLine();
-        
-        //if the "Current room:" title is not found.
-        if(!line.startsWith("Current room:")){
-            throw new IllegalSaveFormatException();
+        else{
+            System.out.println("'Drats! You Don't have what I want!' said "+ name);
         }
-
-        //reads in the player's current room.
-        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        currentRoom = currentDungeon.getRoom(line);
-        
-
-        line = s.nextLine();
-
-        //if the player had items in their inventory at save time (the "Inventory:" title would not appear otherwise).
-        if(line.startsWith("Inventory: ")){
-            line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-
-            //chops off the commas from the inventory list.
-            String[] items = line.split(",");
-            for(String item: items){
-                try{ //the inventory might contain invalid items.
-                    this.inventory.add(currentDungeon.getItem(item));
-                }
-                catch(NoItemException e){
-                    throw new IllegalSaveFormatException(e.getMessage());
-                }
-            }
-            line = s.nextLine();
     }
-     
-    }
- /**
-    * sets name
-    * @param name 
-    */
-   void setName(String name){
-       name = this.name;
-   }
+     /**
+     * Used by NPCs to react to a player entering the room.
+     */
+    void greetPlayer(){
+    steal();}
+
+  
+    
+    
 }
