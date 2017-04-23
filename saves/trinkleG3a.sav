@@ -10,7 +10,7 @@ Room B6:
 beenHere=false
 ---
 Basement hallway:
-beenHere=true
+beenHere=false
 Contents: DrPepper
 Locked exits: w
 ---
@@ -29,14 +29,25 @@ Contents: force
 ===
 Character states:
 AutoKiller
-black dog
-Current room: Room B6
+Description: A menacing black dog looms in the corner.
+Death Message: You attempt to flee from the black dog, but there is no escape.
+The creature bites you on the leg and you bleed to death.
+Character Name: black dog
+Current room: Rotunda
+---
+QuestGiver:
+Character Name: green cat
+Description: A cat green cat with beady eyes looks at you expectantly. He looks wise and wrinkled.
+Reward Message:  Thank you so much! Give you this allow me to. Very important it is.
+Current room: Rotunda
+Reward: squishedCan
+Looking for: force
 ---
 ===
 Adventurer state:
-Current room: Basement hallway
+Current room: Rotunda
 Damage: 0
-Hunger: 1
-Fatigue: 1
+Hunger: 0
+Fatigue: 0
 Score: 0
 Rank: an amatuer
