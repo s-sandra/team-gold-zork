@@ -222,10 +222,10 @@ class Event {
      */
     private void light(String status){
         if(status.equals("on")){
-            player.setLightSource(true);
+            player.setHasLightSource(true);
         }
         else if(status.equals("off")){
-            player.setLightSource(false);
+            player.setHasLightSource(false);
         }
     }
 }
