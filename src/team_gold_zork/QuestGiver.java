@@ -122,14 +122,14 @@ public class QuestGiver extends NPC{
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = name;
+         name = line;
          line = s.nextLine();
           
         if(!line.startsWith("Description: ")){
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = desc;
+         desc = line;
          line = s.nextLine();
          
          //if the "Current room:" title is not found.
@@ -137,7 +137,7 @@ public class QuestGiver extends NPC{
             throw new IllegalSaveFormatException();
         }
         line =  line.substring(line.indexOf(":") + 2);
-         line = rewardMsg;
+         rewardMsg = line;
          line = s.nextLine();
          
         //if the "Current room:" title is not found.
