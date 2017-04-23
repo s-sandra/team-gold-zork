@@ -79,21 +79,7 @@ public class Room {
     void add(Item item){
             contents.add(item);
     }
-    /**
-    *Sets the light state in the Room.
-    * @param isDark if the room is dark
-    * @author KatieMelhuish
-    */
-    void setLightState(boolean isDark){
-        
-    }
-    /**
-     * Returns the light state of the Room.
-     * @return if the room is dark.
-     */
-    boolean getLightState(){
-        return true;
-    }
+
 
     /**
      * Removes an item from the contents of the room.
@@ -198,6 +184,8 @@ public class Room {
         boolean isVerbose = GameState.instance().getVerbose();
         String description = "";
 
+        //print out the room description if the room !isDark or if it isDark and the player hasLightSource.
+        //otherwise, print "It is pitch black in here."
             if(!beenHere|| isVerbose ){
                 beenHere = true;
                 description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();
@@ -209,7 +197,6 @@ public class Room {
 
    
       return description;
-            
     }
 
     /**

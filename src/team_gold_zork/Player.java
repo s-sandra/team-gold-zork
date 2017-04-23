@@ -21,6 +21,7 @@ class Player extends Character{
     private boolean hungerHasPassedThreshold = false;
     private boolean damageHasPassedThreshold = false;
     private boolean fatigueHasPassedThreshold = false;
+    private boolean hasLightSource;
 
     /**
      * Creates a new player from scratch.
@@ -34,6 +35,7 @@ class Player extends Character{
         hasWon = false;
         hasDied = false;
         hasFainted = false;
+        hasLightSource = false;
     }
     
     /**
@@ -148,7 +150,25 @@ class Player extends Character{
         rank = line;
     }
 
-   
+    /**
+     * This adds or removes a light source from the player.
+     * @param isLight whether the player will have a light source.
+     */
+    void setHasLightSource(boolean isLight){
+        hasLightSource = isLight;
+    }
+
+
+    /**
+     * This determines if the player possess an object that is
+     * emitting light.
+     * @return whether the player currently has a light source.
+     */
+    boolean getHasLightSource(boolean isLight){
+        return hasLightSource;
+    }
+
+
     /**
      * Modifies the player's hunger.
      * @param n The number to add to the player's hunger. This number 
