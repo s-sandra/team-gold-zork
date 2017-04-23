@@ -17,7 +17,7 @@ public class QuestGiver extends NPC{
     boolean hasItem = false; 
     Item itemToLookFor = null;
     Item reward = null;
-    String rewardMsg; 
+    private String rewardMsg = " "; 
 
     /**
      * Creates a new QuestGiver from a dungeon file.
