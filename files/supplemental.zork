@@ -2,7 +2,14 @@ Dungeon Name
 Group Bork v2.0
 ===
 Items:
-
+foodBowl
+There is a shiny food bowl here filled with your favorite lunch, tuna.
+5
+eat out of[Transform(emptyBowl),Hunger(-50)]:You lick yours lips in satisfaction. Meowlicious!
+---
+emptyBowl
+There is an empty bowl here.
+5
 ---
 ===
 Rooms:
@@ -11,8 +18,8 @@ You climb up onto a luxuriously soft platform, over which you can see the entire
 through the window above you, casting warm rays of light over your favorite cozy spot.
 ---
 Cat Tree Porch
-
-Contents: foodBowl
+The carpeted base of your favorite hangout feels soft beneath your paws.
+Contents: foodBowl,scratchingPost
 ===
 Exits:
 

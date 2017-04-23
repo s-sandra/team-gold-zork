@@ -153,13 +153,13 @@ give:The dog snarls at you, but accepts your
 ---
 QuestGiver
 green cat
-A cat green cat with beady eyes looks at you expectantly. He looks wise and wrinkled.
+A green cat with beady eyes looks at you expectantly. He looks wise and wrinkled.
 Reward Message: Thank you so much! Give you this allow me to. Very important it is.
 Current room: Rotunda
 Reward: squishedCan
 LookingFor: force
-talk to: Hello, Looking for the force I am. Have it do you?
-give: The green cat thanks you for it in broken English.
+talk to:Hello, Looking for the force I am. Have it do you?
+give:The green cat thanks you for it in broken English.
 ---
 ===
 
