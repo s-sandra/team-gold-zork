@@ -8,6 +8,7 @@ A large black bomb sits in the corner of the room.
 examine:The bomb is a heavy, glistening black sphere. On the top appears to be some form of detonator.
 kick[Wound(2)]:Ouch! That hurt your foot.
 detonate[Die]:An ear-splitting halo of shrapnel kills you and seriously degrades the room's interior.
+take:You can't take the bomb. It's too heavy.
 ---
 force
 You sense the force in the room.
@@ -159,7 +160,6 @@ Reward: squishedCan
 LookingFor: force
 talk to: Hello, Looking for the force I am. Have it do you?
 give: The green cat thanks you for it in broken English.
-
 ---
 ===
 

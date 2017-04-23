@@ -34,6 +34,10 @@ class ItemSpecificCommand extends Command{
        String message = item.getMessageForVerb(verb);
 
        if(message == null){
+           if(verb.equals("take")){
+               TakeCommand takeCommand = new TakeCommand(noun);
+               return takeCommand.execute();
+           }
            return "You can't " + verb + " the " + noun + ".\n";
        }
 

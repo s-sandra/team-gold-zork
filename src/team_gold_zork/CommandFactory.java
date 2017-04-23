@@ -136,9 +136,6 @@ class CommandFactory {
 				}
 			}
 
-			if(verb.equals("take")){
-				return new TakeCommand(noun);
-			}
 			if(verb.equals("drop")){
 				return new DropCommand(noun);
 			}
@@ -171,6 +168,10 @@ class CommandFactory {
 			}
 
 			return new ItemSpecificCommand(verb, noun);
+
+		}
+		if(verb.equals("take")){
+			return new TakeCommand(noun);
 		}
 
 		return new UnknownCommand(commandString);
