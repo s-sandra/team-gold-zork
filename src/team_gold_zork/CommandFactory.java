@@ -108,15 +108,32 @@ class CommandFactory {
 			String v = dungeon.getItemVerbIn(command);
 			if(v != null) {
 				//splits up the command into verb-noun.
-				verb = command.substring(0, command.indexOf(v) + v.length());
+				verb = v;
 				noun = command.substring(command.indexOf(v) + v.length() + 1, command.length()).trim();
 			}
 
 			v = dungeon.getCharacterVerbIn(command);
 			if(v != null){
-				//parse for verb.
-				//parse for character name.
-				//create character specific command.
+				String charName = "";
+				verb = v;
+				charName = dungeon.getNPCNameIn(command);
+
+				//if the NPC was not found in the dungeon, parse the command.
+				if(charName.isEmpty()){
+					String[] npcCommand = command.split(" ");
+					for(String word : npcCommand){
+						if(word.equals("the")){
+							continue;
+						}
+						if (verb.contains(word)) {
+							continue;
+						}
+						if(charName.isEmpty()){
+							charName = word;
+						}
+					}
+				}
+				return new CharacterSpecificCommand(verb, charName);
 			}
 
 			//splits up the command into verb-noun.
@@ -143,15 +160,10 @@ class CommandFactory {
 				return new UnlockCommand(noun, keyName);
 			}
 
-		}
-		else{
-			verb = command;
+			return new ItemSpecificCommand(verb, noun);
+
 		}
 
-		//if the command doesn't have a verb-noun structure.
-		if(noun.isEmpty()) {
-			return new UnknownCommand(commandString);
-		}
 		if(verb.equals("take")){
 			return new TakeCommand(noun);
 		}
@@ -159,8 +171,7 @@ class CommandFactory {
 			return new DropCommand(noun);
 		}
 
-		return new ItemSpecificCommand(verb, noun);
-
+		return new UnknownCommand(commandString);
 	}
 
 

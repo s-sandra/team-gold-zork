@@ -60,7 +60,7 @@ public class GiveCommand extends Command{
         }
 
         String message = npc.give(item);
-        Event event = new Event("Disappear(" + gift + ")", item);
+        Event event = new Event("Disappear(" + item.getPrimaryName() + ")", item);
         try{
             event.execute();
         }

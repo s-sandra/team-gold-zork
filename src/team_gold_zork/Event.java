@@ -18,7 +18,6 @@ import java.util.Random;
 class Event {
     private String events;
     private Item item;
-    private Character character;
     GameState state = GameState.instance(); //stores the state of the game.
     Player player = state.getAdventurer();
     
@@ -36,10 +35,8 @@ class Event {
     /**
      * Constructs an Event object related to CharacterSpecificCommands
      * @param event describes the consequence of a command related to a Character.
-     * @param character the Character involved in triggering the event.
      */
-    Event(String event, Character character){
-        this.character = character;
+    Event(String event){
     }
     
     /**

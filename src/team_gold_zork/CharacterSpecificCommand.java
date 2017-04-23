@@ -31,6 +31,39 @@ package team_gold_zork;
      * @return  the result of the command.
      */
     String execute(){
-        return null;
+        Room currentRoom = state.getAdventurer().getCurrentRoom();
+        String message = "";
+        NPC character;
+
+        try{
+            character = currentRoom.getNPCNamed(characterName);
+        }
+        catch(NoCharacterException e){
+            return "There's no " + characterName + " here.\n";
+        }
+
+        message = character.getMessageForVerb(verb);
+
+        String events = character.getEventForVerb(verb);
+        if(events != null){
+            Event result = new Event(events);
+            try{
+                message += "\n" + result.execute();
+            }
+            catch(NoItemException e){}
+
+        }
+        state.getAdventurer().passTime();
+        String healthWarning = state.getAdventurer().checkHealth();
+
+        if(!healthWarning.isEmpty()){
+            healthWarning += "\n";
+        }
+
+        if(message.endsWith("\n")){
+            return message;
+        }
+
+        return message + "\n" + healthWarning;
     }
 }
