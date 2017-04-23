@@ -44,7 +44,7 @@ public class QuestGiver extends NPC{
        input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = d.getRoom(input);
         d.getRoom(input).add(this);
-
+        currentDungeon = d; 
         input = s.nextLine();
        
      
@@ -64,7 +64,7 @@ public class QuestGiver extends NPC{
         } catch (NoItemException e) {
            
         }            
-       
+        input = s.nextLine();
         //while the verb description has not ended.
         while(!input.equals("---")){
             String verbLine = input;
@@ -182,7 +182,6 @@ public class QuestGiver extends NPC{
      */
     String giveReward(){
         player.addToInventory(reward);
-        this.removeFromInventory(reward);
         return rewardMsg;
     }
 
