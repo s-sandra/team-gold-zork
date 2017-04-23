@@ -19,7 +19,6 @@ public class ItemStealer extends NPC{
     
     /**
      * Creates a new ItemStealer from scratch.
-     * @param itemToLookFor The item the ItemStealer wants.
      */
     ItemStealer(Scanner s, Dungeon d){
         String input = s.nextLine();
@@ -142,15 +141,7 @@ public class ItemStealer extends NPC{
            throw new IllegalSaveFormatException(e.getMessage()); 
         }
     }
-}
-    
-    /**
-     * Stores the state of the ItemStealer to a .sav file.
-     * @param w the PrintWriter for outputting to a .sav file.
-     */
-    void storeState(PrintWriter w){
-        
-    }
+
 
      
     /**
