@@ -37,6 +37,8 @@ public class Room {
             title = input;
             input = s.nextLine();
 
+            //check to see if isDark line is here. If yes, set isDark variable. If not, continue.
+
             //checks if the room contains items.
             if(input.startsWith("Contents:")) {
 
