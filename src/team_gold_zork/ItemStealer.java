@@ -161,8 +161,11 @@ public class ItemStealer extends NPC{
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
-            System.out.println(stealMsg);
-        }}
+            System.out.println(stealMsg + " said " + name);
+        }  else{
+            System.out.println("'Drats! You Don't have what I want!' said "+ name);
+        }
+    }
 
 
      
@@ -179,9 +182,7 @@ public class ItemStealer extends NPC{
             throw new IllegalSaveFormatException();
 
         }
-        else{
-            System.out.println("'Drats! You Don't have what I want!' said "+ name);
-        }
+      
     }
      /**
      * Used by NPCs to react to a player entering the room.
