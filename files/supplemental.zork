@@ -23,6 +23,19 @@ featherToy
 A feather toy dangles from the ceiling of the cat tree balcony above.
 take:Sadly, you can't take the feather toy. It's stuck to your cat tree.
 play with:The feather toy swings back and forth, creating a jingling sound.
+---
+table
+100
+take:The scratching post thingy is far too heavy for your little paws to carry.
+scratch:Your human would call you a bad cat, but she isn't home right now, so you scratch away.
+jump onto:Wheee! You can see the black box from here.
+jump off:You leap dexterously back onto the ground.
+---
+blackBox
+200
+The magic black box hangs on the center wall.
+take:You can't take it. The magic black box is fixed to the wall.
+---
 ===
 Rooms:
 Cat Tree Balcony
@@ -36,6 +49,12 @@ Contents: foodBowl,scratchingPost,featherToy
 Cat Tree Interior
 You climb up a fuzzy incline into a small, sheltered nook. The floor is lined with a soft cushion.
 Contents: mouseToy
+---
+Living Room
+Your owner has decorated this room with two giant beds, covered with pillows, which she likes to sit
+on while watching her magic black box. There are four scratching posts in the center of the room, which
+serve as support for a platform that your owner calls a table.
+Contents: table,couch,fishbowl,blackBox
 ---
 ===
 Exits:
@@ -54,6 +73,22 @@ Cat Tree Balcony
 Cat Tree Balcony
 d
 Cat Tree Interior
+---
+Living Room
+w
+Cat Tree Porch
+---
+Living Room
+e
+Foyer
+----
+Foyer
+w
+Living Room
+---
+Foyer
+n
+Kitchen
 ---
 ===
 Characters:
