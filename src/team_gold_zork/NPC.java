@@ -35,9 +35,9 @@ public class NPC extends Character{
           if(input.equals("QuestGiver")){
             return new QuestGiver(s, d);
          }
-//        if(input.equals("ItemStealer")){
-//            return new ItemStealer(s, d);
-//        }
+     if(input.equals("ItemStealer")){
+           return new ItemStealer(s, d);
+   }
         return null;
     }
 
