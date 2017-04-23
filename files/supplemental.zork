@@ -36,6 +36,21 @@ blackBox
 The magic black box hangs on the center wall.
 take:You can't take it. The magic black box is fixed to the wall.
 ---
+fishBowl
+5
+There is a fish bowl with a delicious looking goldfish swimming inside.
+break[Transform(goldFish),Transform(puddleOfWater),Disappear]:You knock over the fish bowl, shattering it to pieces. The goldfish hops in a puddle of water on the floor.
+---
+goldFish
+1
+There is a dead goldfish here. I wonder where that came from?
+eat[Hunger(-10),Disappear]:That did not taste a satisfying as you thought it would.
+---
+puddleOfWater
+0
+You see a puddle of water on the floor.
+drink[Hunger(-5)]:The water tastes vaguely fishy.
+---
 ===
 Rooms:
 Cat Tree Balcony
@@ -56,6 +71,14 @@ on while watching her magic black box. There are four scratching posts in the ce
 serve as support for a platform that your owner calls a table.
 Contents: table,couch,fishbowl,blackBox
 ---
+Foyer
+----
+Kitchen
+---
+Basement Rec Room
+isDark=true
+---
+
 ===
 Exits:
 Cat Tree Porch
@@ -89,6 +112,114 @@ Living Room
 Foyer
 n
 Kitchen
+---
+Foyer
+s
+Front Yard
+---
+Foyer
+u
+Upstairs Hallway
+---
+Foyer
+d
+Basement Rec Room
+---
+Basement Rec Room
+u
+Foyer
+---
+Kitchen
+s
+Foyer
+---
+Kitchen
+n
+Backyard
+---
+Kitchen
+w
+Dining Room
+---
+Dining Room
+e
+Kitchen
+---
+Craft Room
+s
+Upstairs Hallway
+---
+Upstairs Hallway
+n
+Craft Room
+---
+Upstairs Hallway
+e
+Bathroom
+---
+Upstairs Hallway
+w
+Human's Room
+---
+Human's Room
+e
+Upstairs Hallway
+---
+Bathroom
+w
+Upstairs Hallway
+---
+Upstairs Hallway
+u
+Attic
+---
+Attic
+d
+Upstairs Hallway
+---
+Backyard
+s
+Kitchen
+---
+Backyard
+w
+West of House
+---
+West of House
+n
+Backyard
+---
+West of House
+s
+Front Yard
+---
+Front Yard
+w
+West of House
+---
+Front Yard
+e
+East of House
+---
+East of House
+n
+Front Yard
+---
+East of House
+s
+Backyard
+---
+Backyard
+u
+Tree
+---
+Tree
+d
+Backyard
+---
+Storage Room
+n
+Basement Rec Room
 ---
 ===
 Characters:
