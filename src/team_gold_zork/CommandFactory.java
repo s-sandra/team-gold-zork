@@ -62,11 +62,7 @@ class CommandFactory {
                 if(command.startsWith("verbose")){
                 	return new UnknownCommand(commandString);
 				}
-				//if the command starts with give,
-				//instantiate a GiveCommand, by parsing the
-				//name of the character to receive an item,
-				//and the item to be received, then passing both to
-				//the GiveCommand.
+
 		GameState state = GameState.instance();
 		Dungeon dungeon = state.getAdventurer().getDungeon();
 

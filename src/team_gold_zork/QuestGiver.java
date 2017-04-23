@@ -81,16 +81,6 @@ public class QuestGiver extends NPC{
     }
       
     }
-     
-    /**
-     * looks in Player's inventory and checks if player is holding Item lookingFor
-     * if player is it returns true 
-     * 
-     * @return boolean hasItem
-     */
-    boolean hasItem (){
-        return hasItem; 
-    }
     
     /**
      * This method adds the QuestGiver's reward to the player's inventory, while

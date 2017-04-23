@@ -344,7 +344,7 @@ class Player extends Character{
 
         if(hasDied){
             if(isDeadly(damage)){
-                healthWarning += "The severity of your wounds has killed you.";
+                healthWarning += "Your wounds were too severe. You have died.";
             }
             else if(isDeadly(hunger)){
                 healthWarning += "You have died from your hunger.";

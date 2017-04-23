@@ -1,7 +1,11 @@
 Verbose - Rooms that have not been entered by the player will display a room description upon entry. Once the player 
 re-enters a room, the room description will no longer be displayed. If the player forgets or wants to see the room description
-again, the player can type "verbose on" and the room description will be displayed. If the player no longer wants 
+again, the player can type "verbose on" and the room description will always be displayed for every room. If the player no longer wants
 to see the room description, they can type "verbose off" and the room description will be removed.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Light -
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -18,11 +22,46 @@ If you attempt to go () again, you will discover that the door is still locked. 
 -------------------------------------------------------------------------------------------------------------------------
 
 Hunger - In addition to healing wounds, the player must also maintain their hunger throughout their adventure. Each
-time the player enters a valid command (take, drop, move or unlock or item specific), their hunger increases by one point. Hunger is
-measured through three thresholds: minor (between () and () valid turns), moderate (between () and () valid turns) and
-critical (between () and () valid turns). Once a player passes into the moderate threshold or () points before
-reaching the maximum threshold, they are warned once. To test the hunger feature, waste time in the dungeon moving or
-picking up or dropping items. After the () turn, the program will state "Your stomach growls ferociously." To alleviate
-your hunger, go to the () room (located () from the entry), which contains a (). Eat the () by typing "eat ()". The
-game will say "(). You are full." Continue to move through the dungeon, allowing your hunger to increase to the critical
-level. Do not eat any food. After () turns, the game will inform you that you have died of hunger.
+time the player enters a valid command (take, drop, move, unlock or item/character specific), their hunger increases by one point. Hunger is
+assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
+critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the hunger
+feature, waste time in the dungeon performing valid commands. After the 51st turn, the program will state "Your stomach growls ferociously."
+To alleviate your hunger, go to the () room (located () from the entry), which contains a (). Eat the () by typing "eat ()". The
+game will say "(). You are full." Note that if you eat a light snack, then your hunger may not appreciably change.
+For example, waste time performing valid commands until the game informs you that your stomach grows ferociously. Then, head
+to the () room, located () from the entry. It contains a (), which only detracts () points from your health. If you
+eat it, then hunger does not lower below the minor threshold, and the game still informs you that your stomach is not fully satisfied.
+Continue to move through the dungeon, allowing your hunger to increase to the critical level. Do not eat any food. Do not visit the () room,
+located () from the entry, since you will be killed by the AutoKiller NPCs contained there. After 151 turns, you will collapse from exhaustion and
+die from starvation.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Fatigue - Just as the player's hunger grows after every turn, so too does their fatigue. Each time the player enters a
+valid command (take, drop, move, unlock or item/character specific), their hunger increases based on the weight of the
+adventurer's inventory. If the player is empty handed, then fatigue increases by one point. However, if the adventurer
+is carrying items, then an extra twentieth of the player's inventory weight is added, plus the default one point. Like hunger, fatigue is
+assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
+critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the fatigue
+feature, waste time in the dungeon performing valid commands. Make sure to place items into your inventory to increase
+the rate of your fatigue. You can take the (), () and () located in the () room, () of the entry. After reaching the
+moderate threshold, the program will state "Your eyes droop from fatigue." Type "health" to see the state of your hunger.
+To alleviate your exhaustion, type "sleep." The game will inform you of the state of your health after your nap. Since the
+sleep command transfers the current level of fatigue to hunger, you will find that your hunger has increased. Restart the game and move through
+the dungeon, allowing your fatigue to increase to the critical level. Do not sleep or eat. After 151 turns, the game will inform
+you that you have collapsed from fatigue and fallen asleep on the spot. Since you have neglected your hunger, your nap will have
+caused you to die from starvation.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+AutoKiller NPCs -
+
+-------------------------------------------------------------------------------------------------------------------------
+
+ItemStealer NPCs -
+
+-------------------------------------------------------------------------------------------------------------------------
+
+QuestGiver NPCs -
+
+-------------------------------------------------------------------------------------------------------------------------
