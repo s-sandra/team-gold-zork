@@ -66,6 +66,17 @@ public class GiveCommand extends Command{
         }
         catch(NoItemException e){}
 
-        return message + "\n";
+        state.getAdventurer().passTime();
+        String healthWarning = state.getAdventurer().checkHealth();
+
+        if(!healthWarning.isEmpty()){
+            healthWarning += "\n";
+        }
+
+        if(message.endsWith("\n")){
+            return message;
+        }
+
+        return message + "\n" + healthWarning;
     }
 }
