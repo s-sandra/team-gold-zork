@@ -161,9 +161,9 @@ public class ItemStealer extends NPC{
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
-            System.out.println(stealMsg + " said " + name);
+            System.out.println(stealMsg + " said the " + name + "\n.");
         }  else{
-            System.out.println("'Drats! You Don't have what I want!' said "+ name);
+            System.out.println("'Drats! You don't have what I want!' said the "+ name+"\n.");
         }
     }
 
