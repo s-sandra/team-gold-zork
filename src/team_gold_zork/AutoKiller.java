@@ -30,6 +30,7 @@ class AutoKiller extends NPC{
 
         input = s.nextLine();
         input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
+        
 
         //while the death description has not ended,
         while(!input.startsWith("Current room:")){
@@ -81,6 +82,7 @@ class AutoKiller extends NPC{
     void storeState(PrintWriter w){
         w.println("AutoKiller");
         w.println("Description: " + desc);
+        w.print("Death Message: " + deathMsg);
         w.println("Character Name: " + name);
         w.println("Current room: " + currentRoom.getTitle());
         w.println("---");
@@ -107,6 +109,12 @@ class AutoKiller extends NPC{
         }
          line =  line.substring(line.indexOf(":") + 2);
          line = desc;
+         line = s.nextLine();
+          if(!line.startsWith("Death Message: ")){
+            throw new IllegalSaveFormatException();
+        }
+         line =  line.substring(line.indexOf(":") + 2);
+         line = deathMsg;
          line = s.nextLine();
          
         currentDungeon = d;
