@@ -1,31 +1,96 @@
-Dungeon Name
+the World of Felines
 Group Bork v2.0
 ===
 Items:
 foodBowl
-There is a shiny food bowl here filled with your favorite lunch, tuna.
+There is a shiny food bowl here perpetually filled with your favorite lunch, tuna.
 5
-eat out of[Transform(emptyBowl),Hunger(-50)]:You lick yours lips in satisfaction. Meowlicious!
+eat out of[Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
+take:Your human would get mad at you if you take that.
 ---
-emptyBowl
-There is an empty bowl here.
-5
+scratchingPost
+A tall scratching post, much like the trunk of a tree, forms the base of your cat condo.
+50
+scratch:You sink your claws into the cedar wood. It's important to keep these babies sharp!
+take:You can't take the scratching post. It's part of your cat tree!
+---
+mouseToy
+1
+You spot a furry green mouse toy here.
+play with:The mouse toy squeaks beneath your paws. You pounce at it with delight.
+---
+featherToy
+A feather toy dangles from the ceiling of the cat tree balcony above.
+take:Sadly, you can't take the feather toy. It's stuck to your cat tree.
+play with:The feather toy swings back and forth, creating a jingling sound.
+---
+table
+100
+take:The scratching post thingy is far too heavy for your little paws to carry.
+scratch:Your human would call you a bad cat, but she isn't home right now, so you scratch away.
+jump onto:Wheee! You can see the black box from here.
+jump off:You leap dexterously back onto the ground.
+---
+blackBox
+200
+The magic black box hangs on the center wall.
+take:You can't take it. The magic black box is fixed to the wall.
 ---
 ===
 Rooms:
 Cat Tree Balcony
-You climb up onto a luxuriously soft platform, over which you can see the entire room. The sun shines
+You jump onto a luxuriously soft platform, over which you can see the entire room. The sun shines
 through the window above you, casting warm rays of light over your favorite cozy spot.
 ---
 Cat Tree Porch
 The carpeted base of your favorite hangout feels soft beneath your paws.
-Contents: foodBowl,scratchingPost
+Contents: foodBowl,scratchingPost,featherToy
+---
+Cat Tree Interior
+You climb up a fuzzy incline into a small, sheltered nook. The floor is lined with a soft cushion.
+Contents: mouseToy
+---
+Living Room
+Your owner has decorated this room with two giant beds, covered with pillows, which she likes to sit
+on while watching her magic black box. There are four scratching posts in the center of the room, which
+serve as support for a platform that your owner calls a table.
+Contents: table,couch,fishbowl,blackBox
+---
 ===
 Exits:
-
+Cat Tree Porch
+u
+Cat Tree Interior
+---
+Cat Tree Interior
+d
+Cat Tree Porch
+---
+Cat Tree Interior
+u
+Cat Tree Balcony
+---
+Cat Tree Balcony
+d
+Cat Tree Interior
+---
+Living Room
+w
+Cat Tree Porch
+---
+Living Room
+e
+Foyer
+----
+Foyer
+w
+Living Room
+---
+Foyer
+n
+Kitchen
 ---
 ===
 Characters:
-
 ---
 ===

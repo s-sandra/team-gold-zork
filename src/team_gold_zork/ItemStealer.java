@@ -18,9 +18,7 @@ public class ItemStealer extends NPC{
     private String stealMsg = "";
     
     /**
-     * Creates a new QuestGiver from a dungeon file.
-     * @param s the scanner reading the zork file.
-     * @param d the Dungeon the AutoKiller is in.
+     * Creates a new ItemStealer from scratch.
      */
     ItemStealer(Scanner s, Dungeon d){
         String input = s.nextLine();
@@ -146,6 +144,7 @@ public class ItemStealer extends NPC{
            throw new IllegalSaveFormatException(e.getMessage()); 
         }
     }
+
     
     boolean checkItem(){
         for(Item item : player.inventory){
@@ -163,6 +162,22 @@ public class ItemStealer extends NPC{
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
             System.out.println(stealMsg);
+        }}
+
+
+     
+    /**
+     * Restores the state of a ItemStealer from a .sav file.
+     * @param s the Scanner reading the .sav file.
+     * @throws IllegalSaveFormatException If the ItemStealer description contains invalid contents.
+     */
+    void restoreState(Scanner s)throws IllegalSaveFormatException{
+          String line = s.nextLine();
+         
+         //if the "Current room:" title is not found.
+        if(!line.startsWith("Character Name:")){
+            throw new IllegalSaveFormatException();
+
         }
         else{
             System.out.println("'Drats! You Don't have what I want!' said "+ name);
