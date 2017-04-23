@@ -193,7 +193,7 @@ public class QuestGiver extends NPC{
      * @return the QuestGiver's response to the gift.
      */
     String give(Item item){
-        if(item.getPrimaryName().equals(itemToLookFor)){
+        if(item.getPrimaryName().equals(itemToLookFor.getPrimaryName())){
             addToInventory(item);
             return giveReward();
         }
