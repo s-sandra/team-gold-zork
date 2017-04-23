@@ -5,21 +5,41 @@ Items:
 foodBowl
 There is a shiny food bowl here filled with your favorite lunch, tuna.
 5
-eat out of[Transform(emptyBowl),Hunger(-50)]:You lick yours lips in satisfaction. Meowlicious!
+eat out of[Transform(emptyBowl),Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
 ---
 emptyBowl
 There is an empty bowl here.
 5
 ---
+scratchingPost
+A tall scratching post, much like the trunk of a tree, forms the base of your cat condo.
+50
+scratch:You sink your claws into the cedar wood. It's important to keep these babies sharp!
+take:You can't take the scratching post. It's part of your cat tree!
+---
+mouseToy
+1
+You spot a furry green mouse toy here.
+play with:The mouse toy squeaks beneath your paws. You pounce at it with delight.
+---
+featherToy
+A feather toy dangles from the ceiling of the cat tree balcony above.
+take:Sadly, you can't take the feather toy. It's stuck to your cat tree.
+play with:The feather toy swings back and forth, creating a jingling sound.
 ===
 Rooms:
 Cat Tree Balcony
-You climb up onto a luxuriously soft platform, over which you can see the entire room. The sun shines
+You jump onto a luxuriously soft platform, over which you can see the entire room. The sun shines
 through the window above you, casting warm rays of light over your favorite cozy spot.
 ---
 Cat Tree Porch
 The carpeted base of your favorite hangout feels soft beneath your paws.
-Contents: foodBowl,scratchingPost
+Contents: foodBowl,scratchingPost,featherToy
+---
+Cat Tree Interior
+You climb up a fuzzy incline into a small, sheltered nook. The floor is lined with a soft cushion.
+Contents: mouseToy
+---
 ===
 Exits:
 
