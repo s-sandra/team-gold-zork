@@ -54,7 +54,9 @@ caused you to die from starvation.
 
 -------------------------------------------------------------------------------------------------------------------------
 
-AutoKiller NPCs -
+AutoKiller NPCs - AutoKiller is a type of NPC that will appear in the dungeon. This NPC kills the player on sight if the room is a dead end.
+ If the player talks to this NPC in a non dead end room then it will kill the player.  
+
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -62,6 +64,7 @@ ItemStealer NPCs -
 
 -------------------------------------------------------------------------------------------------------------------------
 
-QuestGiver NPCs -
+QuestGiver NPCs - QuestGiver is a type of NPC that appears in the dungeon. This NPC tells the player what Item it is looking for and if the player gives that Item the NPC will respond with a gift. 
+
 
 -------------------------------------------------------------------------------------------------------------------------
