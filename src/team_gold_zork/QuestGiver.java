@@ -32,26 +32,39 @@ public class QuestGiver extends NPC{
         desc = input;
 
        input = s.nextLine();
-       rewardMsg  = input;
-       
-        input = s.nextLine();
-        input = input.substring(input.indexOf(":") + 2); 
-
-            //chops off the commas from the inventory list.
-            String[] items = input.split(",");
-            for(String item: items){
-                try{ //the inventory might contain invalid items.
-                    this.inventory.add(currentDungeon.getItem(item));
-                }
-                catch(NoItemException e){
-                    
-                }
-                    
         input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
+        
+
+        //while the death description has not ended,
+        while(!input.startsWith("Current room:")){
+            rewardMsg += input + "\n";
+            input = s.nextLine();
+        }
+        
+       input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = d.getRoom(input);
         d.getRoom(input).add(this);
 
         input = s.nextLine();
+       
+     
+        input = input.substring(input.indexOf(":") + 2); 
+
+         try{ //the inventory might contain invalid items.
+            reward = currentDungeon.getItem(input);
+                }
+                catch(NoItemException e){
+                    
+                }
+         this.addToInventory(reward);
+         input = s.nextLine();
+        input = input.substring(input.indexOf(":") + 2); 
+        try {
+            itemToLookFor = currentDungeon.getItem(input);
+        } catch (NoItemException e) {
+           
+        }            
+       
         //while the verb description has not ended.
         while(!input.equals("---")){
             String verbLine = input;
@@ -80,7 +93,7 @@ public class QuestGiver extends NPC{
             messages.put(verb, message);
             d.addCharacterVerb(verb);
         }
-            }
+            
     }
     /**
      * Stores the state of the QuestGiver to a .sav file.
@@ -92,24 +105,9 @@ public class QuestGiver extends NPC{
          w.println("Description: " + desc);
          w.println("Reward Message: " + rewardMsg);
          w.println("Current room: " + currentRoom.getTitle());
-           if(!isEmptyInventory()){
-                    w.print("Inventory: ");
-                    ArrayList<String> itemNames = getInventoryNames(true);
-
-                    for(int i = 0; i < itemNames.size(); i++){
-                            w.print(itemNames.get(i));
-
-                            //if the inventory has more items.
-                            if(i + 1 < itemNames.size()){
-                                    w.print(",");
-                            }
-                    }
-                    
-                 
-                    w.write("\n");
-            }
-        w.println("Looking for: " + itemToLookFor.getPrimaryName());
-        w.println("---");
+         w.println("Reward: " + reward.getPrimaryName());
+         w.println("Looking for: " + itemToLookFor.getPrimaryName());
+         w.println("---");
         
     }
     
@@ -152,21 +150,20 @@ public class QuestGiver extends NPC{
         currentRoom = d.getRoom(line);
         currentRoom.add(this);
 
-        if(line.startsWith("Inventory: ")){
-            line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
+        if(line.startsWith("Reward: ")){
+            throw new IllegalSaveFormatException();
+        }
+          line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
 
-            //chops off the commas from the inventory list.
-            String[] items = line.split(",");
-            for(String item: items){
+           
                 try{ //the inventory might contain invalid items.
-                    this.inventory.add(currentDungeon.getItem(item));
+                  reward = currentDungeon.getItem(line);
                 }
                 catch(NoItemException e){
                     throw new IllegalSaveFormatException(e.getMessage());
                 }
-            }
-        }
-         line = s.nextLine();
+          this.addToInventory(reward);
+          line = s.nextLine();
           if(!line.startsWith("Looking for: ")){
             throw new IllegalSaveFormatException();
         }
@@ -184,6 +181,8 @@ public class QuestGiver extends NPC{
      * removing the QuestGiver's desired item from the player's inventory.
      */
     String giveReward(){
+        player.addToInventory(reward);
+        this.removeFromInventory(reward);
         return rewardMsg;
     }
 
