@@ -44,6 +44,10 @@ package team_gold_zork;
 
         message = character.getMessageForVerb(verb);
 
+        if(message == null){
+            return "You can't " + verb + " the " + characterName + ".\n";
+        }
+
         String events = character.getEventForVerb(verb);
         if(events != null){
             Event result = new Event(events);

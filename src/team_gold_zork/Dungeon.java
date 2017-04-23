@@ -227,7 +227,7 @@ public class Dungeon {
 				return verb;
 			}
 		}
-		return null;
+		return "";
 	}
 
 	/**
@@ -281,7 +281,7 @@ public class Dungeon {
 				return verb;
 			}
 		}
-		return null;
+		return "";
 	}
 
 
