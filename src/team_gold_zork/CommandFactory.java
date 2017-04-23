@@ -11,6 +11,10 @@ import java.util.List;
  */
 class CommandFactory {
 	private static CommandFactory theInstance; //stores the one instance of CommandFactory.
+	private String[] prepositions = {"with", "at", "from", "into" , "during", "until", "against", "among",
+			"throughout", "towards", "upon", "of", "to", "in", "on", "by", "about", "like", "through",
+			"over", "before", "between", "after", "since", "without", "under", "within", "along", "following",
+			"across", "behind", "beyond", "up", "out", "around", "down", "off", "above", "near"};
 
 	/**
 	 * Constructs a CommandFactory object.
@@ -35,6 +39,9 @@ class CommandFactory {
 	 */
 	public Command parse(String commandString){
 		String command = commandString.toLowerCase().trim();
+		command = command.replace("the", "");
+		command = command.replace(".", "");
+
 		if(commandString.endsWith(".sav")){
 			return new SaveCommand(commandString);
 		}
@@ -74,16 +81,16 @@ class CommandFactory {
 			if(charName.isEmpty() || itemName.isEmpty()){
 				String[] giveCommand = command.split(" ");
 				for(String word : giveCommand){
-					if(word.equals("the") || word.equals("give") || word.equals("to")){
+					if(word.equals("the") || word.equals("give") || word.equals("to") || word.equals(".")){
 						continue;
 					}
 					if(charName.contains(word) || itemName.contains(word)){
 						continue;
 					}
-					if(charName.isEmpty()){
+					else if(charName.isEmpty()){
 						charName = word;
 					}
-					if(itemName.isEmpty()){
+					else if(itemName.isEmpty()){
 						itemName = word;
 					}
 				}
@@ -99,20 +106,12 @@ class CommandFactory {
 		//if the command contains more than one word.
 		if(command.contains(" ")){
 
-			//parses for non-item specific commands.
-			if(command.contains("the")){
-				verb = command.substring(0, command.indexOf("the")).trim();
-				noun = command.substring(command.indexOf("the") + 3, command.length()).trim();
-			}
-			else{
-				verb = command.substring(0, command.indexOf(" ") + 1).trim();
-				noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
-			}
-
+			String[] commandLine = command.split(" ");
 
 			//if the user wants to unlock something,
-			if(verb.startsWith("unlock") || verb.startsWith("open")){
+			if(command.startsWith("unlock") || command.startsWith("open")){
 				String keyName = "";
+				noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
 
 				//if the noun is followed by a "with", removes it.
 				if(command.contains("with")){
@@ -120,11 +119,21 @@ class CommandFactory {
 					keyName = command.substring(command.indexOf("with") + 4, command.length()).trim();
 				}
 
-				//if the key name is preceded with a "the", removes it.
-				if(keyName.startsWith("the")){
-					keyName = keyName.substring(keyName.indexOf("the") + 3, keyName.length()).trim();
-				}
 				return new UnlockCommand(noun, keyName);
+			}
+			else{
+				for(String word : commandLine){
+					if(isPreposition(word)){
+						verb += " " + word;
+						continue;
+					}
+					else if(verb.isEmpty()){
+						verb += word;
+					}
+					else if(noun.isEmpty()){
+						noun += word;
+					}
+				}
 			}
 
 			if(verb.equals("take")){
@@ -179,6 +188,22 @@ class CommandFactory {
 	 	List all = Arrays.asList("e", "w", "s", "n", "d", "u");
 
 	 	return all.contains(direction);
+	}
+
+
+	/**
+	 * This helper method determines if a word in the player's command
+	 * is a preposition.
+	 * @param word a word in the player's command.
+	 * @return if the word is a preposition.
+	 */
+	private boolean isPreposition(String word){
+	 	for(String prep : prepositions){
+	 		if(prep.equals(word)){
+	 			return true;
+			}
+		}
+		return false;
 	}
 
 }
