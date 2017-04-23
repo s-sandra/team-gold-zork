@@ -80,7 +80,8 @@ class AutoKiller extends NPC{
      */
     void storeState(PrintWriter w){
         w.println("AutoKiller");
-        w.println(name + ":");
+        w.println("Description: " + desc);
+        w.println("Character Name: " + name);
         w.println("Current room: " + currentRoom.getTitle());
         w.println("---");
     }
@@ -94,7 +95,21 @@ class AutoKiller extends NPC{
      */
     void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
          String line = s.nextLine();
+         if(!line.startsWith("Character Name:")){
+            throw new IllegalSaveFormatException();
+        }
+         line =  line.substring(line.indexOf(":") + 2);
+         line = name;
+         line = s.nextLine(); 
+
+        if(!line.startsWith("Description: ")){
+            throw new IllegalSaveFormatException();
+        }
+         line =  line.substring(line.indexOf(":") + 2);
+         line = desc;
+         line = s.nextLine();
          
+        currentDungeon = d;
          //if the "Current room:" title is not found.
         if(!line.startsWith("Current room:")){
             throw new IllegalSaveFormatException();
