@@ -29,7 +29,6 @@ table
 take:The scratching post thingy is far too heavy for your little paws to carry.
 scratch:Your human would call you a bad cat, but she isn't home right now, so you scratch away.
 jump onto:Wheee! You can see the black box from here.
-jump off:You leap dexterously back onto the ground.
 ---
 magicBox
 200
@@ -54,7 +53,20 @@ drink[Hunger(-5)]:The water tastes vaguely fishy.
 couch
 180
 A big couch stands in the center of the room.
-jump onto:The giant bed is very comfy. Never wonder the humans like them so much!
+jump onto:The giant bed is very comfy. No wonder the humans like them so much!
+---
+diningTable
+---
+flowerVase
+---
+curtains
+Your human's favorite blue curtains hang over the windows.
+take:You can't take the curtains. They are stuck to the curtain rods.
+tear[Transform(tornCurtains)]:
+---
+tornCurtains
+A pair of torn blue curtains hang over the windows. Let's hope your human doesn't find out!
+take:You can't take the curtains. They are stuck to the curtain rods.
 ---
 ===
 Rooms:
@@ -91,6 +103,10 @@ Storage Room
 isDark=true
 ---
 Dining Room
+The humans like to gather here with their special food and water bowls, which they keep locked up in the
+china cabinet in the corner of the room. A big dangling toy with a light at the end hangs from the ceiling.
+There is a large window here, through which you can see the backyard.
+Contents: flowerVase,curtains,diningTable
 ---
 China Cabinet Interior
 Contents: porcelainCat
