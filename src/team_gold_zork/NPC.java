@@ -100,7 +100,7 @@ public class NPC extends Character{
         addToInventory(item);
         String message = messages.get("give");
         if(message != null){
-            return message + " " + item.getSecondaryName() + ".";
+            return message;
         }
         return "The " + name + " has accepted your " + item.getSecondaryName() + ".";
     }
