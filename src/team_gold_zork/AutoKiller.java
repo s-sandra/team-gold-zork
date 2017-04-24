@@ -81,9 +81,9 @@ class AutoKiller extends NPC{
      */
     void storeState(PrintWriter w){
         w.println("AutoKiller");
+        w.println("Character Name: " + name);
         w.println("Description: " + desc);
         w.print("Death Message: " + deathMsg);
-        w.println("Character Name: " + name);
         w.println("Current room: " + currentRoom.getTitle());
         w.println("---");
     }
