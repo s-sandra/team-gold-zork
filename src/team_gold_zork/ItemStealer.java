@@ -86,11 +86,7 @@ public class ItemStealer extends NPC{
      */
     void storeState(PrintWriter w){
          w.println("ItemStealer:");
-         w.println("Character Name: " + name);
-         w.println("Description: " + desc);
-         w.println("Steal Message: " + stealMsg);
-         w.println("Current room: " + currentRoom.getTitle());
-         w.println("Looking for: " + itemToLookFor.getPrimaryName());
+         w.println("HasItem: " + hasItem);
          w.println("---");
         
     }
@@ -101,48 +97,17 @@ public class ItemStealer extends NPC{
      * @throws IllegalSaveFormatException If the QuestGiver description contains invalid contents.
      */
     void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
-         String line = s.nextLine();
-         if(!line.startsWith("Character Name: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         name = line;
-         line = s.nextLine();
-          
-        if(!line.startsWith("Description: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         desc = line;
-         line = s.nextLine();
-         
-         //if the "Current room:" title is not found.
-        if(!line.startsWith("Steal Message: ")){
-            throw new IllegalSaveFormatException();
-        }
-        line =  line.substring(line.indexOf(":") + 2);
-         stealMsg = line;
-         line = s.nextLine();
-         
-        //if the "Current room:" title is not found.
-        if(!line.startsWith("Current Room: ")){
-            throw new IllegalSaveFormatException();
-        }
-        //reads in the AutoKiller's current room.
-        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        currentDungeon = d;
-        currentRoom = d.getRoom(line);
-        currentRoom.add(this);
-          line = s.nextLine();
-          if(!line.startsWith("Looking for: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line = line.substring(line.indexOf(":") + 2); 
-        try {
-            itemToLookFor = currentDungeon.getItem(line);
-        } catch (NoItemException e) {
-           throw new IllegalSaveFormatException(e.getMessage()); 
-        }
+        String line = s.nextLine(); 
+        if(line.contains("HasItem: ")){
+                            if(line.contains("true")){
+                                    hasItem = true;
+                            }
+                            else{
+                                    hasItem = false;
+                            }
+                    }else {throw new IllegalSaveFormatException("Corrupted save file: ");
+                            }
+                    line = s.nextLine();
     }
 
     

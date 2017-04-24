@@ -227,6 +227,7 @@ class Event {
         else if(status.equals("off")){
             player.setHasLightSource(false);
         }
+        player.currentRoom.describe();
     }
 }
 
