@@ -158,6 +158,7 @@ public class ItemStealer extends NPC{
     }
     
     String steal() {
+       if(!isEmptyInventory()){
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
@@ -165,6 +166,7 @@ public class ItemStealer extends NPC{
         }  else{
             return "'Drats! You don't have what I want!' says the "+ name+".\n";
         }
+       }else return "'Hehe' says " + name;
     }
      /**
      * Used by NPCs to react to a player entering the room.
