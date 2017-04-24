@@ -4,9 +4,9 @@ Group Bork v1.0
 Items:
 lamp
 There's a lamp here.
-0
+5
 turn on[Light(on)]:Let there be light!
-turn off[Light(off)]:hello darkness my old friend
+turn off[Light(off)]:Hello darkness, my old friend.
 ---
 Bomb
 A large black bomb sits in the corner of the room.

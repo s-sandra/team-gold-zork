@@ -63,10 +63,12 @@ The scratching post your human calls a table.
 take:You can't take the table!
 scratch[Score(50)] Ahh it feels so good to be bad!
 ---
+breakfastTable
+---
 flowerVase
-Ahh the thing that sprouts tasty plants... Too bad Owner says I can't eat it
-take:You can't take the flowerVase... 
-push[Score(50)] Hehe take that flowers!
+Ahh the thing that sprouts tasty plants... Too bad your owner says you can't eat it.
+take:You can't take the flower vase...
+push[Score(50)]:Hehe. Take that flowers!
 ---
 curtains
 Your human's favorite blue curtains hang over the windows.
@@ -100,19 +102,17 @@ There is a mouse here which your human likes to use to make her magic box work. 
 turn on[Light(on)]:The mouse emits a red glow.
 turn off[Light(off)]:It looks more like a mouse now.
 ---
-keyBoard
+keyboard
 There is a thingy here that makes cool clicking sounds when your human uses it. You think it's called a keyboard.
 10
 sit on:The pointy keys scratch your belly, but you like to make your human mad. It gets her attention.
+---
+goldenKey
 ---
 breadCrumbs
 There are leftover breadcrumbs here.
 2
 eat[Hunger(-5),Disappear]:You lick the meager breadcrumbs off the floor.
----
-flowerVase
-There is a flower vase here. It is glass and filled with plastic roses.
-5
 ---
 ===
 Rooms:
@@ -142,7 +142,7 @@ Kitchen
 This is where the humans store all their yummy foods! The room is lined with tall cabinets and counters,
 on which stand scary sounding appliances. There is a heinous abyss here from which water pours out.
 It is filled with dirty human food bowls.
-Contents: breadCrumbs,breakfastTable,bowlOfFruit,breakfastTable
+Contents: breadCrumbs,breakfastTable,bowlOfFruit
 ---
 Basement Rec Room
 isDark=true
@@ -168,7 +168,7 @@ Craft Room
 Bathroom
 ---
 Human's Room
-Contents: goldenKey,desk,computer,computerMouse
+Contents: goldenKey,desk,computer,computerMouse,keyboard
 ---
 Attic
 isDark=true
