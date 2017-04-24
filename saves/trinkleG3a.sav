@@ -10,7 +10,7 @@ Room B6:
 beenHere=false
 ---
 Basement hallway:
-beenHere=false
+beenHere=true
 Contents: DrPepper
 Locked exits: w
 ---
@@ -53,9 +53,9 @@ Looking for: force
 ---
 ===
 Adventurer state:
-Current room: Rotunda
+Current room: Basement hallway
 Damage: 0
-Hunger: 0
-Fatigue: 0
+Hunger: 1
+Fatigue: 1
 Score: 0
 Rank: an amatuer
