@@ -14,7 +14,7 @@ class CommandFactory {
 	private String[] prepositions = {"with", "at", "from", "into" , "during", "until", "against", "among",
 			"throughout", "towards", "upon", "of", "to", "in", "on", "by", "about", "like", "through",
 			"over", "before", "between", "after", "since", "without", "under", "within", "along", "following",
-			"across", "behind", "beyond", "up", "out", "around", "down", "off", "above", "near"};
+			"across", "behind", "beyond", "up", "out", "around", "down", "off", "above", "near", "back"};
 
 	/**
 	 * Constructs a CommandFactory object.

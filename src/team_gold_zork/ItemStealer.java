@@ -33,7 +33,7 @@ public class ItemStealer extends NPC{
 
         //while the death description has not ended,
         while(!input.startsWith("Current room:")){
-            stealMsg += input + "\n";
+            stealMsg += input;
             input = s.nextLine();
         }
         
@@ -157,40 +157,20 @@ public class ItemStealer extends NPC{
         return hasItem;
     }
     
-    void steal() {
+    String steal() {
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
-            System.out.println(stealMsg + " said " + name);
+            return "'" + stealMsg + "' says the " + name + ".\n";
         }  else{
-            System.out.println("'Drats! You Don't have what I want!' said "+ name);
+            return "'Drats! You don't have what I want!' says the "+ name+".\n";
         }
-    }
-
-
-     
-    /**
-     * Restores the state of a ItemStealer from a .sav file.
-     * @param s the Scanner reading the .sav file.
-     * @throws IllegalSaveFormatException If the ItemStealer description contains invalid contents.
-     */
-    void restoreState(Scanner s)throws IllegalSaveFormatException{
-          String line = s.nextLine();
-         
-         //if the "Current room:" title is not found.
-        if(!line.startsWith("Character Name:")){
-            throw new IllegalSaveFormatException();
-
-        }
-      
     }
      /**
      * Used by NPCs to react to a player entering the room.
+      * @return a message detailing the result of the NPC's action.
      */
-    void greetPlayer(){
-    steal();}
+    String greetPlayer(){
+    return steal();}
 
-  
-    
-    
 }

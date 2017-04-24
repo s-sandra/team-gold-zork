@@ -69,8 +69,9 @@ public class NPC extends Character{
 
     /**
      * Used by NPCs to react to a player entering the room.
+     * @return a message detailing the NPC's action.
      */
-    void greetPlayer(){}
+    String greetPlayer(){return "";}
 
     /**
      * This method will return a description of the character.
