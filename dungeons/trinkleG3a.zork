@@ -147,7 +147,7 @@ black dog
 A menacing black dog looms in the corner.
 death message: You attempt to flee from the black dog, but there is no escape.
 The creature bites you on the leg and you bleed to death.
-Current room: Rotunda
+Current room: Room B6
 talk to[Die()]:The dog gets irritated and kills you.
 give:The dog snarls at you, but accepts your
 ---
@@ -165,7 +165,7 @@ ItemStealer
 red gremlin
 There is a red gremlin here that looks like darth maul.
 Steal Message: Hehe the force is mine now!
-Current room: Rotunda
+Current room: Basement hallway
 LookingFor: force
 talk to: Grr Stay away
 ---
