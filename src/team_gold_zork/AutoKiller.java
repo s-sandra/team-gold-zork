@@ -80,12 +80,8 @@ class AutoKiller extends NPC{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-        w.println("AutoKiller");
-        w.println("Character Name: " + name);
-        w.println("Description: " + desc);
-        w.print("Death Message: " + deathMsg);
-        w.println("Current room: " + currentRoom.getTitle());
-        w.println("---");
+        w.println("");
+       
     }
 
 
@@ -97,39 +93,7 @@ class AutoKiller extends NPC{
      */
     void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
          String line = s.nextLine();
-         if(!line.startsWith("Character Name:")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         name = line;
-         line = s.nextLine(); 
-
-        if(!line.startsWith("Description: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         desc = line;
-         line = s.nextLine();
-          if(!line.startsWith("Death Message: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         deathMsg = line;
-         line = s.nextLine();
          
-        currentDungeon = d;
-         //if the "Current room:" title is not found.
-        if(!line.startsWith("Current room:")){
-            throw new IllegalSaveFormatException();
-        }
-
-        //reads in the AutoKiller's current room.
-        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        currentDungeon = d;
-        currentRoom = d.getRoom(line);
-        currentRoom.add(this);
-
-        s.nextLine(); // reads in the "---" denoting the end of the section.
     }
    
     /**
