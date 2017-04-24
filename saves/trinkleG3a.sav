@@ -28,17 +28,25 @@ Contents: force
 ---
 ===
 Character states:
+QuestGiver:
+Character Name: red gremlin
+Description: There is a red gremlin here that looks like darth maul.
+Steal Message: Hehe the force is mine now!
+Current room: Basement hallway
+Looking for: force
+---
 AutoKiller
+Character Name: black dog
 Description: A menacing black dog looms in the corner.
 Death Message: You attempt to flee from the black dog, but there is no escape.
 The creature bites you on the leg and you bleed to death.
-Character Name: black dog
-Current room: Rotunda
+Current room: Room B6
 ---
 QuestGiver:
 Character Name: green cat
-Description: A cat green cat with beady eyes looks at you expectantly. He looks wise and wrinkled.
-Reward Message:  Thank you so much! Give you this allow me to. Very important it is.
+Description: A green cat with beady eyes looks at you expectantly. He looks wise and wrinkled.
+Reward Message: Thank you so much! Give you this allow me to. Very important it is.
+
 Current room: Rotunda
 Reward: squishedCan
 Looking for: force
