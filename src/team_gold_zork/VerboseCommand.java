@@ -16,7 +16,6 @@ public class VerboseCommand extends Command{
      * Creates a VerboseCommand.
      * 
      */
-    
     VerboseCommand(boolean isVerbose){
      this.isVerbose = isVerbose;
     }
