@@ -31,9 +31,9 @@ scratch:Your human would call you a bad cat, but she isn't home right now, so yo
 jump onto:Wheee! You can see the black box from here.
 jump off:You leap dexterously back onto the ground.
 ---
-blackBox
+magicBox
 200
-The magic black box hangs on the center wall.
+The magic box hangs on the center wall.
 take:You can't take it. The magic black box is fixed to the wall.
 ---
 fishBowl
@@ -44,12 +44,17 @@ break[Transform(goldFish),Transform(puddleOfWater),Disappear]:You knock over the
 goldFish
 1
 There is a dead goldfish here. I wonder where that came from?
-eat[Hunger(-10),Disappear]:That did not taste a satisfying as you thought it would.
+eat[Hunger(-10),Disappear]:That did not taste as satisfying as you thought it would.
 ---
 puddleOfWater
 0
 You see a puddle of water on the floor.
 drink[Hunger(-5)]:The water tastes vaguely fishy.
+---
+couch
+180
+A big couch stands in the center of the room.
+jump onto:The giant bed is very comfy. Never wonder the humans like them so much!
 ---
 ===
 Rooms:
