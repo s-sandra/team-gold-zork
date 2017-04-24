@@ -107,7 +107,7 @@ class Event {
                             + item.getPrimaryName() + " does not exist in the dungeon.");
                 }
             }
-             else if(event.startsWith("Light")){
+             else if(event.startsWith("Turn")){
                 String status = event.substring(6);
                 light(status);
                 //describe the room after the light command and add ouput to the variable message + "\n.".
