@@ -59,8 +59,14 @@ A big couch stands in the center of the room.
 jump onto:The giant bed is very comfy. No wonder the humans like them so much!
 ---
 diningTable
+The scratching post your human calls a table.
+take:You can't take the table!
+scratch[Score(50)] Ahh it feels so good to be bad!
 ---
 flowerVase
+Ahh the thing that sprouts tasty plants... Too bad Owner says I can't eat it
+take:You can't take the flowerVase... 
+push[Score(50)] Hehe take that flowers!
 ---
 curtains
 Your human's favorite blue curtains hang over the windows.
