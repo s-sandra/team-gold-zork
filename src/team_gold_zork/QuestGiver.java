@@ -195,6 +195,7 @@ public class QuestGiver extends NPC{
     String give(Item item){
         if(item.getPrimaryName().equals(itemToLookFor.getPrimaryName())){
             addToInventory(item);
+            changeTalkMessage();
             return giveReward();
         }
         return super.give(item);
