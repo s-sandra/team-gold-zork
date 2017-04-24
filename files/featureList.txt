@@ -1,7 +1,12 @@
 Verbose - Rooms that have not been entered by the player will display a room description upon entry. Once the player 
 re-enters a room, the room description will no longer be displayed. If the player forgets or wants to see the room description
 again, the player can type "verbose on" and the room description will always be displayed for every room. If the player no longer wants
-to see the room description, they can type "verbose off" and the room description will be removed.
+to see the room description, they can type "verbose off" and the room description will be removed. For example, the first time a player
+walks into the the Cat Tree Balcony the following description will appear: "You jump onto a luxuriously soft platform, over which you can 
+see the entire room. The sun shines through the window above you, casting warm rays of light over your favorite cozy spot." When the player
+leaves and re-enters the Cat Tree Balcony the description will no longer appear; unless the player uses the verbose on command. In that case,
+the description of the Cat Tree Balcony room will appear again. If the player no longer wants to see the description of the Cat Tree Balcony,
+they can use the verbose off command and the description will no longer appear. 
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -56,7 +61,7 @@ caused you to die from starvation.
 
 AutoKiller NPCs - AutoKiller is a type of NPC that will appear in the dungeon. This NPC kills the player on sight if the room is a dead end.
 If the player talks to this NPC in a non dead end room then it will kill the player.This NPC can be talked to by saying "talk to" and the NPC’s name.
- This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name 
+This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name 
 
 
 -------------------------------------------------------------------------------------------------------------------------

@@ -29,7 +29,6 @@ table
 take:The scratching post thingy is far too heavy for your little paws to carry.
 scratch:Your human would call you a bad cat, but she isn't home right now, so you scratch away.
 jump onto:Wheee! You can see the black box from here.
-jump off:You leap dexterously back onto the ground.
 ---
 magicBox
 200
@@ -54,7 +53,24 @@ drink[Hunger(-5)]:The water tastes vaguely fishy.
 couch
 180
 A big couch stands in the center of the room.
-jump onto:The giant bed is very comfy. Never wonder the humans like them so much!
+jump onto:The giant bed is very comfy. No wonder the humans like them so much!
+---
+diningTable
+---
+flowerVase
+---
+curtains
+Your human's favorite blue curtains hang over the windows.
+take:You can't take the curtains. They are stuck to the curtain rods.
+tear[Transform(tornCurtains)]:
+---
+tornCurtains
+A pair of torn blue curtains hang over the windows. Let's hope your human doesn't find out!
+take:You can't take the curtains. They are stuck to the curtain rods.
+---
+porcelainCat
+
+take[Score(50),Win]:
 ---
 ===
 Rooms:
@@ -77,9 +93,9 @@ serve as support for a platform that your owner calls a table.
 Contents: table,couch,fishbowl,blackBox
 ---
 Foyer
-This is the room with the big cat door for humans. You're never allowed out of it through. No Fun! 
+This is the room with the big cat door for humans. You're never allowed out of it, through. No Fun!
 The outside must be so cool. Though at least you can sun bathe in front of the window. 
-There's still smudge marks from the last time you ran into the window. That bird was asking for it though!
+There's still smudge marks from the last time you ran into the window. That bird was asking for it!
 ----
 Kitchen
 Ahh, what a great room this would be if it wasn't for the dog! He's 
@@ -87,7 +103,42 @@ Ahh, what a great room this would be if it wasn't for the dog! He's
 Basement Rec Room
 isDark=true
 ---
-
+Storage Room
+isDark=true
+---
+Dining Room
+The humans like to gather here with their special food and water bowls, which they keep locked up in the
+china cabinet in the corner of the room. A big dangling toy with a light at the end hangs from the ceiling.
+There is a large window here, through which you can see the backyard.
+Contents: flowerVase,curtains,diningTable
+---
+China Cabinet Interior
+There are many fancy human food bowls in here. Some are very shiny and glitter in the light. Tread carefully!
+Your owner finds her food bowls very important!
+Contents: porcelainCat
+---
+Upstairs Hallway
+---
+Craft Room
+---
+Bathroom
+---
+Human's Room
+Contents: goldenKey
+---
+Attic
+isDark=true
+---
+Backyard
+---
+Tree
+---
+West of House
+---
+East of House
+---
+Front Yard
+---
 ===
 Exits:
 Cat Tree Porch
@@ -154,6 +205,17 @@ Dining Room
 e
 Kitchen
 ---
+Dining Room
+w
+China Cabinet Interior
+isLocked=true
+door:china cabinet door
+key:crystalKey
+---
+China Cabinet Interior
+e
+Dining Room
+---
 Craft Room
 s
 Upstairs Hallway
@@ -161,6 +223,9 @@ Upstairs Hallway
 Upstairs Hallway
 n
 Craft Room
+isLocked=true
+name:white door
+key:goldKey
 ---
 Upstairs Hallway
 e

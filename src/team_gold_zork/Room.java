@@ -183,14 +183,18 @@ public class Room {
      */
     String describe(){
         boolean isVerbose = GameState.instance().getVerbose();
+        boolean isDark = GameState.instance().getAdventurer().getHasLightSource();
         String description = "";
 
         //print out the room description if the room !isDark or if it isDark and the player hasLightSource.
         //otherwise, print "It is pitch black in here."
             if(!beenHere|| isVerbose ){
                 beenHere = true;
-                description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();
-                     
+                if(!isDark){
+                    description = "This room is pitch black";
+                }else{
+                    description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();      
+                }
             }
             else{
                 description = title + describeItems() + describeNPCs() + describeExits();

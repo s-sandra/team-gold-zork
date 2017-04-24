@@ -145,12 +145,29 @@ public class QuestGiver extends NPC{
      * @return the QuestGiver's response to the gift.
      */
     String give(Item item){
+      if(!gotItem){
         if(item.getPrimaryName().equals(itemToLookFor.getPrimaryName())){
             addToInventory(item);
+            changeTalkMessage();
             gotItem = true;
             return giveReward();
         }
-        return super.give(item);
+        return super.give(item);}
+      else{
+          changeTalkMessage();
+          addToInventory(itemToLookFor);
+          return super.give(item);
+      }
+    }
+
+
+    /**
+     * Changes the QuestGiver's saved Quest message when the
+     * player talks to the QuestGiver to a default message.
+     */
+    void changeTalkMessage(){
+        String newMessage = "Thank you for giving me the " + itemToLookFor + "!";
+        messages.put("talk to", newMessage);
     }
     
     
