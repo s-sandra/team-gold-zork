@@ -1,5 +1,6 @@
 package team_gold_zork;
 
+import java.io.PrintWriter;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.lang.Character;
@@ -17,6 +18,7 @@ public class Item {
     private Hashtable<String, String> messages = new Hashtable<>(); //stores the message corresponding with the verb key.
     private Hashtable<String, String> events = new Hashtable<>(); //stores the events corresponding with the verb key.
     GameState state = GameState.instance();
+    private boolean isOn = false;
 
     /**
      * This constructs an Item object given a scanner reading a zork file.
@@ -69,6 +71,26 @@ public class Item {
             messages.put(verb, message);
             dungeon.addItemVerb(verb);
         }
+    }
+
+    void storeState(PrintWriter w){
+        if(isOn){
+            w.println(primaryName + ":");
+            w.println("isOn=true");
+            w.println("---");
+        }
+    }
+
+    void restoreState(Scanner s, Dungeon d){
+        String input = s.nextLine();
+        if(input.startsWith("isOn")){
+            isOn = true;
+        }
+        s.nextLine(); //reads in end of item descriptions.
+    }
+
+    void setIsOn(boolean state){
+        isOn = state;
     }
 
 
@@ -183,5 +205,9 @@ public class Item {
      */
     public int getWeight(){
         return weight;
+    }
+
+    public boolean isOn(){
+        return isOn;
     }
 }

@@ -182,29 +182,43 @@ public class Room {
     }
 
     /**
+     * Checks for items in the room that are emitting light.
+     * @return if the room is light.
+     */
+    boolean isLight(){
+        if(isDark){
+            for(Item item : contents){
+                if(item.isOn()){
+                    return true;
+                }
+            }
+            return GameState.instance().getAdventurer().hasLightSource();
+        }
+        return true;
+    }
+
+    /**
      * This method returns the description of a Room.
      * @return desc	the description of the Room object.
      */
     String describe(){
         boolean isVerbose = GameState.instance().getVerbose();
-        Player player = GameState.instance().getAdventurer();
         String description = "";
-        boolean hasLightSource = player.getHasLightSource();
 
         //print out the room description if the room !isDark or if it isDark and the player hasLightSource.
         //otherwise, print "It is pitch black in here."
 
             if(!beenHere|| isVerbose){
-                if(isDark && !hasLightSource){
+                if(!isLight()){
                     description = "It is pitch black in here!\n";
                 }
-                else if((isDark && hasLightSource) || !isDark) {
+                else{
                     description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();
                 }
                 beenHere = true;
             }
             else{
-                if(isDark && !hasLightSource){
+                if(!isLight()){
                     description = "It is pitch black in here!\n";
                 }
                 else{

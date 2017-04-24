@@ -106,12 +106,6 @@ class GameState {
                 Dungeon dungeon = new Dungeon(borkFile, false);
                 initialize(dungeon);
 
-                //if the "Room states:" title is not found.
-                line = input.nextLine();
-                if(!line.equals("Room states:")){
-                        throw new IllegalSaveFormatException();
-                }
-
                 dungeon.restoreState(input);
 
                 //if the "Adventurer state:" title is not found.

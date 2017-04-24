@@ -339,6 +339,15 @@ public class Dungeon {
 		w.println("save data");
 		w.println("Dungeon file: " + fileName);
 
+		w.println("Item states:");
+		Collection<Item> itemValues = items.values();
+
+		for(Item item : itemValues){
+			item.storeState(w);
+		}
+
+		w.println("===");
+
 		w.println("Room states:");
 		Collection<Room> values = rooms.values();
 
@@ -367,6 +376,32 @@ public class Dungeon {
 	void restoreState(Scanner r) throws IllegalSaveFormatException{
 		String input = r.nextLine();
 
+		//checks for the "item states" section.
+		if(!input.equals("Item states:")){
+			throw new IllegalSaveFormatException();
+		}
+
+		input = r.nextLine();
+		//while there are more items to read,
+		while(!input.equals("===")){
+			input = input.substring(0, input.length() - 1); //removes colon from item name.
+			try{
+				getItem(input).restoreState(r, this);
+			}
+			catch(NoItemException e){
+				throw new IllegalSaveFormatException();
+			}
+
+			input = r.nextLine();
+		}
+
+		//if the "Room states:" title is not found.
+		input = r.nextLine();
+		if(!input.equals("Room states:")){
+			throw new IllegalSaveFormatException();
+		}
+
+		input = r.nextLine();
 		//while there are more rooms to read,
 		while(!input.equals("===")){
 			input = input.substring(0, input.length() - 1); //removes colon from room name.

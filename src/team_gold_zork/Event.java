@@ -107,10 +107,11 @@ class Event {
                             + item.getPrimaryName() + " does not exist in the dungeon.");
                 }
             }
-             else if(event.startsWith("Turn")){
-                String status = event.substring(6);
+             else if(event.startsWith("Light")){
+                String status = event.substring(event.indexOf("(")+1);
+                status = status.substring(0,status.indexOf(")"));
                 light(status);
-                //describe the room after the light command and add ouput to the variable message + "\n.".
+                message += player.getCurrentRoom().describe();
             }
 
         }
@@ -222,10 +223,12 @@ class Event {
      */
     private void light(String status){
         if(status.equals("on")){
-            player.setHasLightSource(true);
+            //player.setHasLightSource(true);
+            item.setIsOn(true);
         }
         else if(status.equals("off")){
-            player.setHasLightSource(false);
+            //player.setHasLightSource(false);
+            item.setIsOn(false);
         }
     }
 }
