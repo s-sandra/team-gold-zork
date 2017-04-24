@@ -10,7 +10,7 @@ Room B6:
 beenHere=false
 ---
 Basement hallway:
-beenHere=true
+beenHere=false
 Contents: DrPepper
 Locked exits: w
 ---
@@ -28,7 +28,7 @@ Contents: force
 ---
 ===
 Character states:
-QuestGiver:
+ItemStealer:
 Character Name: red gremlin
 Description: There is a red gremlin here that looks like darth maul.
 Steal Message: Hehe the force is mine now!
@@ -53,9 +53,9 @@ Looking for: force
 ---
 ===
 Adventurer state:
-Current room: Basement hallway
+Current room: Rotunda
 Damage: 0
-Hunger: 1
-Fatigue: 1
+Hunger: 0
+Fatigue: 0
 Score: 0
 Rank: an amatuer
