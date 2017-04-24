@@ -158,7 +158,7 @@ public class ItemStealer extends NPC{
     }
     
     String steal() {
-       if(!isEmptyInventory()){
+       if(isEmptyInventory()){
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
