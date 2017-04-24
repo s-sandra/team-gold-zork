@@ -195,7 +195,7 @@ public class Room {
         //print out the room description if the room !isDark or if it isDark and the player hasLightSource.
         //otherwise, print "It is pitch black in here."
             if(isDark){
-                description = "It is pitch black in here";
+                description = "It is pitch black in here!\n";
             }
             else if(!beenHere|| isVerbose ){
                 beenHere = true;
