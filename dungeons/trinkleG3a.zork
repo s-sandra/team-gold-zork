@@ -2,6 +2,12 @@ Trinkle
 Group Bork v1.0
 ===
 Items:
+lamp
+light source
+0
+turn on:let there be light
+turn off:hello darkness my old friend
+---
 Bomb
 A large black bomb sits in the corner of the room.
 95
@@ -66,7 +72,7 @@ stomp:The donut is now smooshed.
 ===
 Rooms:
 Rotunda
-Contents: force
+Contents: force,lamp
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
