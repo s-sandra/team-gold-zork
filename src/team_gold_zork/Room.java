@@ -191,7 +191,7 @@ public class Room {
             if(!beenHere|| isVerbose ){
                 beenHere = true;
                 if(!isDark){
-                    description = "This room is pitch black";
+                    description = "This room is pitch black!\n";
                 }else{
                     description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();      
                 }

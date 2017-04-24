@@ -164,7 +164,7 @@ class Player extends Character{
      * emitting light.
      * @return whether the player currently has a light source.
      */
-    boolean getHasLightSource(boolean isLight){
+    boolean getHasLightSource(){
         return hasLightSource;
     }
 
