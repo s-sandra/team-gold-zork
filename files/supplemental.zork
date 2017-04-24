@@ -68,6 +68,10 @@ tornCurtains
 A pair of torn blue curtains hang over the windows. Let's hope your human doesn't find out!
 take:You can't take the curtains. They are stuck to the curtain rods.
 ---
+porcelainCat
+
+take[Score(50),Win]:
+---
 ===
 Rooms:
 Cat Tree Balcony
@@ -109,6 +113,8 @@ There is a large window here, through which you can see the backyard.
 Contents: flowerVase,curtains,diningTable
 ---
 China Cabinet Interior
+There are many fancy human food bowls in here. Some are very shiny and glitter in the light. Tread carefully!
+Your owner finds her food bowls very important!
 Contents: porcelainCat
 ---
 Upstairs Hallway
