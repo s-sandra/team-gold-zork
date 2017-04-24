@@ -13,7 +13,7 @@ public class Room {
     private String title; //stores the name of the room.
     private String desc = ""; //stores the description of the room.
     private boolean beenHere = false; //determines if the adventurer has already visited the room.
-    private boolean isDark = true; //determines if the room is dark or light.
+    private boolean isDark = false; //determines if the room is dark or light.
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<NPC> npcs = new ArrayList<>(); //stores all the npcs in the room.
@@ -39,11 +39,8 @@ public class Room {
 
             //check to see if isDark line is here. If yes, set isDark variable. If not, continue.
             if(input.startsWith("isDark")){
-                String light = input.substring(7);
-                if(!light.equals("true")){
-                    isDark = false;
-                }
-                
+                isDark = true;
+                input = s.nextLine();
             }
             //checks if the room contains items.
             if(input.startsWith("Contents:")) {
@@ -190,22 +187,30 @@ public class Room {
      */
     String describe(){
         boolean isVerbose = GameState.instance().getVerbose();
+        Player player = GameState.instance().getAdventurer();
         String description = "";
+        boolean hasLightSource = player.getHasLightSource();
 
         //print out the room description if the room !isDark or if it isDark and the player hasLightSource.
         //otherwise, print "It is pitch black in here."
-            if(isDark){
-                description = "It is pitch black in here!\n";
-            }
-            else if(!beenHere|| isVerbose ){
+
+            if(!beenHere|| isVerbose){
+                if(isDark && !hasLightSource){
+                    description = "It is pitch black in here!\n";
+                }
+                else if((isDark && hasLightSource) || !isDark) {
+                    description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();
+                }
                 beenHere = true;
-                description = title + "\n" + desc + describeItems() + describeNPCs() + describeExits();      
             }
             else{
-                description = title + describeItems() + describeNPCs() + describeExits();
+                if(isDark && !hasLightSource){
+                    description = "It is pitch black in here!\n";
+                }
+                else{
+                    description = title + describeItems() + describeNPCs() + describeExits();
+                }
             }
-
-   
       return description;
     }
 
