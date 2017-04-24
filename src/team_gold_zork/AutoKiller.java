@@ -80,8 +80,6 @@ class AutoKiller extends NPC{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-        w.println("");
-       
     }
 
 
