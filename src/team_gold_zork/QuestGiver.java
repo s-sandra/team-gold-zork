@@ -166,7 +166,7 @@ public class QuestGiver extends NPC{
      * player talks to the QuestGiver to a default message.
      */
     void changeTalkMessage(){
-        String newMessage = "Thank you for giving me the " + itemToLookFor + "!";
+        String newMessage = "Thank you for giving me the " + itemToLookFor.getPrimaryName() + "!";
         messages.put("talk to", newMessage);
     }
     

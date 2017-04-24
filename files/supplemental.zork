@@ -72,6 +72,27 @@ porcelainCat
 
 take[Score(50),Win]:
 ---
+desk
+100
+Your human's desk is here. It has many fun wires dangling from it.
+take:You can't take your human's desk! It's too heavy.
+---
+computer
+10
+On top of the desk is your human's small magic box, which she uses constantly.
+take:You can't take your human's computer! Your paws are too small.
+---
+computerMouse
+3
+There is a mouse here which your human likes to use to make her magic box work. It lights up if you turn it on.
+turn on[Light(on)]:The mouse emits a red glow.
+turn off[Light(off)]:It looks more like a mouse now.
+---
+keyBoard
+10
+There is a thingy here that makes cool clicking sounds when your human uses it. You think it's called a keyboard.
+sit on:
+---
 ===
 Rooms:
 Cat Tree Balcony
@@ -98,7 +119,10 @@ The outside must be so cool. Though at least you can sun bathe in front of the w
 There's still smudge marks from the last time you ran into the window. That bird was asking for it!
 ----
 Kitchen
-Ahh, what a great room this would be if it wasn't for the dog! He's 
+This is where the humans get all their food, and there's always leftovers! The room is lined with tall
+cabinets and counters, on which stand sounding appliances. There is a heinous abyss here from which water pours out.
+It is filled with dirty human food bowls.
+Contents: breadCrumbs,breakfastTable,bowlOfFruit
 ---
 Basement Rec Room
 isDark=true
@@ -124,7 +148,7 @@ Craft Room
 Bathroom
 ---
 Human's Room
-Contents: goldenKey
+Contents: goldenKey,desk,computer,computerMouse
 ---
 Attic
 isDark=true
