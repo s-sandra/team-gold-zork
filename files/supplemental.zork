@@ -77,9 +77,9 @@ serve as support for a platform that your owner calls a table.
 Contents: table,couch,fishbowl,blackBox
 ---
 Foyer
-This is the room with the big cat door for humans. You're never allowed out of it through. No Fun! 
+This is the room with the big cat door for humans. You're never allowed out of it, through. No Fun!
 The outside must be so cool. Though at least you can sun bathe in front of the window. 
-There's still smudge marks from the last time you ran into the window. That bird was asking for it though!
+There's still smudge marks from the last time you ran into the window. That bird was asking for it!
 ----
 Kitchen
 Ahh, what a great room this would be if it wasn't for the dog! He's 
@@ -87,7 +87,36 @@ Ahh, what a great room this would be if it wasn't for the dog! He's
 Basement Rec Room
 isDark=true
 ---
-
+Storage Room
+isDark=true
+---
+Dining Room
+---
+China Cabinet Interior
+Contents: porcelainCat
+---
+Upstairs Hallway
+---
+Craft Room
+---
+Bathroom
+---
+Human's Room
+Contents: goldenKey
+---
+Attic
+isDark=true
+---
+Backyard
+---
+Tree
+---
+West of House
+---
+East of House
+---
+Front Yard
+---
 ===
 Exits:
 Cat Tree Porch
@@ -154,6 +183,17 @@ Dining Room
 e
 Kitchen
 ---
+Dining Room
+w
+China Cabinet Interior
+isLocked=true
+door:china cabinet door
+key:crystalKey
+---
+China Cabinet Interior
+e
+Dining Room
+---
 Craft Room
 s
 Upstairs Hallway
@@ -161,6 +201,9 @@ Upstairs Hallway
 Upstairs Hallway
 n
 Craft Room
+isLocked=true
+name:white door
+key:goldKey
 ---
 Upstairs Hallway
 e
