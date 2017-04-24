@@ -3,10 +3,10 @@ Group Bork v1.0
 ===
 Items:
 lamp
-light source
+There's a lamp here.
 0
-turn on:let there be light
-turn off:hello darkness my old friend
+turn on[Light(on)]:Let there be light!
+turn off[Light(off)]:hello darkness my old friend
 ---
 Bomb
 A large black bomb sits in the corner of the room.
@@ -90,6 +90,7 @@ Room B6
 Sunlight streams through tall windows and illuminates a brilliant classroom.
 ---
 Room B13
+isDark=true
 Contents: Bomb
 Rows of state-of-the-art computers line the room, with happy young people typing
 merrily away at several of them. They look up and wave hello to you.
