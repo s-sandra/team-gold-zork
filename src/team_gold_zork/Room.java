@@ -193,7 +193,7 @@ public class Room {
                      
             }
             else{
-                description = title + describeItems() + describeNPCs() + describeExits();
+                description = title + describeExits();
             }
 
    
