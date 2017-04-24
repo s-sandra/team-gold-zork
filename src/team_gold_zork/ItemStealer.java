@@ -85,7 +85,7 @@ public class ItemStealer extends NPC{
      * @param w the PrintWriter for outputting to a .sav file.
      */
     void storeState(PrintWriter w){
-         w.println("QuestGiver:");
+         w.println("ItemStealer:");
          w.println("Character Name: " + name);
          w.println("Description: " + desc);
          w.println("Steal Message: " + stealMsg);
