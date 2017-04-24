@@ -157,18 +157,17 @@ public class ItemStealer extends NPC{
         return hasItem;
     }
     
-    void steal() {
+    String steal() {
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
-            System.out.println(stealMsg + " said the " + name + "\n.");
+            return stealMsg + " says the " + name + "\n.";
         }  else{
-            System.out.println("'Drats! You don't have what I want!' said the "+ name+"\n.");
+            return "'Drats! You don't have what I want!' says the "+ name+".\n";
         }
     }
 
 
-     
     /**
      * Restores the state of a ItemStealer from a .sav file.
      * @param s the Scanner reading the .sav file.
@@ -186,11 +185,9 @@ public class ItemStealer extends NPC{
     }
      /**
      * Used by NPCs to react to a player entering the room.
+      * @return a message detailing the result of the NPC's action.
      */
-    void greetPlayer(){
-    steal();}
+    String greetPlayer(){
+    return steal();}
 
-  
-    
-    
 }

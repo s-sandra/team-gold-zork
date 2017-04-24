@@ -101,20 +101,20 @@ class AutoKiller extends NPC{
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = name;
+         name = line;
          line = s.nextLine(); 
 
         if(!line.startsWith("Description: ")){
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = desc;
+         desc = line;
          line = s.nextLine();
           if(!line.startsWith("Death Message: ")){
             throw new IllegalSaveFormatException();
         }
          line =  line.substring(line.indexOf(":") + 2);
-         line = deathMsg;
+         deathMsg = line;
          line = s.nextLine();
          
         currentDungeon = d;
@@ -162,11 +162,13 @@ class AutoKiller extends NPC{
      * Reacts to a player entering the current room
      * of the AutoKiller. It kills the player if they have
      * no avenue of escape.
+     * @return a message detailing the action of the AutoKiller.
      */
-    void greetPlayer(){
-        if(!hasExit()){
+    String greetPlayer(){
+        if(!hasExit() && currentRoom.equals(player.currentRoom)){
             kill();
         }
+        return "";
     }
     
 }

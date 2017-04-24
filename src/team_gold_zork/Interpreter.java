@@ -60,7 +60,6 @@ class Interpreter {
 		Player adventurer = state.getAdventurer();
 		
 		System.out.println(adventurer.getCurrentRoom().describe());
-                adventurer.getCurrentRoom().visit();
 		input = promptUser(commandLine);
 		
 		while(!input.equals("q")){

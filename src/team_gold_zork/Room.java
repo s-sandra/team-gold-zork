@@ -16,7 +16,6 @@ public class Room {
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<NPC> npcs = new ArrayList<>(); //stores all the npcs in the room.
-    private int exitCount = 0;
 
     /**
      * This constructs a Room object, as well as the items in it.
@@ -213,6 +212,10 @@ public class Room {
 
         for(int i = 0; i < npcs.size(); i++){
             desc += npcs.get(i).describe();
+            String npcAction = npcs.get(i).greetPlayer();
+            if(!npcAction.isEmpty()){
+                desc += "\n" + npcAction;
+            }
 
             //if the room has more items.
             if(i + 1 < npcs.size()){
@@ -260,21 +263,9 @@ public class Room {
 
             for(Exit exit: exits){
                     desc += exit.describe() + ". ";
-                    exitCount++; 
             }
 
             return desc + "\n";
-    }
-
-
-    /**
-     * Informs characters in the room that the player has
-     * entered.
-     */
-    void visit(){
-        for(NPC npc : npcs){
-            npc.greetPlayer();
-        }
     }
 
 
@@ -436,7 +427,7 @@ public class Room {
      */
     int getNumExit()
     {
-      return exitCount;   
+      return exits.size();
     }
      /**
      * Adds an npc to the contents of the room.
