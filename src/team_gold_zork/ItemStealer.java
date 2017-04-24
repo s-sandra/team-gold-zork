@@ -86,6 +86,7 @@ public class ItemStealer extends NPC{
      */
     void storeState(PrintWriter w){
          w.println("ItemStealer:");
+         w.println(name);
          w.println("HasItem: " + hasItem);
          w.println("---");
         

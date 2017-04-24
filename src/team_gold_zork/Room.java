@@ -13,6 +13,7 @@ public class Room {
     private String title; //stores the name of the room.
     private String desc = ""; //stores the description of the room.
     private boolean beenHere = false; //determines if the adventurer has already visited the room.
+    private boolean isDark = true; //determines if the room is dark or light.
     private ArrayList<Exit> exits = new ArrayList<>(); //stores all the exits in the room.
     private ArrayList<Item> contents = new ArrayList<>(); //stores all the items in the room.
     private ArrayList<NPC> npcs = new ArrayList<>(); //stores all the npcs in the room.
@@ -37,7 +38,13 @@ public class Room {
             input = s.nextLine();
 
             //check to see if isDark line is here. If yes, set isDark variable. If not, continue.
-
+            if(input.startsWith("isDark")){
+                String light = input.substring(7);
+                if(!light.equals("true")){
+                    isDark = false;
+                }
+                
+            }
             //checks if the room contains items.
             if(input.startsWith("Contents:")) {
 
@@ -183,7 +190,6 @@ public class Room {
      */
     String describe(){
         boolean isVerbose = GameState.instance().getVerbose();
-        boolean isDark = GameState.instance().getAdventurer().getHasLightSource();
         String description = "";
 
         //print out the room description if the room !isDark or if it isDark and the player hasLightSource.

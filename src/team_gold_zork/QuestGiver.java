@@ -102,6 +102,7 @@ public class QuestGiver extends NPC{
      */
     void storeState(PrintWriter w){
          w.println("QuestGiver:");
+         w.println(name);
          w.println("GotItem: " + gotItem);
          w.println("---");
         
