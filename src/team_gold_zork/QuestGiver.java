@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author Lauren
  */
 public class QuestGiver extends NPC{
+    boolean gotItem = false; 
     boolean hasItem = false; 
     Item itemToLookFor = null;
     Item reward = null;
@@ -101,12 +102,7 @@ public class QuestGiver extends NPC{
      */
     void storeState(PrintWriter w){
          w.println("QuestGiver:");
-         w.println("Character Name: " + name);
-         w.println("Description: " + desc);
-         w.println("Reward Message: " + rewardMsg);
-         w.println("Current room: " + currentRoom.getTitle());
-         w.println("Reward: " + reward.getPrimaryName());
-         w.println("Looking for: " + itemToLookFor.getPrimaryName());
+         w.println("GotItem: " + gotItem);
          w.println("---");
         
     }
@@ -118,61 +114,17 @@ public class QuestGiver extends NPC{
      */
     void restoreState(Scanner s, Dungeon d)throws IllegalSaveFormatException{
          String line = s.nextLine();
-         if(!line.startsWith("Character Name: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         name = line;
-         line = s.nextLine();
-          
-        if(!line.startsWith("Description: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line =  line.substring(line.indexOf(":") + 2);
-         desc = line;
-         line = s.nextLine();
-         
-         //if the "Current room:" title is not found.
-        if(!line.startsWith("Reward Message: ")){
-            throw new IllegalSaveFormatException();
-        }
-        line =  line.substring(line.indexOf(":") + 2);
-         rewardMsg = line;
-         line = s.nextLine();
-         
-        //if the "Current room:" title is not found.
-        if(!line.startsWith("Current Room: ")){
-            throw new IllegalSaveFormatException();
-        }
-        //reads in the AutoKiller's current room.
-        line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-        currentDungeon = d;
-        currentRoom = d.getRoom(line);
-        currentRoom.add(this);
-
-        if(line.startsWith("Reward: ")){
-            throw new IllegalSaveFormatException();
-        }
-          line = line.substring(line.indexOf(":") + 2); //chops off data to the left of colon.
-
-           
-                try{ //the inventory might contain invalid items.
-                  reward = currentDungeon.getItem(line);
-                }
-                catch(NoItemException e){
-                    throw new IllegalSaveFormatException(e.getMessage());
-                }
-          this.addToInventory(reward);
-          line = s.nextLine();
-          if(!line.startsWith("Looking for: ")){
-            throw new IllegalSaveFormatException();
-        }
-         line = line.substring(line.indexOf(":") + 2); 
-        try {
-            itemToLookFor = currentDungeon.getItem(line);
-        } catch (NoItemException e) {
-           throw new IllegalSaveFormatException(e.getMessage()); 
-        }
+        
+                    if(line.contains("GotItem: ")){
+                            if(line.contains("true")){
+                                    gotItem = true;
+                            }
+                            else{
+                                    gotItem = false;
+                            }
+                    }else {throw new IllegalSaveFormatException("Corrupted save file: ");
+                            }
+                    line = s.nextLine();
     }
     
     
@@ -195,6 +147,7 @@ public class QuestGiver extends NPC{
     String give(Item item){
         if(item.getPrimaryName().equals(itemToLookFor.getPrimaryName())){
             addToInventory(item);
+            gotItem = true;
             return giveReward();
         }
         return super.give(item);
