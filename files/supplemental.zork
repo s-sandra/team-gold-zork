@@ -238,81 +238,81 @@ You are on a luxuriously soft platform, over which you can see the entire room. 
 the window above you, casting warm rays of light over your favorite cozy spot.
 ---
 Cat Tree Porch
-The carpeted base of your favorite hangout feels soft beneath your paws.
 Contents: foodBowl,scratchingPost,featherToy
+The carpeted base of your favorite hangout feels soft beneath your paws.
 ---
 Cat Tree Interior
-You climb into a small, sheltered nook. The floor is lined with a soft cushion.
 Contents: mouseToy
+You climb into a small, sheltered nook. The floor is lined with a soft cushion.
 ---
 Living Room
+Contents: table,couch,fishBowl,magicBox,suctionMonster
 Your owner has decorated this room with two giant beds, covered with pillows, which she likes to sit
 on while watching her magic black box.
-Contents: table,couch,fishbowl,blackBox,suctionMonster
 ---
 Foyer
+Contents: rug
 This is the room with the big cat door for humans. You're never allowed out of it, through. No Fun!
 The outside must be so cool. Though at least you can sunbathe in front of the window.
 There's still smudge marks from the last time you ran into it. That bird was asking for it!
-Contents: rug
 ----
 Kitchen
+Contents: breadCrumbs,breakfastTable,bowlOfFruit
 This is where the humans store all their yummy foods! The room is lined with tall cabinets and counters, on
 which stand scary sounding appliances. There is a heinous abyss here from which water pours out. It is filled
 with dirty human food bowls. In the corner is a giant white pillar which hums softly and keeps food magically cold.
-Contents: breadCrumbs,breakfastTable,bowlOfFruit
 ---
 Basement Rec Room
 isDark=true
-This is where humans gather to be loud. There is a table with balls on it. The humans call the balls “No! Don’t take those!”
 Contents: magic8Ball
+This is where humans gather to be loud. There is a table with balls on it. The humans call the balls “No! Don’t take those!”
 ---
 Storage Room
 isDark=true
+Contents: toyMouse,moldyThing
 Humans never go in this room, so you love to hide things here. Hehe.
-Contents: toyMouse, moldyThing
 ---
 Dining Room
+Contents: flowerVase,curtains,diningTable
 The humans like to gather here with their special food and water bowls, which they keep locked up in the china
 cabinet in the corner of the room. A big dangling toy with a light at the end hangs from the ceiling. There is a
 large window here, through which you can see the backyard.
-Contents: flowerVase,curtains,diningTable
 ---
 China Cabinet Interior
+Contents: porcelainCat
 There are many fancy human food bowls in here. Some are very shiny and glitter in the light. Tread carefully!
 Your owner finds her food bowls very important!
-Contents: porcelainCat
 ---
 Upstairs Hallway
 This is your favorite place to lie down and see if you can trip your owner.
 ---
 Craft Room
+Contents: craftTable,yarn
 This is the room where your owner likes to make things. You love sitting on your owner’s lap as she does this.
 That, and occasionally stealing stuff from the table.
-Contents: craftingTable, yarn
 ---
 Bathroom
+Contents: litterBox,toilet,toiletPaperRoll
 You hate this room because this is where your human tortures you with baths. Plus, there is always another cat
 in the room that looks just like you and imitates your very move. Copy cat!
-Contents: litterBox,toilet,toiletPaperRoll
 ---
 Human's Room
+Contents: goldenKey,desk,computer,computerMouse,keyboard
 The room with the magic box that is connected to the human’s toy ‘computer mouse’. You love sitting on the keyboard.
 It’s nice and warm. You purr just thinking about it. (It’s also fun to see the human try to type around you. Hehe!)
-Contents: goldenKey,desk,computer,computerMouse,keyboard
 ---
 Attic
 No human ever dares visit this room. Maybe because it contains boxes of old yearbook photos. Yikes!
 ---
 Backyard
+Contents: leaf
 The outdoors that you are allowed to see. Yay! So many things to explore! There is a large tree in the corner
 of the backyard, which is enclosed by a high wooden fence.
-Contents: leaf
 ---
 Tree
+Contents: bird
 You can see the entire neighborhood from here, including the firefighters who tried to get you to come down
 that one summer.
-Contents: bird
 ---
 West of House
 Not much here but grass. You sniff the air and sense that an old dog has left its scent here.
@@ -321,9 +321,9 @@ East of House
 As you turn the corner, your super cat sense tingles and your hairs stand up on end. Danger lurks ahead.
 ---
 Front Yard
+Contents: newspaper,porchSwing
 Ah, the famous front yard! As you stroll through, you see a strange river of gravel, over which large moving
 dragons whiz past.
-Contents: newspaper,porchSwing
 ---
 ===
 Exits:
