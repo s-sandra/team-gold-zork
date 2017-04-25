@@ -478,7 +478,7 @@ QuestGiver
 old dog
 The old dog here looks confused. He may need help.
 Reward Message: Thank you so much! Here. I heard this might open the China cabinet.
-Current room: foyer
+Current room: Foyer
 Reward: crystalKey
 LookingFor: bone
 talk to: “Hello,” says the old dog. “I forgot where my bone was… I want it. Could you help an old dog out? I’ll make it worth your time.”
@@ -488,7 +488,7 @@ ItemStealer
 stupid dog
 The stupid dog sits there looking pretty stupid, as usual.
 Steal Message: Hehe. I wanna play with that now!
-Current Room: Upstairs Hallwa
+Current Room: Upstairs Hallway
 LookingFor: magic8Ball
 talk to:Hehe. Hey, Dumb Cat!
 ---
@@ -496,7 +496,7 @@ ItemStealer
 raccoon
 That raccoon looks shady.
 Steal Message: Hehe. I wanna play with that now!
-Current Room: east of house
+Current Room: East of House
 LookingFor: leaf
 talk to:Hehe. Hey, Dumb Cat!
 ---
@@ -504,7 +504,7 @@ ItemStealer
 bat
 There’s a bat sleeping there.
 Steal Message: Screech! It’s mine now!
-Current Room: attic
+Current Room: Attic
 LookingFor: moldyThing
 talk to: He only flaps his wings ominously.
 give:It Screeches in thanks.
