@@ -7,7 +7,7 @@ package team_gold_zork;
  * @author Sandra Shtabnaya
  */
 class GameConfig {
-    static final String VERSION = "Group Bork v1.0";
+    static final String VERSION = "Group Bork v2.0";
     
     //Thresholds for player's health.
     static final int MIN_THRESHOLD = 50;
