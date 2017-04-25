@@ -32,7 +32,7 @@ public class ItemStealer extends NPC{
         
 
         //while the death description has not ended,
-        while(!input.startsWith("Current room:")){
+        while(!input.startsWith("Current Room:")){
             stealMsg += input;
             input = s.nextLine();
         }
