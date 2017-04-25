@@ -465,7 +465,7 @@ e
 East of House
 ---
 East of House
-n
+w
 Front Yard
 ---
 Backyard
@@ -520,7 +520,7 @@ give:It Screeches in thanks.
 AutoKiller
 black dog
 A menacing black dog looms in the corner.
-death message: You attempt to flee from the black dog, but there is no escape.
+death message:You attempt to flee from the black dog, but there is no escape.
 The creature bites you on the leg and you bleed to death.
 Current room: East of House
 talk to[Die()]:The dog gets irritated and kills you.
