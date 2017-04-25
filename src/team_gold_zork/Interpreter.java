@@ -35,13 +35,13 @@ class Interpreter {
 		try{
 			
 			if(input.endsWith(".sav")){
-				input = "saves/" + input; //.sav files are contained in the saves folder.
+				input = "files/" + input; //.sav files are contained in the saves folder.
 				state.restore(input);
 				dungeon = state.getAdventurer().getDungeon();
 				System.out.println();
 			}
 			else if(input.endsWith(".zork")){
-				input = "dungeons/" + input; //.zork files are contained in the dungeons folder.
+				input = "files/" + input; //.zork files are contained in the dungeons folder.
 				
 				dungeon = new Dungeon(input, true);
 				state.initialize(dungeon);
