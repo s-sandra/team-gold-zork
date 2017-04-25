@@ -120,6 +120,10 @@ public class Item {
                 secondaryName += " " + Character.toLowerCase(letter);
             }
 
+            else if(Character.isDigit(letter)){
+                secondaryName += " " + letter;
+            }
+
             //if it's not capitalized,
             else{
                 secondaryName += letter;

@@ -131,7 +131,7 @@ public class Exit {
      * @return whether the key can open the door.
      */
     boolean keyFits(String keyName){
-        return keyName.equals(this.keyName);
+        return keyName.toLowerCase().equals(this.keyName);
     }
     
     

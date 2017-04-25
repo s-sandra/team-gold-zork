@@ -236,16 +236,27 @@ public class Dungeon {
 	 * @param command the user's command.
 	 * @return the item name, if contained within the command string.
 	 */
-	public String getItemNameIn(String command){
+	public String getItemNameIn(String command, String itemVerb){
 		Collection<Item> objects = items.values();
 		command = command.toLowerCase();
+		itemVerb = itemVerb.toLowerCase();
+
+		boolean hasVerb = !itemVerb.isEmpty();
+
+		if(hasVerb){
+			command = command.substring(command.indexOf(itemVerb) + itemVerb.length()).trim();
+		}
 
 		for(Item item : objects){
 			if(command.contains(item.getSecondaryName().toLowerCase())){
-				return item.getSecondaryName();
+				if(hasVerb && command.equals(item.getSecondaryName().toLowerCase())){
+					return item.getSecondaryName();
+				}
 			}
 			if(command.contains(item.getPrimaryName().toLowerCase())){
-				return item.getSecondaryName();
+				if(hasVerb && command.equals(item.getPrimaryName().toLowerCase())) {
+					return item.getPrimaryName();
+				}
 			}
 		}
 		return "";

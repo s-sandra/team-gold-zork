@@ -5,7 +5,7 @@ Items:
 foodBowl
 There is a shiny food bowl here perpetually filled with your favorite lunch, tuna.
 5
-eat out of[Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
+eat out of[Hunger(-20)]:You lick your lips in satisfaction. Meowlicious!
 take:Your human would get mad at you if you take that.
 ---
 scratchingPost
@@ -92,8 +92,7 @@ take:You can't take the curtains. They are stuck to the curtain rods.
 porcelainCat
 There is a lucky porcelain cat here whose right paw waves back at you.
 1
-take[Score(50),Win]:
-break[Lose,Score(-50)]:The porcelain cat slips from your paws and smashes to the ground. There goes your good luck!
+take[Score(50),Win]:Ahh, the sweet taste of victory! The porcelain cat is yours at last!
 ---
 desk
 Your human's desk is here. It has many fun wires dangling from it.
@@ -106,7 +105,7 @@ On top of the desk is your human's small magic box, which she uses constantly.
 take:You can't take your human's computer! Your paws are too small.
 ---
 computerMouse
-There is a mouse here which your human likes to use to make her magic box work. It lights up if you turn it on.
+There is a computer mouse here which your human likes to use to make her magic box work. It lights up if you turn it on.
 3
 turn on[Light(on)]:The mouse emits a red glow.
 turn off[Light(off)]:It looks more like a real mouse now.
@@ -119,6 +118,11 @@ sit on:The pointy keys scratch your belly and leaves your hair all over the plac
 goldenKey
 A shiny golden key catches your attention.
 4
+---
+crystalKey
+There is a delicate crystal key here.
+4
+break[Disappear,Score(-10)]:Oh, no!
 ---
 breadCrumbs
 There are leftover breadcrumbs here.
@@ -192,10 +196,10 @@ toiletPaperRoll
 A toilet paper roll hangs from the wall. Wonder what mischief you could get in with that!
 1000
 take: You can’t take that from the wall
-play[Transform(toiletPaper)]: Oh, yes. Destruction!
+play with[Transform(toiletPaper)]: Oh, yes. Destruction!
 ---
 toiletPaper
-That was fun! Less fun now though.
+A bundle of toilet paper is left here.
 1
 ---
 bird
@@ -319,6 +323,7 @@ You can see the entire neighborhood from here, including the firefighters who tr
 that one summer.
 ---
 West of House
+Contents: patchOfMud
 Not much here but grass. You sniff the air and sense that an old dog has left its scent here.
 ---
 East of House
@@ -383,6 +388,14 @@ d
 Basement Rec Room
 ---
 Basement Rec Room
+w
+Storage Room
+---
+Storage Room
+e
+Basement Rec Room
+---
+Basement Rec Room
 u
 Foyer
 ---
@@ -407,7 +420,7 @@ w
 China Cabinet Interior
 isLocked=true
 door:china cabinet door
-key:crystalKey
+key:crystal key
 ---
 China Cabinet Interior
 e
@@ -422,7 +435,7 @@ n
 Craft Room
 isLocked=true
 name:white door
-key:goldenKey
+key:golden key
 ---
 Upstairs Hallway
 e
@@ -443,6 +456,10 @@ Upstairs Hallway
 Upstairs Hallway
 u
 Attic
+---
+Upstairs Hallway
+d
+Foyer
 ---
 Attic
 d
@@ -480,10 +497,6 @@ Tree
 d
 Backyard
 ---
-Storage Room
-n
-Basement Rec Room
----
 ===
 Characters:
 QuestGiver
@@ -493,14 +506,14 @@ Reward Message: Thank you so much! Here. I heard this might open the China cabin
 Current room: Foyer
 Reward: crystalKey
 LookingFor: bone
-talk to: “Hello,” says the old dog. “I forgot where my bone was… I want it. Could you help an old dog out? I’ll make it worth your time.”
-give: The dog thanks you tiredly.
+talk to:“Hello,” says the old dog. “I forgot where my bone was… I want it. Could you help an old dog out? I’ll make it worth your time.”
+give:The dog thanks you tiredly.
 ---
 ItemStealer
 stupid dog
 The stupid dog sits there looking pretty stupid, as usual.
 Steal Message: Hehe. I wanna play with that now!
-Current Room: Upstairs Hallway
+Current room: Upstairs Hallway
 LookingFor: magic8Ball
 talk to:Hehe. Hey, Dumb Cat!
 ---
@@ -508,7 +521,7 @@ ItemStealer
 raccoon
 That raccoon looks shady.
 Steal Message: Hehe. I wanna play with that now!
-Current Room: Backyard
+Current room: Backyard
 LookingFor: leaf
 talk to:Hehe. Hey, Dumb Cat!
 ---
@@ -516,7 +529,7 @@ ItemStealer
 bat
 There’s a bat sleeping there.
 Steal Message: Screech! It’s mine now!
-Current Room: Attic
+Current room: Attic
 LookingFor: moldyThing
 talk to: He only flaps his wings ominously.
 give:It Screeches in thanks.
@@ -524,7 +537,7 @@ give:It Screeches in thanks.
 AutoKiller
 black dog
 A menacing black dog looms in the corner.
-death message:You attempt to flee from the black dog, but there is no escape.
+death message: You attempt to flee from the black dog, but there is no escape.
 The creature bites you on the leg and you bleed to death.
 Current room: East of House
 talk to[Die()]:The dog gets irritated and kills you.

@@ -32,7 +32,7 @@ public class ItemStealer extends NPC{
         
 
         //while the death description has not ended,
-        while(!input.startsWith("Current Room:")){
+        while(!input.startsWith("Current room:")){
             stealMsg += input;
             input = s.nextLine();
         }
@@ -128,7 +128,7 @@ public class ItemStealer extends NPC{
         if(checkItem()){
             player.removeFromInventory(itemToLookFor);
             addToInventory(itemToLookFor);
-            return "'" + stealMsg + "' says the " + name + ".\n";
+            return "The " + name + " has stolen your " + itemToLookFor.getSecondaryName() + "! '" + stealMsg + "' says the " + name + ".\n";
         }  else{
             return "'Drats! You don't have what I want!' says the "+ name+".\n";
         }

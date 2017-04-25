@@ -119,6 +119,7 @@ public class QuestGiver extends NPC{
                     if(line.contains("GotItem: ")){
                             if(line.contains("true")){
                                     gotItem = true;
+                                    changeTalkMessage();
                             }
                             else{
                                     gotItem = false;

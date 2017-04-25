@@ -38,9 +38,11 @@ class CommandFactory {
 	 * @return	a Command object.
 	 */
 	public Command parse(String commandString){
-		String command = commandString.toLowerCase().trim();
-		command = command.replace("the", "");
+		String command = commandString.trim();
 		command = command.replace(".", "");
+		if(command.contains(" the ")){
+			command = command.replace("the", "");
+		}
 
 		if(commandString.endsWith(".sav")){
 			return new SaveCommand(commandString);
@@ -75,7 +77,7 @@ class CommandFactory {
 
 		if(command.startsWith("give")){
 			String charName = dungeon.getNPCNameIn(command);
-			String itemName = dungeon.getItemNameIn(command);
+			String itemName = dungeon.getItemNameIn(command, charName);
 
 			//if the NPC or item was not found in the dungeon, parse the command.
 			if(charName.isEmpty() || itemName.isEmpty()){
@@ -111,6 +113,7 @@ class CommandFactory {
 			//if the user wants to unlock something,
 			if(command.startsWith("unlock") || command.startsWith("open")){
 				String keyName = "";
+
 				noun = command.substring(command.indexOf(" ") + 1, command.length()).trim();
 
 				//if the noun is followed by a "with", removes it.
@@ -127,22 +130,33 @@ class CommandFactory {
 						verb += " " + word;
 						continue;
 					}
+					if(word.equals("the")){
+						continue;
+					}
 					else if(verb.isEmpty()){
 						verb += word;
 					}
 					else if(noun.isEmpty()){
 						noun += word;
 					}
+					else if(!verb.isEmpty() && !noun.isEmpty()){
+						noun += " " + word;
+					}
 				}
 			}
 
-			if(verb.equals("drop")){
-				return new DropCommand(noun);
-			}
 
 			//searches for item-specific commands in the command line.
 			String itemVerb = dungeon.getItemVerbIn(command);
-			String itemName = dungeon.getItemNameIn(command);
+			String itemName = dungeon.getItemNameIn(command, itemVerb);
+
+			if(verb.equals("drop")){
+				itemName = dungeon.getItemNameIn(command, verb);
+				if(itemName.isEmpty()){
+					return new DropCommand(noun);
+				}
+				return new DropCommand(itemName);
+			}
 
 			//searches for npc-specific commands in the command line.
 			String charVerb = dungeon.getCharacterVerbIn(command);

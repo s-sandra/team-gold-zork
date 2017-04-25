@@ -24,7 +24,7 @@ able to see the contents of the room.
 
 Locked Doors - Some rooms contain exits which barr entry to the player, unless they obtain the necessary item, known as
 a key, to open it. Each exit has its own unique key, which is located somewhere in the dungeon. To encounter a locked door,
-go to the (upstairs hallway (located d,d,e,u from the entry), whose n exit, called white door, is listed in the room description as closed.
+go to the upstairs hallway (located d,d,e,u from the entry), whose n exit, called white door, is listed in the room description as closed.
 If you attempt to go through the exit, you will be informed that the door is locked. Go back to the foyer by going down.
 Type "move the rug." The game will inform you that the cat face key is underneath. Take the cat face key and return to the upstairs hallway.
 Attempt to open the door with the cat face key by typing "unlock the white door with the cat face key" or "open white door with cat
@@ -37,8 +37,8 @@ unlocked the exit, allowing you to advance n into the craft room.
 
 Hunger - In addition to healing wounds, the player must also maintain their hunger throughout their adventure. Each
 time the player enters a valid command (take, drop, move, unlock or item/character specific), their hunger increases by one point. Hunger is
-assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
-critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the hunger
+assessed through three thresholds: minor (between 1 and 20 valid turns), moderate (between 21 and 40 valid turns) and
+critical (between 41 and 60 valid turns). Once a player passes each threshold, they are warned once. To test the hunger
 feature, waste time in the dungeon performing valid commands. After the 51st turn, the program will state "Your stomach growls ferociously."
 To alleviate your hunger, go to the cat tree porch (located d,d from the entry), which contains a food bowl. Eat the food within it by typing
 "eat out of the food bowl". The game will say "You lick your lips in satisfaction. Meouwlicious! After your snack, you are full." Note
@@ -46,7 +46,7 @@ that if you eat a light snack, then your hunger may not appreciably change. For 
 informs you that your stomach grows ferociously. Then, head to the backyard, located n,n,n from the foyer. It contains a leaf, which only
 detracts 1 point from your hunger. If you eat it, then hunger does not lower below the minor threshold, and the game still informs you that your stomach
 is not fully satisfied. Continue to move through the dungeon, allowing your hunger to increase to the critical level. Do not eat any food.
-Do not visit east of house, located s,e from the foyer, since you will be killed by the AutoKiller NPC contained there. After 151 turns,
+Do not visit east of house, located s,e from the foyer, since you will be killed by the AutoKiller NPC contained there. After 61 turns,
 you will collapse from exhaustion and die from starvation.
 
 -------------------------------------------------------------------------------------------------------------------------
@@ -55,14 +55,14 @@ Fatigue - Just as the player's hunger grows after every turn, so too does their 
 valid command (take, drop, move, unlock or item/character specific), their hunger increases based on the weight of the
 adventurer's inventory. If the player is empty handed, then fatigue increases by one point. However, if the adventurer
 is carrying items, then an extra twentieth of the player's inventory weight is added, plus the default one point. Like hunger, fatigue is
-assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
-critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the fatigue
+assessed through three thresholds: minor (between 1 and 20 valid turns), moderate (between 21 and 40 valid turns) and
+critical (between 41 and 60 valid turns). Once a player passes each threshold, they are warned once. To test the fatigue
 feature, waste time in the dungeon performing valid commands. Make sure to place items into your inventory to increase
 the rate of your fatigue. You can take the golden key and the computer mouse located in the human's room, u,w from the foyer. After reaching the
 moderate threshold, the program will state "Your eyes droop from fatigue." Type "health" to see the state of your hunger.
 To alleviate your exhaustion, type "sleep." The game will inform you of the state of your health after your nap. Since the
 sleep command transfers the current level of fatigue to hunger, you will find that your hunger has increased. Restart the game and move through
-the dungeon, allowing your fatigue to increase to the critical level. Do not sleep or eat. After 151 turns, the game will inform
+the dungeon, allowing your fatigue to increase to the critical level. Do not sleep or eat. After 61 turns, the game will inform
 you that you have collapsed from fatigue and fallen asleep on the spot. Since you have neglected your hunger, your nap will have
 caused you to die from starvation.
 
