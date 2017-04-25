@@ -73,7 +73,8 @@ If the player talks to this NPC in a non dead end room then it will kill the pla
  This NPC can be given gifts by saying "give to the AutoKiller", an item in the player’s inventory name, and the NPC’s name
 AutoKiller can be found in the east of the house by going d, d, w, e.
 Look under the rug, take the cat face key, unlock the front door with the cat face key, s, e. 
-There you will encounter the black dog who will kill you. 
+There you will encounter the black dog who will kill you.
+
 -------------------------------------------------------------------------------------------------------------------------
 
 ItemStealer NPCs -  ItemStealer is a type of NPC that appears in the dungeon. 
@@ -82,9 +83,7 @@ If the player does this NPC will steal it from the player.  This NPC can be talk
 This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name. 
 There are Several ItemStealers in this game file who all steal the craziest stuff. To encounter one go d,d,w,e,n.
  There the player will find a shady looking raccoon. 
-Take the leaf there, go in any direction and then return to the room and he will steal the leaf.  
-
-
+Take the leaf there, go in any direction and then return to the room and he will steal the leaf.
 
 -------------------------------------------------------------------------------------------------------------------------
 
