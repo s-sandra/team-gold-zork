@@ -2,7 +2,7 @@ Verbose - Rooms that have not been entered by the player will display a room des
 re-enters a room, the room description will no longer be displayed. If the player forgets or wants to see the room description
 again, the player can type "verbose on" and the room description will always be displayed for every room. If the player no longer wants
 to see the room description, they can type "verbose off" and the room description will be removed. For example, the first time a player
-walks into the the Cat Tree Balcony (located () from the entry) the following description will appear: "You jump onto a luxuriously soft platform, over which you can
+walks into the the Cat Tree Balcony the following description will appear: "You jump onto a luxuriously soft platform, over which you can
 see the entire room. The sun shines through the window above you, casting warm rays of light over your favorite cozy spot." When the player
 leaves and re-enters the Cat Tree Balcony the description will no longer appear, unless the player uses the verbose on command. In that case,
 the description of the Cat Tree Balcony room will appear again. If the player no longer wants to see the description of the Cat Tree Balcony,
@@ -92,7 +92,7 @@ for and responds with a gift if the player gives that desired item to them.This 
 This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name. 
 The questGiver can be found in the Foyer. His name is old dog. To meet him from the start of the game go d,d,w,e. 
 When you talk to him he will tell you he is looking for his bone and will make it worth your time. 
-To get his bone go n,n,e, dig up the patch of mud, take the bone, e,s,s give the old dog the bone.
+To get his bone go n,n, dig up the patch of mud, take the bone, e,s,s give the old dog the bone.
  As a reward he will give you a key to the China Cabinet.
 
 -------------------------------------------------------------------------------------------------------------------------
