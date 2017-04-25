@@ -71,19 +71,29 @@ caused you to die from starvation.
 AutoKiller NPCs - AutoKiller is a type of NPC that will appear in the dungeon. This NPC kills the player on sight if the room is a dead end.
 If the player talks to this NPC in a non dead end room then it will kill the player.This NPC can be talked to by saying "talk to" and the NPC’s name.
  This NPC can be given gifts by saying "give to the AutoKiller", an item in the player’s inventory name, and the NPC’s name
-
+AutoKiller can be found in the east of the house by going d, d, w, e.
+Look under the rug, take the cat face key, unlock the front door with the cat face key, s, e. 
+There you will encounter the black dog who will kill you. 
 -------------------------------------------------------------------------------------------------------------------------
 
 ItemStealer NPCs -  ItemStealer is a type of NPC that appears in the dungeon. 
 This NPC looks through the player's inventory to see if the player has the item the NPC is looking for. 
 If the player does this NPC will steal it from the player.  This NPC can be talked to by saying "talk to" and the NPC’s name. 
 This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name. 
+There are Several ItemStealers in this game file who all steal the craziest stuff. To encounter one go d,d,w,e,n.
+ There the player will find a shady looking raccoon. 
+Take the leaf there, go in any direction and then return to the room and he will steal the leaf.  
+
 
 
 -------------------------------------------------------------------------------------------------------------------------
 
 QuestGiver NPCs - QuestGiver is a type of NPC that appears in the dungeon. This NPC tells the player what item it is looking
 for and responds with a gift if the player gives that desired item to them.This NPC can be talked to by saying "talk to" and the NPC’s name. 
-This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name
+This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name. 
+The questGiver can be found in the Foyer. His name is old dog. To meet him from the start of the game go d,d,w,e. 
+When you talk to him he will tell you he is looking for his bone and will make it worth your time. 
+To get his bone go n,n,e, dig up the patch of mud, take the bone, e,s,s give the old dog the bone.
+ As a reward he will give you a key to the China Cabinet.
 
 -------------------------------------------------------------------------------------------------------------------------
