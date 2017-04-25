@@ -44,7 +44,7 @@ public class QuestGiver extends NPC{
         
        input = input.substring(input.indexOf(":") + 2); //chops off data to the left of colon.
         currentRoom = d.getRoom(input);
-        d.getRoom(input).add(this);
+        currentRoom.add(this);
         currentDungeon = d; 
         input = s.nextLine();
        
