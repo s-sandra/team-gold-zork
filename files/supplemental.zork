@@ -422,7 +422,7 @@ n
 Craft Room
 isLocked=true
 name:white door
-key:goldKey
+key:goldenKey
 ---
 Upstairs Hallway
 e
@@ -459,6 +459,10 @@ Front Yard
 Front Yard
 w
 West of House
+---
+Front Yard
+n
+Foyer
 ---
 Front Yard
 e
