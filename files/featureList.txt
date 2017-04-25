@@ -40,14 +40,14 @@ time the player enters a valid command (take, drop, move, unlock or item/charact
 assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
 critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the hunger
 feature, waste time in the dungeon performing valid commands. After the 51st turn, the program will state "Your stomach growls ferociously."
-To alleviate your hunger, go to the () room (located () from the entry), which contains a (). Eat the () by typing "eat ()". The
-game will say "(). You are full." Note that if you eat a light snack, then your hunger may not appreciably change.
-For example, waste time performing valid commands until the game informs you that your stomach grows ferociously. Then, head
-to the () room, located () from the entry. It contains a (), which only detracts () points from your health. If you
-eat it, then hunger does not lower below the minor threshold, and the game still informs you that your stomach is not fully satisfied.
-Continue to move through the dungeon, allowing your hunger to increase to the critical level. Do not eat any food. Do not visit the () room,
-located () from the entry, since you will be killed by the AutoKiller NPCs contained there. After 151 turns, you will collapse from exhaustion and
-die from starvation.
+To alleviate your hunger, go to the cat tree porch (located d,d from the entry), which contains a food bowl. Eat the food within it by typing
+"eat out of the food bowl". The game will say "You lick your lips in satisfaction. Meouwlicious! After your snack, you are full." Note
+that if you eat a light snack, then your hunger may not appreciably change. For example, waste time performing valid commands until the game
+informs you that your stomach grows ferociously. Then, head to the backyard, located n,n,n from the foyer. It contains a leaf, which only
+detracts 1 point from your hunger. If you eat it, then hunger does not lower below the minor threshold, and the game still informs you that your stomach
+is not fully satisfied. Continue to move through the dungeon, allowing your hunger to increase to the critical level. Do not eat any food.
+Do not visit east of house, located s,e from the foyer, since you will be killed by the AutoKiller NPC contained there. After 151 turns,
+you will collapse from exhaustion and die from starvation.
 
 -------------------------------------------------------------------------------------------------------------------------
 
