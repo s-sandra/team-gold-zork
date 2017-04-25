@@ -26,7 +26,7 @@ take:Sadly, you can't take the feather toy. It's stuck to your cat tree.
 play with:The feather toy swings back and forth, creating a jingling sound.
 ---
 table
-There are four scratching posts in the center of the room, which support a platform that your owner calls a table.
+There are four scratching posts in the center of the room, which serve as support for a platform that your owner calls a table.
 100
 take:The scratching post thingy is far too heavy for your little paws to carry.
 scratch:Your human would call you a bad cat, but she isn't home right now, so you scratch away.
@@ -57,24 +57,31 @@ couch
 A big couch stands in the center of the room.
 180
 jump onto:The giant bed is very comfy. No wonder the humans like them so much!
+take:You can’t take a couch
 ---
 diningTable
-The scratching post your human calls a table.
+The scratching post your human calls a dinner table is here.
+100000
 take:You can't take the table!
-scratch[Score(50)] Ahh it feels so good to be bad!
+scratch[Score(50)]:Ahh. It feels so good to be bad!
 ---
 breakfastTable
+There is a scratching post your human calls a breakfast table here.
+100000
+take:You can't take the table!
+scratch[Score(50)]:Hehe! That’ll teach you for not sharing, Human.
 ---
 flowerVase
-Ahh the thing that sprouts tasty plants... Too bad your owner says you can't eat it.
+Ahh, the thing that sprouts tasty plants is here... Too bad your owner says you can't eat it.
 take:You can't take the flower vase...
-push[Score(50)]:Hehe. Take that flowers!
+push[Score(50)]:Hehe. Take those flowers!
 ---
 curtains
 Your human's favorite blue curtains hang over the windows.
 1
 take:You can't take the curtains. They are stuck to the curtain rods.
-tear[Transform(tornCurtains)]:
+rip[Transform(tornCurtains)]:You hear the satisfying sound of tearing fabric.
+tear[Transform(tornCurtains)]:You hear the satisfying sound of ripping fabric.
 ---
 tornCurtains
 A pair of torn blue curtains hang over the windows. Let's hope your human doesn't find out!
@@ -82,9 +89,10 @@ A pair of torn blue curtains hang over the windows. Let's hope your human doesn'
 take:You can't take the curtains. They are stuck to the curtain rods.
 ---
 porcelainCat
-There is a lucky porcelain cat here whose paws bob up and down.
+There is a lucky porcelain cat here whose right paw waves back at you.
 1
 take[Score(50),Win]:
+break[Lose,Score(-50)]:The porcelain cat slips from your paws and smashes to the ground. There goes your good luck!
 ---
 desk
 Your human's desk is here. It has many fun wires dangling from it.
@@ -100,60 +108,170 @@ computerMouse
 There is a mouse here which your human likes to use to make her magic box work. It lights up if you turn it on.
 3
 turn on[Light(on)]:The mouse emits a red glow.
-turn off[Light(off)]:It looks more like a mouse now.
+turn off[Light(off)]:It looks more like a real mouse now.
 ---
 keyboard
 There is a thingy here that makes cool clicking sounds when your human uses it. You think it's called a keyboard.
 10
-sit on:The pointy keys scratch your belly, but you like to make your human mad. It gets her attention.
+sit on:The pointy keys scratch your belly and leaves your hair all over the place, but you like to make your human mad. It gets her attention.
 ---
 goldenKey
+A shiny golden key catches your attention.
+4
 ---
 breadCrumbs
 There are leftover breadcrumbs here.
 2
 eat[Hunger(-5),Disappear]:You lick the meager breadcrumbs off the floor.
 ---
+magic8Ball
+The humans say that the magic 8 ball here has the ability to tell the future!
+8
+shake[Score(8)]:The ball says “cave canem!”. Darn, you can’t read dead languages! Hope it’s not important..
+---
+toyMouse
+Your favorite toy mouse is here.
+2
+press[Score(5)]:It squeaks! Ohh, there is nothing better… Well, except catnip!
+----
+catFaceKey
+There is a key here with a cat face on it.
+2
+---
+suctionMonster
+You see the terrifying suction monster that your human uses to clean the carpet.
+10
+take:You are too afraid to do that. The suction monster might eat you alive!
+---
+rug
+There is a rug spread out over the floor, near the front door.
+10
+take:It seems too big to pull with your teeth.
+look under[Transform(catFaceKey),Score(20)]:You find a cat face key hidden underneath.
+move[Transform(catFaceKey),Score(20)]:You find a cat face key hidden underneath.
+pee on:You don’t think you can make it to the litterbox?
+---
+moldyThing
+You left a moldy thing in here... Wonder what that was.
+1
+eat[Disappear,Hunger(-1)]:You really even thought of doing that? Gosh… The things people will try in games!
+---
+craftTable
+The craft table is here. Just waiting for more scratches!
+100000
+take:You can't take the table!
+scratch[Score(50)]:Ahh. It feels so good to be bad!
+---
+yarnBall
+The yarn ball here looks fun to play with!
+2
+play[Transform(yarn)]:Destruction is satisfying.
+---
+yarn
+You had a yarn ball… now you have yarn. RIP friend yarn ball.
+1
+---
+leaf
+A leaf lays here. Nice!
+1
+eat[Hunger(-5)]:It tastes sour.
+---
+toilet
+There is a seat here that humans call the loo, the john, the porcelain throne….
+20
+flush[Score(15)]:Swish! Your owner taught you how to do that!
+take:You can’t take the toilet. That would be messy.
+---
+litterBox
+A box with sand in it stands in the corner where you have to do your business. What were humans thinking?
+10
+take:Umm...You would rather not.
+---
+toiletPaperRoll
+A toilet paper roll hangs from the wall. Wonder what mischief you could get in with that!
+1000
+take: You can’t take that from the wall
+play[Transform(toiletPaper)]: Oh, yes. Destruction!
+---
+toiletPaper
+That was fun! Less fun now though.
+1
+---
+bird
+A bird chirps on a branch, but stops when it sees you.
+take[Disappear]:You try to grab the bird, but it flies away! Drat!
+kill[Score(10),Transform(deadBird)]:You unleash your claws and pounce on the unfortunate, and now dead, bird.
+---
+deadBird
+2
+eat[Hunger(-20)]:You lick your lips in satisfaction. Now that’s what you call food!
+---
+patchOfMud
+0
+There is a patch of mud here. Must be that dog.
+dig up[Transform(bone),Score(20)]:You move the dirt away with your claws and find a buried bone.
+take:I don’t think you can take a patch of mud.
+---
+bone
+1
+You see a bone here, which smells like old dog.
+chew:You feel repulsed at the very thought. Chewing bones is beneath your dignity.
+---
+newspaper
+1
+read:You don’t understand human scrabble.
+---
+porchSwing
+A porch swing hangs from the front porch.
+500
+take:You can’t take that! It’s chained to the porch.
+swing:Whee!
+---
 ===
 Rooms:
 Cat Tree Balcony
-You jump onto a luxuriously soft platform, over which you can see the entire room. The sun shines
-through the window above you, casting warm rays of light over your favorite cozy spot.
+You are on a luxuriously soft platform, over which you can see the entire room. The sun shines through
+the window above you, casting warm rays of light over your favorite cozy spot.
 ---
 Cat Tree Porch
 The carpeted base of your favorite hangout feels soft beneath your paws.
 Contents: foodBowl,scratchingPost,featherToy
 ---
 Cat Tree Interior
-You climb up a fuzzy incline into a small, sheltered nook. The floor is lined with a soft cushion.
+You climb into a small, sheltered nook. The floor is lined with a soft cushion.
 Contents: mouseToy
 ---
 Living Room
 Your owner has decorated this room with two giant beds, covered with pillows, which she likes to sit
 on while watching her magic black box.
-Contents: table,couch,fishbowl,blackBox
+Contents: table,couch,fishbowl,blackBox,suctionMonster
 ---
 Foyer
 This is the room with the big cat door for humans. You're never allowed out of it, through. No Fun!
-The outside must be so cool. Though at least you can sun bathe in front of the window. 
-There's still smudge marks from the last time you ran into the window. That bird was asking for it!
+The outside must be so cool. Though at least you can sunbathe in front of the window.
+There's still smudge marks from the last time you ran into it. That bird was asking for it!
+Contents: rug
 ----
 Kitchen
-This is where the humans store all their yummy foods! The room is lined with tall cabinets and counters,
-on which stand scary sounding appliances. There is a heinous abyss here from which water pours out.
-It is filled with dirty human food bowls.
+This is where the humans store all their yummy foods! The room is lined with tall cabinets and counters, on
+which stand scary sounding appliances. There is a heinous abyss here from which water pours out. It is filled
+with dirty human food bowls. In the corner is a giant white pillar which hums softly and keeps food magically cold.
 Contents: breadCrumbs,breakfastTable,bowlOfFruit
 ---
 Basement Rec Room
 isDark=true
+This is where humans gather to be loud. There is a table with balls on it. The humans call the balls “No! Don’t take those!”
+Contents: magic8Ball
 ---
 Storage Room
 isDark=true
+Humans never go in this room, so you love to hide things here. Hehe.
+Contents: toyMouse, moldyThing
 ---
 Dining Room
-The humans like to gather here with their special food and water bowls, which they keep locked up in the
-china cabinet in the corner of the room. A big dangling toy with a light at the end hangs from the ceiling.
-There is a large window here, through which you can see the backyard.
+The humans like to gather here with their special food and water bowls, which they keep locked up in the china
+cabinet in the corner of the room. A big dangling toy with a light at the end hangs from the ceiling. There is a
+large window here, through which you can see the backyard.
 Contents: flowerVase,curtains,diningTable
 ---
 China Cabinet Interior
@@ -162,26 +280,46 @@ Your owner finds her food bowls very important!
 Contents: porcelainCat
 ---
 Upstairs Hallway
+This is your favorite place to lie down and see if you can trip your owner.
 ---
 Craft Room
+This is the room where your owner likes to make things. You love sitting on your owner’s lap as she does this.
+That, and occasionally stealing stuff from the table.
+Contents: craftingTable, yarn
 ---
 Bathroom
+You hate this room because this is where your human tortures you with baths. Plus, there is always another cat
+in the room that looks just like you and imitates your very move. Copy cat!
+Contents: litterBox,toilet,toiletPaperRoll
 ---
 Human's Room
+The room with the magic box that is connected to the human’s toy ‘computer mouse’. You love sitting on the keyboard.
+It’s nice and warm. You purr just thinking about it. (It’s also fun to see the human try to type around you. Hehe!)
 Contents: goldenKey,desk,computer,computerMouse,keyboard
 ---
 Attic
-isDark=true
+No human ever dares visit this room. Maybe because it contains boxes of old yearbook photos. Yikes!
 ---
 Backyard
+The outdoors that you are allowed to see. Yay! So many things to explore! There is a large tree in the corner
+of the backyard, which is enclosed by a high wooden fence.
+Contents: leaf
 ---
 Tree
+You can see the entire neighborhood from here, including the firefighters who tried to get you to come down
+that one summer.
+Contents: bird
 ---
 West of House
+Not much here but grass. You sniff the air and sense that an old dog has left its scent here.
 ---
 East of House
+As you turn the corner, your super cat sense tingles and your hairs stand up on end. Danger lurks ahead.
 ---
 Front Yard
+Ah, the famous front yard! As you stroll through, you see a strange river of gravel, over which large moving
+dragons whiz past.
+Contents: newspaper,porchSwing
 ---
 ===
 Exits:
@@ -220,6 +358,9 @@ Kitchen
 Foyer
 s
 Front Yard
+isLocked=true
+door:front door
+key:cat face key
 ---
 Foyer
 u
@@ -299,14 +440,6 @@ Backyard
 s
 Kitchen
 ---
-Backyard
-w
-West of House
----
-West of House
-n
-Backyard
----
 West of House
 s
 Front Yard
@@ -323,10 +456,6 @@ East of House
 n
 Front Yard
 ---
-East of House
-s
-Backyard
----
 Backyard
 u
 Tree
@@ -341,5 +470,48 @@ Basement Rec Room
 ---
 ===
 Characters:
+QuestGiver
+old dog
+The old dog here looks confused. He may need help.
+Reward Message: Thank you so much! Here. I heard this might open the China cabinet.
+Current room: foyer
+Reward: crystalKey
+LookingFor: bone
+talk to: “Hello,” says the old dog. “I forgot where my bone was… I want it. Could you help an old dog out? I’ll make it worth your time.”
+give: The dog thanks you tiredly.
+---
+ItemStealer
+stupid dog
+The stupid dog sits there looking pretty stupid, as usual.
+Steal Message: Hehe. I wanna play with that now!
+Current Room: Upstairs Hallwa
+LookingFor: magic8Ball
+talk to:Hehe. Hey, Dumb Cat!
+---
+ItemStealer
+raccoon
+That raccoon looks shady.
+Steal Message: Hehe. I wanna play with that now!
+Current Room: east of house
+LookingFor: leaf
+talk to:Hehe. Hey, Dumb Cat!
+---
+ItemStealer
+bat
+There’s a bat sleeping there.
+Steal Message: Screech! It’s mine now!
+Current Room: attic
+LookingFor: moldyThing
+talk to: He only flaps his wings ominously.
+give:It Screeches in thanks.
+---
+AutoKiller
+black dog
+A menacing black dog looms in the corner.
+death message: You attempt to flee from the black dog, but there is no escape.
+The creature bites you on the leg and you bleed to death.
+Current room: Front Yard
+talk to[Die()]:The dog gets irritated and kills you.
+give:The dog snarls at you, but accepts you item
 ---
 ===
