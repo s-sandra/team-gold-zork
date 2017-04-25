@@ -16,20 +16,22 @@ For example, the Rec Room is a dark room, and the only light source in the dunge
 Tree Balcony, the player will need to go d,d,e,u, and w to get to the Human’s Room. Once the player has entered the Human’s 
 Room they can obtain the computerMouse light source by typing “take computerMouse”. Then the player can make their way to the
 Rec Room by going e,d,d from the Human’s Room. The player can then turn on the light on the computerMouse by typing “turn on computerMouse”.
-The player can also turn the light off computerMouse when they leave Rec Room by typing "turn off the computerMouse" or the player can decide 
-to leave the computerMouse on when the leave the Rec Room.  
+The player can also turn the computerMouse off when they leave Rec Room by typing "turn off the computerMouse" or the player can decide
+to leave the computerMouse on when they leave the Rec Room. If the player returns to the Rec Room, then they will still be
+able to see the contents of the room.
 
 -------------------------------------------------------------------------------------------------------------------------
 
 Locked Doors - Some rooms contain exits which barr entry to the player, unless they obtain the necessary item, known as
 a key, to open it. Each exit has its own unique key, which is located somewhere in the dungeon. To encounter a locked door,
 go to the (upstairs hallway (located d,d,e,u from the entry), whose n exit, called white door, is listed in the room description as closed.
-If you attempt to go through the exit, you will be informed that the door is locked. Go to the human's room, located w from the
-() room. Take the () key contained there. Return to the () room, and attempt to open the door with the () key by typing
-"unlock () door with ()" or "open () door with ()"." The game will inform you that you can't use the key to open the door.
-If you attempt to go () again, you will discover that the door is still locked. The exit's true key is found in the
-() room, located () from the () room. Return to the room with the locked door and type "unlock () door with ()" or "open
-() door with ()". The game will inform you that you have unlocked the exit, allowing you to advance () into the () room.
+If you attempt to go through the exit, you will be informed that the door is locked. Go back to the foyer by going down.
+Type "move the rug." The game will inform you that the cat face key is underneath. Take the cat face key and return to the upstairs hallway.
+Attempt to open the door with the cat face key by typing "unlock the white door with the cat face key" or "open white door with cat
+face key." The game will inform you that you can't use the key to open the door. If you attempt to go n again, you will discover that the
+door is still locked. The exit's true key is found in the human's room, w of your current room. Take it and return to the room with the
+locked door and type "unlock white door with golden key" or "open white door with golden key". The game will inform you that you have
+unlocked the exit, allowing you to advance n into the craft room.
 
 -------------------------------------------------------------------------------------------------------------------------
 
