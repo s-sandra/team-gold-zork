@@ -58,7 +58,7 @@ is carrying items, then an extra twentieth of the player's inventory weight is a
 assessed through three thresholds: minor (between 1 and 50 valid turns), moderate (between 51 and 100 valid turns) and
 critical (between 101 and 150 valid turns). Once a player passes each threshold, they are warned once. To test the fatigue
 feature, waste time in the dungeon performing valid commands. Make sure to place items into your inventory to increase
-the rate of your fatigue. You can take the (), () and () located in the () room, () of the entry. After reaching the
+the rate of your fatigue. You can take the golden key and the computer mouse located in the human's room, u,w from the foyer. After reaching the
 moderate threshold, the program will state "Your eyes droop from fatigue." Type "health" to see the state of your hunger.
 To alleviate your exhaustion, type "sleep." The game will inform you of the state of your health after your nap. Since the
 sleep command transfers the current level of fatigue to hunger, you will find that your hunger has increased. Restart the game and move through
