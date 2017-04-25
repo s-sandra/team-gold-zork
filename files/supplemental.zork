@@ -253,11 +253,11 @@ on while watching her magic black box.
 Foyer
 Contents: rug
 This is the room with the big cat door for humans. You're never allowed out of it, through. No Fun!
-The outside must be so cool. Though at least you can sunbathe in front of the window.
-There's still smudge marks from the last time you ran into it. That bird was asking for it!
-----
+The outside must be so cool. Though at least you can sunbathe in front of the window. There's still smudge marks
+from the last time you ran into it. That bird was asking for it!
+---
 Kitchen
-Contents: breadCrumbs,breakfastTable,bowlOfFruit
+Contents: breadCrumbs,breakfastTable
 This is where the humans store all their yummy foods! The room is lined with tall cabinets and counters, on
 which stand scary sounding appliances. There is a heinous abyss here from which water pours out. It is filled
 with dirty human food bowls. In the corner is a giant white pillar which hums softly and keeps food magically cold.
@@ -350,7 +350,7 @@ Cat Tree Porch
 Living Room
 e
 Foyer
-----
+---
 Foyer
 w
 Living Room
