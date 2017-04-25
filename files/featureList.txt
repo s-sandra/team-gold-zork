@@ -92,7 +92,7 @@ for and responds with a gift if the player gives that desired item to them.This 
 This NPC can be given gifts by saying "give", an item in the player’s inventory name, and the NPC’s name. 
 The questGiver can be found in the Foyer. His name is old dog. To meet him from the start of the game go d,d,w,e. 
 When you talk to him he will tell you he is looking for his bone and will make it worth your time. 
-To get his bone go n,n,e, dig up the patch of mud, take the bone, e,s,s give the old dog the bone.
+To get his bone go n,n, dig up the patch of mud, take the bone, e,s,s give the old dog the bone.
  As a reward he will give you a key to the China Cabinet.
 
 -------------------------------------------------------------------------------------------------------------------------
