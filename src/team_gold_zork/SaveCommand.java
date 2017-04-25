@@ -25,7 +25,7 @@ class SaveCommand extends Command{
      * @throws IOException  if the file cannot be closed or written to.
      */
     String execute() throws IOException{
-        state.store("saves/" + saveFileName);
+        state.store("files/" + saveFileName);
         return "Saved to " + saveFileName + "\n";
     }
 }
