@@ -10,7 +10,14 @@ they can use the verbose off command and the description will no longer appear w
 
 -------------------------------------------------------------------------------------------------------------------------
 
-Light -
+Light - Some rooms in the game will be completely pitch black but there will be a light source somewhere that the player 
+can obtain. The light feature will allow the player to turn a light source, if available, on and off in a dark room. 
+For example, the Rec Room is a dark room, and the only light source in the dungeon is the computerMouse. From the Cat 
+Tree Balcony, the player will need to go d,d,e,u, and w to get to the Human’s Room. Once the player has entered the Human’s 
+Room they can obtain the computerMouse light source by typing “take computerMouse”. Then the player can make their way to the
+Rec Room by going e,d,d from the Human’s Room. The player can then turn on the light on the computerMouse by typing “turn on computerMouse”.
+The player can also turn the light off computerMouse when they leave Rec Room by typing "turn off the computerMouse" or the player can decide 
+to leave the computerMouse on when the leave the Rec Room.  
 
 -------------------------------------------------------------------------------------------------------------------------
 
