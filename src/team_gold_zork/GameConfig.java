@@ -15,8 +15,8 @@ class GameConfig {
     static final int MAX_THRESHOLD = 150;
 
     //List of ranks for the player.
-    static final Rank[] RANK = {new Rank(0, "an amatuer"), new Rank(6, "an intermediate"),
-                                new Rank(11, "an expert")};
+    static final Rank[] RANK = {new Rank(0, "an amatuer"), new Rank(25, "an intermediate"),
+                                new Rank(50, "an expert")};
 }
 
 /**
