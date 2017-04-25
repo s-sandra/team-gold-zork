@@ -16,8 +16,8 @@ Light -
 
 Locked Doors - Some rooms contain exits which barr entry to the player, unless they obtain the necessary item, known as
 a key, to open it. Each exit has its own unique key, which is located somewhere in the dungeon. To encounter a locked door,
-go to the () room (located () from the entry), whose() exit, called (), is listed in the room description as closed.
-If you attempt to go through the exit, you will be informed that the door is locked. Go to the () room, located () from the
+go to the (upstairs hallway (located d,d,e,u from the entry), whose n exit, called white door, is listed in the room description as closed.
+If you attempt to go through the exit, you will be informed that the door is locked. Go to the human's room, located w from the
 () room. Take the () key contained there. Return to the () room, and attempt to open the door with the () key by typing
 "unlock () door with ()" or "open () door with ()"." The game will inform you that you can't use the key to open the door.
 If you attempt to go () again, you will discover that the door is still locked. The exit's true key is found in the
