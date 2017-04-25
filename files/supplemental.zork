@@ -231,6 +231,10 @@ A porch swing hangs from the front porch.
 take:You can’t take that! It’s chained to the porch.
 swing:Whee!
 ---
+catFaceKey
+A key with a cat face on it. You've seen that used to open the front door!
+1
+---
 ===
 Rooms:
 Cat Tree Balcony
