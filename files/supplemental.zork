@@ -3,8 +3,8 @@ Group Bork v2.0
 ===
 Items:
 foodBowl
-5
 There is a shiny food bowl here perpetually filled with your favorite lunch, tuna.
+5
 eat out of[Hunger(-50)]:You lick your lips in satisfaction. Meowlicious!
 take:Your human would get mad at you if you take that.
 ---
@@ -73,7 +73,8 @@ scratch[Score(50)]:Hehe! That’ll teach you for not sharing, Human.
 ---
 flowerVase
 Ahh, the thing that sprouts tasty plants is here... Too bad your owner says you can't eat it.
-take:You can't take the flower vase...
+4
+take:You can't take the flower vase.
 push[Score(50)]:Hehe. Take those flowers!
 ---
 curtains
@@ -199,25 +200,28 @@ That was fun! Less fun now though.
 ---
 bird
 A bird chirps on a branch, but stops when it sees you.
+2
 take[Disappear]:You try to grab the bird, but it flies away! Drat!
 kill[Score(10),Transform(deadBird)]:You unleash your claws and pounce on the unfortunate, and now dead, bird.
 ---
 deadBird
+A dead bird lies here.
 2
 eat[Hunger(-20)]:You lick your lips in satisfaction. Now that’s what you call food!
 ---
 patchOfMud
-0
 There is a patch of mud here. Must be that dog.
+0
 dig up[Transform(bone),Score(20)]:You move the dirt away with your claws and find a buried bone.
 take:I don’t think you can take a patch of mud.
 ---
 bone
-1
 You see a bone here, which smells like old dog.
+1
 chew:You feel repulsed at the very thought. Chewing bones is beneath your dignity.
 ---
 newspaper
+A rolled up newspaper lies on the ground, wrapped in plastic.
 1
 read:You don’t understand human scrabble.
 ---
