@@ -504,7 +504,7 @@ ItemStealer
 raccoon
 That raccoon looks shady.
 Steal Message: Hehe. I wanna play with that now!
-Current Room: East of House
+Current Room: Backyard
 LookingFor: leaf
 talk to:Hehe. Hey, Dumb Cat!
 ---
@@ -522,8 +522,8 @@ black dog
 A menacing black dog looms in the corner.
 death message: You attempt to flee from the black dog, but there is no escape.
 The creature bites you on the leg and you bleed to death.
-Current room: Front Yard
+Current room: East of House
 talk to[Die()]:The dog gets irritated and kills you.
-give:The dog snarls at you, but accepts you item
+give:The dog snarls at you, but accepts your
 ---
 ===
