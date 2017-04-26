@@ -170,7 +170,7 @@ scratch[Score(50)]:Ahh. It feels so good to be bad!
 yarnBall
 The yarn ball here looks fun to play with!
 2
-play[Transform(yarn)]:Destruction is satisfying.
+play with[Transform(yarn)]:Destruction is satisfying.
 ---
 yarn
 You had a yarn ball… now you have yarn. RIP friend yarn ball.
@@ -295,7 +295,7 @@ Upstairs Hallway
 This is your favorite place to lie down and see if you can trip your owner.
 ---
 Craft Room
-Contents: craftTable,yarn
+Contents: craftTable,yarnBall
 This is the room where your owner likes to make things. You love sitting on your owner’s lap as she does this.
 That, and occasionally stealing stuff from the table.
 ---
@@ -313,7 +313,7 @@ Attic
 No human ever dares visit this room. Maybe because it contains boxes of old yearbook photos. Yikes!
 ---
 Backyard
-Contents: leaf, patchOfMud
+Contents: leaf
 The outdoors that you are allowed to see. Yay! So many things to explore! There is a large tree in the corner
 of the backyard, which is enclosed by a high wooden fence.
 ---
