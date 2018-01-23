@@ -5,9 +5,9 @@ Group Gold
 
 Welcome to the world of felines! In our own twist of the popular text adventure game, Zork, users will be playing as a cat to explore their house and neighborhood in search of their favorite toy. Along the way, the user will encounter different items with special abilities to assist them on their quest. But, it’s not all fun and games in a cat’s world! The user must be weary of their damage, fatigue, and hunger throughout the game, while also dodging dreadful dogs and other sneaky characters that damage health and steal items. To do this, our system must be thoroughly organized. Thus, a Player class and many different commands are added to handle the events such as dying, being wounded, fighting, teleporting, eating, winning, etc. Additionally, we implemented 6 game features, which include verbose mode, light, locked rooms, NPCs, hunger, and fatigue.
 
-<b>SUPPLEMENTARY FEATURES</b>
+## SUPPLEMENTARY FEATURES
 
-<b>Verbose Mode:</b><br>
+### Verbose Mode:
 The verbose mode feature allows the user to always see the room description, when it would otherwise only be available upon entering a room for the first time.
 
 Verbose Mode Activation Use-Case
@@ -19,7 +19,7 @@ Verbose Mode Deactivation Use-Case
 2. The game prints room descriptions according to default mode.<br></blockquote>
  
 
-<b>Light:</b><br>
+### Light:
 The light feature introduces dark rooms into the game, which are dangerous to the player unless they obtain an item that can provide a light source. It allows such items to change a room’s state from dark to light using a light event.
 
 Light Use-Case
@@ -37,7 +37,7 @@ Light Use-Case Variation #2
 4.2 The room becomes dark.<br>
 4.3 The user is attacked.<br></blockquote> 
 
-<b>Locked Doors:</b><br>
+### Locked Doors:
 The locked feature will allow dungeons in the game to contain certain doors that remain locked until the user obtains and uses a key to unlock them.
 
 Locked Door Use Case
@@ -52,7 +52,7 @@ Locked Door Variation
 3.3 The game informs the user that they cannot open the door with the object.<br></blockquote>
  
  
-<b>NPC:</b><br>
+### NPC:
 The NPC feature will allow the user to encounter three types of NPCs. An AutoKiller terminates the player’s life if they are unable to escape, an ItemStealer takes a specific item from a user’s inventory, and a QuestGiver asks the user to perform a specific task in exchange for a reward.
 
 AutoKiller NPC Encounter Use-Case
@@ -74,7 +74,7 @@ AutoKiller NPC Encounter Variation #2
 2.4 Continue to Step 3.<br></blockquote> 
 
  
-<b>Hunger:</b><br>
+### Hunger:
 In addition to averting NPCs, the player must also maintain their level of hunger, which increases by one point each time a player executes a valid command. In order to avoid the point limit for hunger, the player must consume food, which resets the hunger level back to zero.
 
 Hunger Calculation Use-Case
@@ -88,7 +88,7 @@ Hunger Calculation Variation
 2.2 The game informs the player that they have died.<br>
 2.3 The game ends.<br></blockquote>
 
-<b>Fatigue:</b><br>
+### Fatigue:
 Similar to hunger, the fatigue feature will obligate the player to find a safe place to sleep if their exhaustion level reaches a maximum threshold. However, unlike the health feature, if the user is carrying items, the rate of increase in fatigue is equivalent to the weight of their inventory. Otherwise, fatigue rises by one point.
 
 Fatigue Calculation Use-Case
